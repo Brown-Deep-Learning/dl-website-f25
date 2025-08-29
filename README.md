@@ -14,6 +14,7 @@ Now, obviously, we want to prioritize functionality over aesthetics, but the web
 - Make sure the website is dyanmic for both big screen and mobile users :) 
 - DO NOT WORRY ABOUT FINAL PROJECT SECTION
 
-  Last year's website: https://deep-learning-s25.vercel.app/
-  Last year's Github: https://github.com/Brown-Deep-Learning/dl-website-s25/tree/updated-s25-website (make sure you are on the `updated-s25-website` branch)
+  Last year's website: [Website](https://deep-learning-s25.vercel.app/)
+  
+  Last year's Github: [Repo](https://github.com/Brown-Deep-Learning/dl-website-s25/tree/updated-s25-website) (make sure you are on the `updated-s25-website` branch)
   
