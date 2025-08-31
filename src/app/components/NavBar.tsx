@@ -12,7 +12,7 @@ import {
   FaCalendarAlt,
   FaFolderOpen,
   FaUsers,
-  FaRocket,
+  FaGlobe,
   FaProjectDiagram,
 } from "react-icons/fa";
 
@@ -43,7 +43,7 @@ const NavBar: React.FC = () => {
     >
       <div className={styles.logo}>
         {/* Replace with your logo image if available */}
-        <FaRocket className={styles.logoIcon} />
+        <FaGlobe className={styles.logoIcon} />
         <h1>CSCI1470</h1>
       </div>
       <ul className={styles.navLinks}>

@@ -37,7 +37,7 @@
   font-size: 1.8rem;
   margin-right: 0.5rem;
   animation: float 3s ease-in-out infinite;
-  color: #ffcc00;
+  color: #ffffff;
 }
 
 .logo h1 {
@@ -88,12 +88,12 @@
 .icon {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
-  color: #ffcc00;
+  color: #ffffff;
 }
 
 .navLinks li button:hover .icon {
   transform: scale(1.2);
-  color: #ffffff;
+  color: #ffcc00;
 }
 
 /* Decorative Stars */
