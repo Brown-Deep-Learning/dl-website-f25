@@ -1,5 +1,4 @@
 // src/app/page.tsx
-
 "use client";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -15,77 +14,156 @@ import Resources from "./components/Resources";
 import Staff from "./components/Staff";
 import NavBar from "./components/NavBar";
 import FinalProject from "./components/FinalProject";
+import EarthLayerProgress from "./components/EarthLayerProgress"; // Add this import
 
 // Import your custom hook for each section
-import { useSectionSensor } from './hooks/useSectionSensor.ts';
+import { useSectionSensor } from './hooks/useSectionSensor';
 import { LAYERS } from './contexts/LayerContext';
+import { useState, useCallback, useEffect } from 'react';
+import React from "react";
 
 // Define the layer mapping for your sections
 const sectionLayers = {
   "landing-page": LAYERS.SEA_LEVEL,
-  "course-description": LAYERS.CRUST,
-  "lectures": LAYERS.UPPER_MANTLE,
-  "assignments": LAYERS.LOWER_MANTLE,
-  "calendar": LAYERS.OUTER_CORE,
-  "resources": LAYERS.OUTER_CORE, // You can reuse layers for multiple sections
-  "final-project": LAYERS.INNER_CORE,
+  // "course-description": LAYERS.CRUST,
+  "lectures": LAYERS.CRUST,
+  "assignments": LAYERS.UPPER_MANTLE,
+  "calendar": LAYERS.LOWER_MANTLE,
+  "resources": LAYERS.OUTER_CORE,
+  // "final-project": LAYERS.INNER_CORE,
   "staff": LAYERS.INNER_CORE,
 };
 
+// Create a type for scroll progress context
+interface ScrollProgressContextType {
+  sectionProgress: Record<string, number>;
+  updateSectionProgress: (sectionId: string, progress: number) => void;
+}
+
+// Create a context for scroll progress
+const ScrollProgressContext = React.createContext<ScrollProgressContextType | undefined>(undefined);
+
+export const useScrollProgress = () => {
+  const context = React.useContext(ScrollProgressContext);
+  if (!context) {
+    throw new Error('useScrollProgress must be used within a ScrollProgressProvider');
+  }
+  return context;
+};
+
 export default function Home() {
+  const [sectionProgress, setSectionProgress] = useState<Record<string, number>>({});
+
+  const updateSectionProgress = useCallback((sectionId: string, progress: number) => {
+    setSectionProgress(prev => ({
+      ...prev,
+      [sectionId]: progress
+    }));
+  }, []);
+
   return (
     <LayerProvider>
-      <main className={styles.main}>
-        <AnimatedEarthBackground />
+      <ScrollProgressContext.Provider value={{ sectionProgress, updateSectionProgress }}>
+        <main className={styles.main}>
+          <AnimatedEarthBackground />
+          <NavBar />
+          <EarthLayerProgress /> {/* Add the progress indicator here */}
 
-        <NavBar />
+          <div className={styles.scrollContainer}>
+            <SectionWithSensor id="landing-page" updateProgress={updateSectionProgress}>
+              <LandingPage />
+              <CourseDescription />
+            </SectionWithSensor>
 
-        <div className={styles.scrollContainer}>
-          <SectionWithSensor id="landing-page">
-            <LandingPage />
-          </SectionWithSensor>
+            <SectionWithSensor id="lectures" updateProgress={updateSectionProgress}>
+              <Lectures />
+            </SectionWithSensor>
 
-          <SectionWithSensor id="course-description">
-            <CourseDescription />
-          </SectionWithSensor>
+            <SectionWithSensor id="assignments" updateProgress={updateSectionProgress}>
+              <Assignments />
+            </SectionWithSensor>
 
-          <SectionWithSensor id="lectures">
-            <Lectures />
-          </SectionWithSensor>
+            <SectionWithSensor id="calendar" updateProgress={updateSectionProgress}>
+              <CourseCalendar />
+            </SectionWithSensor>
 
-          <SectionWithSensor id="assignments">
-            <Assignments />
-          </SectionWithSensor>
+            <SectionWithSensor id="resources" updateProgress={updateSectionProgress}>
+              <Resources />
+            </SectionWithSensor>
 
-          <SectionWithSensor id="calendar">
-            <CourseCalendar />
-          </SectionWithSensor>
+            {/* <SectionWithSensor id="final-project" updateProgress={updateSectionProgress}>
+              <FinalProject />
+            </SectionWithSensor> */}
 
-          <SectionWithSensor id="resources">
-            <Resources />
-          </SectionWithSensor>
+            <SectionWithSensor id="staff" updateProgress={updateSectionProgress}>
+              <Staff />
+            </SectionWithSensor>
 
-          <SectionWithSensor id="final-project">
-            <FinalProject />
-          </SectionWithSensor>
-
-          <SectionWithSensor id="staff">
-            <Staff />
-          </SectionWithSensor>
-
-          <Analytics />
-        </div>
-      </main>
+            <Analytics />
+          </div>
+        </main>
+      </ScrollProgressContext.Provider>
     </LayerProvider>
   );
 }
 
-// Create a wrapper component that adds the sensor to each section
-function SectionWithSensor({ id, children }: { id: keyof typeof sectionLayers; children: React.ReactNode }) {
+// Enhanced wrapper component with scroll progress tracking
+function SectionWithSensor({ 
+  id, 
+  children, 
+  updateProgress 
+}: { 
+  id: keyof typeof sectionLayers; 
+  children: React.ReactNode;
+  updateProgress: (sectionId: string, progress: number) => void;
+}) {
   const sectionRef = useSectionSensor(sectionLayers[id]);
+  const [currentProgress, setCurrentProgress] = useState(0);
+
+  // Track scroll progress within this section
+  useEffect(() => {
+    const calculateScrollProgress = () => {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const elementHeight = rect.height;
+      
+      // Calculate how much of the element is visible
+      const visibleHeight = Math.max(0, Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0));
+      const progress = visibleHeight / elementHeight;
+      
+      // Calculate scroll percentage through the element
+      const scrollProgress = Math.max(0, Math.min(1, 
+        (windowHeight - rect.top) / (windowHeight + elementHeight)
+      ));
+      
+      const percentage = Math.round(scrollProgress * 100);
+      setCurrentProgress(percentage);
+      updateProgress(id, percentage);
+    };
+
+    // Calculate initially
+    calculateScrollProgress();
+
+    // Add event listeners
+    window.addEventListener('scroll', calculateScrollProgress, { passive: true });
+    window.addEventListener('resize', calculateScrollProgress, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', calculateScrollProgress);
+      window.removeEventListener('resize', calculateScrollProgress);
+    };
+  }, [id, updateProgress]);
 
   return (
-    <section id={id} ref={sectionRef} className={styles.section}>
+    <section 
+      id={id} 
+      ref={sectionRef} 
+      className={styles.section}
+      data-scroll-progress={currentProgress}
+    >
       {children}
     </section>
   );
