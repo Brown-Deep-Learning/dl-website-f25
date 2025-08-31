@@ -1,0 +1,163 @@
+/* components/CourseDescription.module.css */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  /* background-color: #000000; */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+.content {
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1d1d45cc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.topContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.textContent {
+  text-align: left;
+  padding-right: 20px;
+}
+
+.quick-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #ffcc00;
+  text-shadow: 0 0 10px rgb(255, 204, 0);
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  text-align: justify;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  width: 250px;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-right: 15px;
+  color: #ffcc00;
+}
+
+.infoItem h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ffcc00;
+}
+
+.infoItem p {
+  margin: 5px 0 0 0;
+}
+
+.links {
+  margin-top: 40px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  margin: 10px 15px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #ffcc00;
+}
+
+.linkIcon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 760px) {
+  .content {
+    max-width: 90vw;
+    padding: 15px;
+  }
+
+  .topContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .textContent {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+    margin-right: 0;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .infoItem {
+    width: 100%;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+
+  .linkIcon {
+    font-size: 1.5rem;
+    margin-right: 8px;
+  }
+}

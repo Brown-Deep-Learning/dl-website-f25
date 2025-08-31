@@ -1,0 +1,87 @@
+.container {
+  /* relative positioning so .starsCanvas can sit behind everything */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffcc00;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(243, 223, 145, 0.674);
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.spaceshipButton {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+.subTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffcc00;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+.spaceshipIcon {
+  font-size: 4rem;
+}
+
+/* New takeoff animation */
+.takeoff {
+  animation: takeoff 0.7s forwards ease-in;
+}
+
+@keyframes takeoff {
+  0% {
+    transform: translate(-50%, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -200%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Optional bounce animation to attract attention */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -20px);
+  }
+  60% {
+    transform: translate(-50%, -10px);
+  }
+}

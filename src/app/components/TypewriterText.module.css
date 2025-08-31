@@ -1,0 +1,30 @@
+/* components/TypewriterText.module.css */
+.typewriter {
+  display: inline-block;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  overflow: hidden;
+  animation: blink 0.7s infinite;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+@keyframes blink {
+  0% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+  49% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: 90%;
+  }
+}

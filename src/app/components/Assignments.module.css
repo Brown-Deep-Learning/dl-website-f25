@@ -1,0 +1,201 @@
+/* components/Assignments.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+.container {
+  width: 100%;
+  padding: 50px 20px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.meteor,
+.meteor2 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+
+  animation: meteor 2s linear infinite;
+  opacity: 0.7;
+}
+
+.meteor {
+  top: 20%;
+  left: -10%;
+  transform: rotate(45deg);
+}
+
+.meteor2 {
+  top: 60%;
+  left: -10%;
+  animation-delay: 1s;
+  transform: rotate(45deg);
+}
+
+@keyframes meteor {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    width: 3px;
+  }
+  100% {
+    transform: translateX(1500px) translateY(-1500px) rotate(45deg);
+    width: 50px;
+  }
+}
+
+.heading {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  font-family: "Orbitron", sans-serif;
+  color: #ffcc00;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.headerStar {
+  color: #ffcc00;
+  animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.assignmentList {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.assignmentItem {
+  background: rgba(20, 20, 50, 0.8);
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.assignmentItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.3);
+}
+
+.glowOrb {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.assignmentTitle {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-family: "Orbitron", sans-serif;
+  color: #ffcc00;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.titleText {
+  position: relative;
+  display: inline-block;
+}
+
+.titleText::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #ffcc00, transparent);
+}
+
+.assignmentDates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.assignmentDate {
+  font-family: "Orbitron", sans-serif;
+  color: #b3ffff;
+}
+
+.dateLabel {
+  color: #ffcc00;
+  margin-right: 8px;
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  margin-right: 15px;
+  border-radius: 8px;
+  font-family: "Orbitron", sans-serif;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.conceptualButton {
+  background: linear-gradient(45deg, #1a1a4a, #2a2a6a);
+  color: #b3ffff;
+}
+
+.programmingButton {
+  background: linear-gradient(45deg, #2a1a4a, #4a2a6a);
+  color: #ffb3ff;
+}
+
+.linkButton:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.linkIcon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .assignmentTitle {
+    font-size: 1.8rem;
+  }
+
+  .assignmentDates {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .linkButton {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+}

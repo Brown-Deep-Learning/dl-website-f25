@@ -1,0 +1,122 @@
+/* components/RecentItems.module.css */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch; /* Ensures the items have the same height */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px; /* Limits the container width */
+  margin: 0 auto; /* Centers the container */
+}
+
+.recentItem {
+  flex: 1;
+  background: rgba(28, 0, 52, 0.8); /* Adjusted for a cosmic feel */
+  padding: 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(128, 0, 255, 0.5); /* Adjusted shadow color */
+  margin: 20px;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: rgb(255, 204, 0); /* Neon pink for a cosmic feel */
+  margin-bottom: 10px;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 5px rgb(255, 204, 0); /* Glow effect */
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1; /* Ensures the content fills the space */
+}
+
+.itemTitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.itemDate {
+  font-size: 1rem;
+  color: #80ffff;
+  text-shadow: 0 0 5px rgba(128, 255, 255, 0.8);
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+  margin-top: auto; /* Pushes the links to the bottom */
+}
+
+.linkButton {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #2a0038; /* Deep purple background */
+  color: #ff80ff; /* Neon pink text */
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 0 10px rgba(255, 128, 255, 0.5); /* Pink glow */
+}
+
+.linkButton:hover {
+  background-color: #ff80ff; /* Hover effect */
+  color: #2a0038;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(255, 128, 255, 0.8);
+}
+
+.linkIcon {
+  margin-right: 8px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .recentItem {
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .itemTitle {
+    font-size: 1.1rem;
+  }
+
+  .itemDate {
+    font-size: 0.9rem;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .linkButton {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+  }
+
+  .linkIcon {
+    margin-right: 6px;
+    font-size: 1.3rem;
+  }
+}

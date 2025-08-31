@@ -1,0 +1,266 @@
+/* components/Staff.module.css */
+.container {
+  margin-top: 100px;
+  position: relative;
+  padding: 50px 20px;
+  overflow: hidden;
+  /* Changed width handling */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.starsBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      2px 2px at 20px 30px,
+      #eee,
+      rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0));
+  background-size: 200px 200px;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.heading {
+  font-family: "Orbitron", sans-serif;
+  font-size: 3.5rem;
+  color: #ffcc00;
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-shadow: 0 0 20px rgba(32, 202, 255, 0.5);
+}
+
+.headerIcon {
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.contactInfo {
+  background: rgba(0, 29, 61, 0.8);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(32, 202, 255, 0.2);
+  width: 100%;
+  max-width: 800px; /* Limit the maximum width for better readability */
+}
+
+.emailBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.emailItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.emailIcon {
+  color: #ffcc00;
+}
+
+.emailLabel {
+  font-weight: 600;
+  color: #ffcc00;
+}
+
+.emailItem a {
+  color: #20caff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.emailItem a:hover {
+  color: #ffcc00;
+}
+
+.disclaimer {
+  font-style: italic;
+  color: #ff9500;
+  font-size: 0.9rem;
+}
+
+.staffSection {
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 1200px; /* Ensure sections don’t exceed a max width */
+}
+
+.roleHeading {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.2rem;
+  color: #ffcc00;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.roleIcon {
+  color: #ffcc00;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.staffGrid {
+  display: grid;
+  /* Use auto-fit to allow grids to shrink if necessary */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+  width: 100%;
+  /* Remove fixed width and center items */
+  justify-items: center;
+}
+
+.staffCard {
+  background: rgba(0, 29, 61, 0.9);
+  border-radius: 15px;
+  /* Remove fixed width to make it responsive */
+  width: 100%;
+  height: 100%;
+
+  max-width: 280px; /* Optional: set a max width for cards */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.staffCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(32, 202, 255, 0.3);
+}
+
+.imageContainer {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.staffImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(32, 202, 255, 0.1)
+  );
+  pointer-events: none;
+}
+
+.cardContent {
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 29, 61, 0.9),
+    rgba(0, 8, 20, 0.9)
+  );
+}
+
+.staffName {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  color: #20caff;
+  margin-bottom: 5px;
+}
+
+.pronouns {
+  color: #b3ffff;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.spaceCreature {
+  color: #ff9500;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .roleHeading {
+    font-size: 1.8rem;
+  }
+
+  .staffGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .emailItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .staffGrid {
+    grid-template-columns: 1fr;
+  }
+}

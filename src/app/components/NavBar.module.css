@@ -1,0 +1,169 @@
+/* src/app/components/NavBar.module.css */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 30, 0.85); /* Dark, semi-transparent background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Slight upward offset */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition for fade-in */
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0); /* Move to original position */
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.logoIcon {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+  animation: float 3s ease-in-out infinite;
+  color: #ffcc00;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-family: "Orbitron", sans-serif; /* Futuristic font */
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLinks li button {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+  font-family: "Roboto", sans-serif;
+}
+
+.navLinks li button::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #ffcc00;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.navLinks li button:hover {
+  color: #ffcc00;
+}
+
+.navLinks li button:hover::after {
+  width: 100%;
+}
+
+.icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  color: #ffcc00;
+}
+
+.navLinks li button:hover .icon {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+/* Decorative Stars */
+.decorativeStar1,
+.decorativeStar2 {
+  position: absolute;
+  color: #ffcc00;
+  opacity: 0.7;
+  animation: twinkle 5s infinite;
+}
+
+.decorativeStar1 {
+  top: 10px;
+  right: 60px;
+  font-size: 1.5rem;
+  animation-delay: 0s;
+}
+
+.decorativeStar2 {
+  bottom: 10px;
+  left: 60px;
+  font-size: 1.2rem;
+  animation-delay: 2s;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none; /* Hide navigation links on small screens */
+  }
+
+  /* Optional: Add a hamburger menu here for mobile navigation */
+
+  .decorativeStar1,
+  .decorativeStar2 {
+    display: none; /* Hide decorative stars on small screens */
+  }
+}
