@@ -10,12 +10,12 @@ interface LayerTheme {
 }
 
 const layerThemes: Record<LayerKey, LayerTheme> = {
-  sea_level: { color: '#0a9396', bubbleColor: '#94d2bd' },
-  crust: { color: '#bb3e03', bubbleColor: '#e6ccb2' },
-  upper_mantle: { color: '#ee9b00', bubbleColor: '#ffddd2' },
-  lower_mantle: { color: '#ca6702', bubbleColor: '#ffb4a2' },
-  outer_core: { color: '#9b2226', bubbleColor: '#ff8fa3' },
-  inner_core: { color: '#001219', bubbleColor: '#0a9396' },
+  sea_level: { color: '#26667F', bubbleColor: '#94d2bd' },
+  crust: { color: '#7B4019', bubbleColor: '#e6ccb2' },
+  upper_mantle: { color: '#8A2D3B', bubbleColor: '#ffddd2' },
+  lower_mantle: { color: '#FF7D29', bubbleColor: '#ffb4a2' },
+  outer_core: { color: '#FFBF78', bubbleColor: '#ff8fa3' },
+  inner_core: { color: '#FFEEA9', bubbleColor: '#0a9396' },
 };
 
 // Fixed bubble component that definitely floats up

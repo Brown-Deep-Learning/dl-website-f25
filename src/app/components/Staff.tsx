@@ -44,9 +44,9 @@ const Staff = () => {
     <section id="staff" className={styles.container}>
       <div className={styles.starsBackground}></div>
       <h2 className={styles.heading}>
-        <FaUserAstronaut className={styles.headerIcon} />
-        Mission Control
-        <FaUserAstronaut className={styles.headerIcon} />
+        {/* <FaUserAstronaut className={styles.headerIcon} /> */}
+        Mole People
+        {/* <FaUserAstronaut className={styles.headerIcon} /> */}
       </h2>
 
       <div className={styles.contactInfo}>

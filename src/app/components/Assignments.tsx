@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "./Assignments.module.css";
 import { assignments } from "../data/assignmentData";
-import { FaRocket, FaRegMoon, FaStar } from "react-icons/fa";
+import { FaMountain, FaFire} from "react-icons/fa";
 
 const Assignments = () => {
   // Sort by ID or whatever ordering you need
@@ -10,12 +10,10 @@ const Assignments = () => {
 
   return (
     <section id="assignments" className={styles.container}>
-      <div className={styles.meteor}></div>
-      <div className={styles.meteor2}></div>
       <h2 className={styles.heading}>
-        <FaStar className={styles.headerStar} />
+        {/* <FaStar className={styles.headerStar} /> */}
         Assignments
-        <FaStar className={styles.headerStar} />
+        {/* <FaStar className={styles.headerStar} /> */}
       </h2>
       <div className={styles.assignmentList}>
         {sortedAssignments.map((assignment) => {
@@ -80,7 +78,7 @@ const Assignments = () => {
                       rel="noopener noreferrer"
                       className={`${styles.linkButton} ${styles.conceptualButton}`}
                     >
-                      <FaRegMoon className={styles.linkIcon} />
+                      <FaFire className={styles.linkIcon} />
                       {assignment.conceptual.title}
                     </a>
                   )}
@@ -91,7 +89,7 @@ const Assignments = () => {
                       rel="noopener noreferrer"
                       className={`${styles.linkButton} ${styles.programmingButton}`}
                     >
-                      <FaRocket className={styles.linkIcon} />
+                      <FaMountain className={styles.linkIcon} />
                       {assignment.programming.title}
                     </a>
                   )}

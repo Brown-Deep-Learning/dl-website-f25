@@ -12,7 +12,7 @@
 
 .recentItem {
   flex: 1;
-  background: rgba(28, 0, 52, 0.8); /* Adjusted for a cosmic feel */
+  /* background: rgba(28, 0, 52, 0.8); Adjusted for a cosmic feel */
   padding: 25px;
   border-radius: 8px;
   display: flex;
@@ -59,7 +59,7 @@
   margin-top: 10px;
   display: inline-flex;
   align-items: center;
-  background-color: #2a0038; /* Deep purple background */
+  /* background-color: #2a0038; Deep purple background */
   color: #ff80ff; /* Neon pink text */
   text-decoration: none;
   padding: 8px 12px;

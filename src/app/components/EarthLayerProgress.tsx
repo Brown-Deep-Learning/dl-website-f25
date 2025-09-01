@@ -15,7 +15,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       key: LAYERS.SEA_LEVEL, 
       label: 'Sea Level', 
-      color: '#0a9396',
+      color: '#26667F',
       depth: '0 km',
       sections: ['landing-page'],
       targetId: 'landing-page'
@@ -23,7 +23,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       key: LAYERS.CRUST, 
       label: 'Crust', 
-      color: '#bb3e03',
+      color: '#7B4019',
       depth: '0-35 km',
       sections: ['lectures'],
       targetId: 'lectures'
@@ -31,7 +31,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       key: LAYERS.UPPER_MANTLE, 
       label: 'Upper Mantle', 
-      color: '#ee9b00',
+      color: '#8A2D3B',
       depth: '35-410 km',
       sections: ['assignments'],
       targetId: 'assignments'
@@ -39,7 +39,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       key: LAYERS.LOWER_MANTLE, 
       label: 'Lower Mantle', 
-      color: '#ca6702',
+      color: '#FF7D29',
       depth: '410-2891 km',
       sections: ['calendar'],
       targetId: 'calendar'
@@ -47,7 +47,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       key: LAYERS.OUTER_CORE, 
       label: 'Outer Core', 
-      color: '#9b2226',
+      color: '#FFBF78',
       depth: '2891-5150 km',
       sections: ['resources'],
       targetId: 'resources'
@@ -55,7 +55,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       key: LAYERS.INNER_CORE, 
       label: 'Inner Core', 
-      color: '#001219',
+      color: '#FFEEA9',
       depth: '5150-6371 km',
       sections: ['staff'],
       targetId: 'staff'

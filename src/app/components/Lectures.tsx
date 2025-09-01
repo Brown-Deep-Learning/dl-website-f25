@@ -2,16 +2,16 @@
 import React from "react";
 import styles from "./Lectures.module.css";
 import { lectureGroups } from "../data/lectureData";
-import { FaRocket, FaRegMoon } from "react-icons/fa"; // Updated icons
-import { IoPlanet } from "react-icons/io5";
+import { FaFire, FaMountain } from "react-icons/fa"; // Updated icons
+// import { IoPlanet } from "react-icons/io5";
 
 const Lectures = () => {
   return (
     <section id="lectures" className={styles.container}>
       <div className={styles.headingContainer}>
-        <IoPlanet className={styles.groupIcon} />
+        {/* <IoPlanet className={styles.groupIcon} /> */}
         <h2 className={styles.heading}>Lectures</h2>
-        <IoPlanet className={styles.groupIcon} />
+        {/* <IoPlanet className={styles.groupIcon} /> */}
       </div>
       <div className={styles.groups}>
         {lectureGroups.map((group, groupIndex) => (
@@ -34,7 +34,7 @@ const Lectures = () => {
                         rel="noopener noreferrer"
                         className={styles.linkButton}
                       >
-                        <FaRegMoon className={styles.linkIcon} /> Slides
+                        <FaFire className={styles.linkIcon} /> Slides
                       </a>
                     )}
                     {lecture.recordingLink && (
@@ -44,7 +44,7 @@ const Lectures = () => {
                         rel="noopener noreferrer"
                         className={styles.linkButton}
                       >
-                        <FaRocket className={styles.linkIcon} /> Recording
+                        <FaMountain className={styles.linkIcon} /> Recording
                       </a>
                     )}
                   </div>

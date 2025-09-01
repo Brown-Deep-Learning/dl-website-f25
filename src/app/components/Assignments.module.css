@@ -9,57 +9,23 @@
   overflow: hidden;
 }
 
-.meteor,
-.meteor2 {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-
-  animation: meteor 2s linear infinite;
-  opacity: 0.7;
-}
-
-.meteor {
-  top: 20%;
-  left: -10%;
-  transform: rotate(45deg);
-}
-
-.meteor2 {
-  top: 60%;
-  left: -10%;
-  animation-delay: 1s;
-  transform: rotate(45deg);
-}
-
-@keyframes meteor {
-  0% {
-    transform: translateX(0) translateY(0) rotate(45deg);
-    width: 3px;
-  }
-  100% {
-    transform: translateX(1500px) translateY(-1500px) rotate(45deg);
-    width: 50px;
-  }
-}
-
 .heading {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: 40px;
   font-family: "Orbitron", sans-serif;
-  color: #ffcc00;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  color: #473e10;
+  text-shadow: 0 0 20px rgba(73, 63, 2, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
 
-.headerStar {
+/* .headerStar {
   color: #ffcc00;
   animation: twinkle 1.5s infinite alternate;
-}
+} */
 
 @keyframes twinkle {
   from {
@@ -76,11 +42,13 @@
 }
 
 .assignmentItem {
-  background: rgba(20, 20, 50, 0.8);
   padding: 25px;
   margin-bottom: 30px;
   border-radius: 15px;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  /* border-color: #473e10;
+  border-style: solid;
+  border-width: 2px; */
+  box-shadow: 0 0 25px rgba(73, 63, 2, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -89,7 +57,7 @@
 
 .assignmentItem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 35px rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 35px rgba(73, 63, 2, 0.3);
 }
 
 .glowOrb {
@@ -111,8 +79,8 @@
   font-size: 2.2rem;
   margin-bottom: 20px;
   font-family: "Orbitron", sans-serif;
-  color: #ffcc00;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(73, 63, 2, 0.3);
 }
 
 .titleText {
@@ -139,11 +107,11 @@
 
 .assignmentDate {
   font-family: "Orbitron", sans-serif;
-  color: #b3ffff;
+  color: #ffffff;
 }
 
 .dateLabel {
-  color: #ffcc00;
+  color: #473e10;
   margin-right: 8px;
 }
 
@@ -159,18 +127,18 @@
 }
 
 .conceptualButton {
-  background: linear-gradient(45deg, #1a1a4a, #2a2a6a);
-  color: #b3ffff;
+  background: linear-gradient(45deg, #eddf90, #a1710a);
+  color: #473e10;
 }
 
 .programmingButton {
-  background: linear-gradient(45deg, #2a1a4a, #4a2a6a);
-  color: #ffb3ff;
+  background: linear-gradient(45deg, #ebc12b, #c06413);
+  color: #473e10;
 }
 
 .linkButton:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(73, 63, 2, 0.3);
 }
 
 .linkIcon {

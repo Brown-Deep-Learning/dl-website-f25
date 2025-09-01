@@ -45,14 +45,14 @@ const CourseDescription = () => {
                 <FaMapMarkerAlt className={styles.icon} />
                 <div>
                   <h3>Location</h3>
-                  <p>Salomon Center 001</p>
+                  <p>Granoff Ctr for Creative Arts</p>
                 </div>
               </div>
               <div className={styles.infoItem}>
                 <FaCalendarAlt className={styles.icon} />
                 <div>
                   <h3>Schedule</h3>
-                  <p>Monday, Wednesday, and Friday, 12:00 - 12:50 PM</p>
+                  <p>Tuesday and Thursday, 9:00-10:20am</p>
                 </div>
               </div>
               <div className={styles.infoItem}>

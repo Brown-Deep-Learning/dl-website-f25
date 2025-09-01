@@ -67,7 +67,9 @@ export default function Home() {
         <main className={styles.main}>
           <AnimatedEarthBackground />
           <NavBar />
-          <EarthLayerProgress /> {/* Add the progress indicator here */}
+
+          {/* progress indicator bar */}
+          <EarthLayerProgress />
 
           <div className={styles.scrollContainer}>
             <SectionWithSensor id="landing-page" updateProgress={updateSectionProgress}>
