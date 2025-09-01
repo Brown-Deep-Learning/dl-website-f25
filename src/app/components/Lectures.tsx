@@ -3,15 +3,15 @@ import React from "react";
 import styles from "./Lectures.module.css";
 import { lectureGroups } from "../data/lectureData";
 import { FaFire, FaMountain } from "react-icons/fa"; // Updated icons
-// import { IoPlanet } from "react-icons/io5";
+import { IoEarth } from "react-icons/io5";
 
 const Lectures = () => {
   return (
     <section id="lectures" className={styles.container}>
       <div className={styles.headingContainer}>
-        {/* <IoPlanet className={styles.groupIcon} /> */}
+        <IoEarth className={styles.groupIcon} />
         <h2 className={styles.heading}>Lectures</h2>
-        {/* <IoPlanet className={styles.groupIcon} /> */}
+        <IoEarth className={styles.groupIcon} />
       </div>
       <div className={styles.groups}>
         {lectureGroups.map((group, groupIndex) => (

@@ -11,8 +11,8 @@ interface LayerTheme {
 
 const layerThemes: Record<LayerKey, LayerTheme> = {
   sea_level: { color: '#26667F', bubbleColor: '#94d2bd' },
-  crust: { color: '#7B4019', bubbleColor: '#e6ccb2' },
-  upper_mantle: { color: '#8A2D3B', bubbleColor: '#ffddd2' },
+  crust: { color: '#B99470', bubbleColor: '#e6ccb2' },
+  upper_mantle: { color: '#E7CCCC', bubbleColor: '#8A2D3B' },
   lower_mantle: { color: '#FF7D29', bubbleColor: '#ffb4a2' },
   outer_core: { color: '#FFBF78', bubbleColor: '#ff8fa3' },
   inner_core: { color: '#FFEEA9', bubbleColor: '#0a9396' },
