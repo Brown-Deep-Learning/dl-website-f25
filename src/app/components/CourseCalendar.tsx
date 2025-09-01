@@ -1,16 +1,16 @@
 // components/CourseCalendar.tsx
 import React from "react";
 import styles from "./CourseCalendar.module.css";
-import { FaSpaceShuttle } from "react-icons/fa";
+// import { FaSpaceShuttle } from "react-icons/fa";
 
 const CourseCalendar = () => {
   return (
     <section id="calendar" className={styles.calendarSection}>
       <div className={styles.calendarContainer}>
         <h2 className={styles.heading}>
-          <FaSpaceShuttle className={styles.shuttleIcon} />
+          {/* <FaSpaceShuttle className={styles.shuttleIcon} /> */}
           Course Timeline
-          <FaSpaceShuttle className={styles.shuttleIcon} />
+          {/* <FaSpaceShuttle className={styles.shuttleIcon} /> */}
         </h2>
 
         <div className={styles.calendarWrapper}>

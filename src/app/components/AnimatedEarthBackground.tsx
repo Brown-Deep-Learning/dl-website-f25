@@ -12,13 +12,12 @@ interface LayerTheme {
 const layerThemes: Record<LayerKey, LayerTheme> = {
   sea_level: { color: '#26667F', bubbleColor: '#94d2bd' },
   crust: { color: '#B99470', bubbleColor: '#e6ccb2' },
-  upper_mantle: { color: '#E7CCCC', bubbleColor: '#8A2D3B' },
-  lower_mantle: { color: '#FF7D29', bubbleColor: '#ffb4a2' },
-  outer_core: { color: '#FFBF78', bubbleColor: '#ff8fa3' },
-  inner_core: { color: '#FFEEA9', bubbleColor: '#0a9396' },
+  upper_mantle: { color: '#FFB4A2', bubbleColor: '#FF7D29' },
+  lower_mantle: { color: '#E7CCCC', bubbleColor: '#8A2D3B' },
+  outer_core: { color: '#FFCDB2', bubbleColor: '#FFBF78' },
+  inner_core: { color: '#FFECC8', bubbleColor: '#EBE5C2' },
 };
 
-// Fixed bubble component that definitely floats up
 const Bubbles: React.FC<{ 
   density: number; 
   color: string;
