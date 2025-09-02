@@ -50,7 +50,7 @@
 
 .category:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 35px var(--outer-core-bubble);
+  box-shadow: 0 0 15px var(--outer-core-bubble);
 }
 
 .categoryTitle {
@@ -88,8 +88,10 @@
 }
 
 .resourceLink:hover {
-  background: var(--outer-core-bubble);
-  color: var(--outer-core-background) !important;
+  /* background: var(--outer-core-bubble); */
+  /* color: var(--outer-core-background) !important; */
+  /* transform: translateY(-10px); */
+  box-shadow: 0 0 15px var(--outer-core-bubble);
   transform: translateX(5px);
 }
 

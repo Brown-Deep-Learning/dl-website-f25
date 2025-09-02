@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  /* text-shadow: 0 0 10px white; */
 }
 
 .contactInfo {
@@ -29,7 +28,7 @@
   padding: 25px;
   margin-bottom: 40px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px var(--crust-bubble);
+  box-shadow: 0 0 15px var(--inner-core-bubble);
   width: 100%;
   max-width: 800px; /* Limit the maximum width for better readability */
 }
@@ -49,12 +48,12 @@
 }
 
 .emailIcon {
-  color: white;
+  color: black;
 }
 
 .emailLabel {
-  font-weight: 600;
-  color: white;
+  font-weight: 200;
+  color: black;
 }
 
 .emailItem a {
@@ -64,7 +63,7 @@
 }
 
 .emailItem a:hover {
-  color: #ffcc00;
+  color: #ff4400;
 }
 
 .disclaimer {
@@ -106,10 +105,8 @@
 }
 
 .staffCard {
-  /* background: var(--outer-core-background); */
   box-shadow: 0 0 25px var(--inner-core-bubble);
   border-radius: 15px;
-  /* Remove fixed width to make it responsive */
   width: 100%;
   height: 100%;
 

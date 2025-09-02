@@ -26,21 +26,21 @@ export const staffData = {
       role: "Mole Minion",
     },
     {
-      name: "Maria Wang",
-      pronouns: "she/her",
-      image: "/images/profiles/maria.jpeg",
-      role: "Mole Minion",
-    },
-    {
       name: "Narek Harutyunyan",
       pronouns: "todo",
-      image: "/images/profiles/eric.jpeg",
+      image: "/images/profiles/narek.jpg",
       role: "Mole Minion",
     },
     {
       name: "Sreedevi Prasad",
-      pronouns: "to/do",
-      image: "/images/profiles/eric.jpeg",
+      pronouns: "she/her",
+      image: "/images/profiles/sree.jpg",
+      role: "Mole Minion",
+    },
+    {
+      name: "Maria Wang",
+      pronouns: "she/her",
+      image: "/images/profiles/maria.jpeg",
       role: "Mole Minion",
     }
   ],

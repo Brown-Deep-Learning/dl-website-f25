@@ -5,14 +5,12 @@
   top: 0;
   width: 100%;
   background: black;
-  backdrop-filter: blur(10px); /* Frosted glass effect */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-  opacity: 0; /* Initially hidden */
   transform: translateY(-20px); /* Slight upward offset */
   transition: opacity 1s ease, transform 1s ease; /* Smooth transition for fade-in */
 }
@@ -71,14 +69,14 @@
   position: absolute;
   width: 0%;
   height: 2px;
-  background-color: #ffcc00;
+  background-color: white;
   left: 0;
   bottom: -4px;
   transition: width 0.3s ease;
 }
 
 .navLinks li button:hover {
-  color: #ffcc00;
+  color: white;
 }
 
 .navLinks li button:hover::after {
@@ -93,65 +91,9 @@
 
 .navLinks li button:hover .icon {
   transform: scale(1.2);
-  color: #ffcc00;
+  color: white;
 }
 
-/* Decorative Stars */
-.decorativeStar1,
-.decorativeStar2 {
-  position: absolute;
-  color: #ffcc00;
-  opacity: 0.7;
-  animation: twinkle 5s infinite;
-}
-
-.decorativeStar1 {
-  top: 10px;
-  right: 60px;
-  font-size: 1.5rem;
-  animation-delay: 0s;
-}
-
-.decorativeStar2 {
-  bottom: 10px;
-  left: 60px;
-  font-size: 1.2rem;
-  animation-delay: 2s;
-}
-
-/* Keyframes for Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
 
 /* Responsive Design */
 
