@@ -66,7 +66,7 @@ const CourseDescription = () => {
 
             <div className={styles.links}>
               <a
-                href="https://hackmd.io/@Eric-Ewing/BJVFUVaDke"
+                href="https://hackmd.io/@dlf25/B18_-ySqlx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.link}
