@@ -10,6 +10,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       theme: 'sea-level',
       label: 'Sea Level', 
+      textColor: 'var(--sea-level-background)',
       bubbleColor: 'var(--sea-level-bubble)',
       targetId: 'landing-page',
       sectionName: 'Home'
@@ -17,6 +18,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       theme: 'crust',
       label: 'Crust', 
+      textColor: 'var(--crust-background)',
       bubbleColor: 'var(--crust-bubble)',
       targetId: 'lectures',
       sectionName: 'Lectures'
@@ -24,6 +26,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       theme: 'upper-mantle',
       label: 'Upper Mantle', 
+      textColor: 'var(--upper-mantle-background)',
       bubbleColor: 'var(--upper-mantle-bubble)',
       targetId: 'assignments',
       sectionName: 'Assignments'
@@ -31,6 +34,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       theme: 'lower-mantle',
       label: 'Lower Mantle', 
+      textColor: 'var(--lower-mantle-background)',
       bubbleColor: 'var(--lower-mantle-bubble)',
       targetId: 'calendar',
       sectionName: 'Calendar'
@@ -38,6 +42,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       theme: 'outer-core',
       label: 'Outer Core', 
+      TextColor: 'var(--outer-core-background)',
       bubbleColor: 'var(--outer-core-bubble)',
       targetId: 'resources',
       sectionName: 'Resources'
@@ -45,6 +50,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       theme: 'inner-core',
       label: 'Inner Core', 
+      textColor: 'var(--inner-core-background)',
       bubbleColor: 'var(--inner-core-bubble)',
       targetId: 'staff',
       sectionName: 'Staff'
@@ -78,10 +84,10 @@ const EarthLayerProgress: React.FC = () => {
 
           <div className={styles.hoverContent}>
             <div className={styles.layerInfo}>
-              <h4 style={{ color: layer.bubbleColor, margin: '0 0 8px 0' }}>
+              <h4 style={{ color: layer.textColor, margin: '0 0 8px 0' }}>
                 {layer.sectionName}
               </h4>
-              <span className={styles.layerLabel} style={{ color: layer.bubbleColor }}>
+              <span className={styles.layerLabel} style={{ color: layer.textColor }}>
                 {layer.label}
               </span>
             </div>

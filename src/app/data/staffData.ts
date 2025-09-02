@@ -27,8 +27,8 @@ export const staffData = {
     },
     {
       name: "Narek Harutyunyan",
-      pronouns: "todo",
-      image: "/images/profiles/narek.jpg",
+      pronouns: "he/him",
+      image: "/images/profiles/narek.png",
       role: "Mole Minion",
     },
     {

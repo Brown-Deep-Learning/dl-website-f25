@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--sea-level-background);
+  z-index: 2;
 }
 
 .section {

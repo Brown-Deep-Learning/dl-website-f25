@@ -9,6 +9,7 @@
   padding: 20px;
   max-width: 1000px; /* Limits the container width */
   margin: 0 auto; /* Centers the container */
+  z-index: 2;
 }
 
 .recentItem {

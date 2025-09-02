@@ -1,15 +1,16 @@
 // components/AnimatedEarthBackground.tsx
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const Bubbles: React.FC<{ 
   density: number; 
   maxSize: number;
   minSize?: number;
-}> = ({ density, maxSize, minSize = 2 }) => {
+}> = ({ density, maxSize, minSize = 1 }) => {
   const [bubbleColor, setBubbleColor] = useState('#94d2bd');
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const getBubbleColorFromSection = () => {
@@ -34,24 +35,16 @@ const Bubbles: React.FC<{
     const updateBubbleColor = () => {
       const color = getBubbleColorFromSection();
       setBubbleColor(color);
+      rafRef.current = requestAnimationFrame(updateBubbleColor);
     };
 
-    // Use requestAnimationFrame for smoother performance
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          updateBubbleColor();
-          ticking = false;
-        });
-        ticking = true;
+    rafRef.current = requestAnimationFrame(updateBubbleColor);
+
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
       }
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    updateBubbleColor(); // Set initial color
-
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const bubbles = Array.from({ length: density }, (_, i) => ({
@@ -61,7 +54,7 @@ const Bubbles: React.FC<{
     delay: Math.random() * 6,
     duration: 6 + Math.random() * 8,
     horizontalDrift: (Math.random() - 0.5) * 30,
-    opacity: 0.7 + Math.random() * 0.3,
+    opacity: 0.1 + Math.random() * 0.3,
   }));
 
   return (
@@ -79,8 +72,8 @@ const Bubbles: React.FC<{
             backgroundColor: bubbleColor,
             opacity: 0,
             filter: 'blur(2px)',
-            boxShadow: `0 0 ${bubble.size * 2}px ${bubble.size}px ${bubbleColor}80`,
-            zIndex: 3,
+            boxShadow: `0 0 ${bubble.size * 1.5}px ${bubble.size}px ${bubbleColor}80`,
+            zIndex: 5, // Above background but below content
             pointerEvents: 'none',
           }}
           animate={{
@@ -110,7 +103,7 @@ export const AnimatedEarthBackground: React.FC = () => {
       left: 0, 
       width: '100%', 
       height: '100%', 
-      zIndex: 0, 
+      zIndex: 5,
       pointerEvents: 'none',
       overflow: 'hidden'
     }}>
