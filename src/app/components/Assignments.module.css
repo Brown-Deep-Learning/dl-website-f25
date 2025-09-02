@@ -5,6 +5,7 @@
   width: 100%;
   padding: 50px 20px;
   color: #ffffff;
+  background-color: var(--upper-mantle-background);
   position: relative;
   overflow: hidden;
 }

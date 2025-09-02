@@ -8,9 +8,11 @@
 }
 
 .calendarContainer {
-  max-width: 1300px; /* Increased from 1200px */
+  overflow: hidden;
+  max-width: 1300px;
   margin: 0 auto;
   position: relative;
+  background-color: var(--lower-mantle-background);
 }
 
 .heading {
@@ -24,24 +26,6 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-}
-
-.shuttleIcon {
-  animation: shuttle 4s infinite linear;
-  transform-origin: center;
-  margin: 0 10px;
-}
-
-@keyframes shuttle {
-  0% {
-    transform: translateX(-20px) rotate(0deg);
-  }
-  50% {
-    transform: translateX(20px) rotate(180deg);
-  }
-  100% {
-    transform: translateX(-20px) rotate(360deg);
-  }
 }
 
 .calendarWrapper {

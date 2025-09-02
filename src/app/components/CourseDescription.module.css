@@ -3,6 +3,8 @@
   width: 100%;
   min-height: 100vh;
   color: #ffffff;
+  background-color: var(--sea-level-background);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;

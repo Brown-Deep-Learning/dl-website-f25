@@ -1,7 +1,7 @@
 // components/Resources.tsx
 import React from "react";
 import styles from "./Resources.module.css";
-import { FaSatellite, FaGlobe, FaSpaceShuttle } from "react-icons/fa";
+import { FaFire, FaMountain } from "react-icons/fa";
 
 interface ResourceItem {
   title: string;
@@ -122,15 +122,13 @@ const Resources = () => {
     <section id="resources" className={styles.container}>
       <div className={styles.backgroundPlanet}></div>
       <h2 className={styles.heading}>
-        <FaGlobe className={styles.headerIcon} />
         Resources
-        <FaGlobe className={styles.headerIcon} />
       </h2>
       <div className={styles.resourceCategories}>
         {resourceData.map((category, index) => (
           <div key={index} className={styles.category}>
             <div className={styles.categoryHeader}>
-              <FaSatellite className={styles.categoryIcon} />
+              <FaFire className={styles.categoryIcon} />
               <h3 className={styles.categoryTitle}>{category.title}</h3>
             </div>
             <div className={styles.resourcesList}>
@@ -143,7 +141,7 @@ const Resources = () => {
                   className={styles.resourceLink}
                 >
                   <div className={styles.linkIconWrapper}>
-                    <FaSpaceShuttle className={styles.linkIcon} />
+                    <FaMountain className={styles.linkIcon} />
                   </div>
                   <span className={styles.linkText}>{resource.title}</span>
                 </a>

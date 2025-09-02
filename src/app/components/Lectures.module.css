@@ -8,6 +8,7 @@
   color: #ffffff;
   position: relative;
   overflow: hidden;
+  background-color: var(--crust-background);
 }
 
 .container::before {

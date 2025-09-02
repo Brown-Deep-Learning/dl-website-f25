@@ -10,65 +10,17 @@
   --upper-mantle-bubble: #8A2D3B;
   --upper-mantle-background: #FFDCDC;
 
-  --lower-mantle-bubble: #FF7D29;
+  --lower-mantle-bubble: #8d4f73;
   --lower-mantle-background: #E7CCCC;
 
-  --outer-core-bubble: #FFBF78;
-  --outer-core-background: #FFE8CD;
+  --outer-core-bubble: #ea7f06;
+  --outer-core-background: #FFD6BA;
 
-  --inner-core-bubble: #EBE5C2;
-  --inner-core-background: #FFD6BA;
+  --inner-core-bubble: #63510f;
+  --inner-core-background: #FFE8CD;
 
   /* Default values */
   --bubble-color: var(--sea-level-bubble);
-}
-
-/* Sea Level Section */
-[data-earth-theme="sea-level"] {
-  background: linear-gradient(135deg, var(--sea-level-background) 0%, #1a4d63 100%);
-  --bubble-color: var(--sea-level-bubble);
-  --text-color: #e9f5db;
-  --accent-color: #4ecdc4;
-}
-
-/* Crust Section */
-[data-earth-theme="crust"] {
-  background: linear-gradient(135deg, var(--crust-background) 0%, #9c7a52 100%);
-  --bubble-color: var(--crust-bubble);
-  --text-color: #1a1a3d;
-  --accent-color: #B99470;
-}
-
-/* Upper Mantle Section */
-[data-earth-theme="upper-mantle"] {
-  background: linear-gradient(135deg, var(--upper-mantle-background) 0%, #fcc6f5 50%);
-  --bubble-color: var(--upper-mantle-bubble);
-  --text-color: #2d1e0d;
-  --accent-color: #ffb74d;
-}
-
-/* Lower Mantle Section */
-[data-earth-theme="lower-mantle"] {
-  background: linear-gradient(135deg, var(--lower-mantle-background) 0%, #d9b4b4 100%);
-  --bubble-color: var(--lower-mantle-bubble);
-  --text-color: #fff1e6;
-  --accent-color: #e68a2e;
-}
-
-/* Outer Core Section */
-[data-earth-theme="outer-core"] {
-  background: linear-gradient(135deg, var(--outer-core-background) 0%, #ffb489 100%);
-  --bubble-color: var(--outer-core-bubble);
-  --text-color: #ffccd5;
-  --accent-color: #d62828;
-}
-
-/* Inner Core Section */
-[data-earth-theme="inner-core"] {
-  background: linear-gradient(135deg, var(--inner-core-background) 0%, #ffe0a8 100%);
-  --bubble-color: var(--inner-core-bubble);
-  --text-color: #e0fbfc;
-  --accent-color: #0a9396;
 }
 
 /* Make sure sections take full height */
@@ -86,43 +38,31 @@ html, body {
   transition: background-color 1.5s ease-in-out;
 }
 
-/* Force sections to be transparent so we can see the bubbles */
+/*Force sections to be transparent so we can see the bubbles*/
 [data-earth-theme] {
   background: transparent !important;
 }
 
-/* Create a pseudo-element for the background that can transition */
-[data-earth-theme]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  transition: all 1.5s ease-in-out;
+[data-earth-theme="sea-level"] {
+  --bubble-color: var(--sea-level-bubble);
 }
 
-[data-earth-theme="sea-level"]::before {
-  background: linear-gradient(135deg, #26667F 0%, #1a4d63 100%);
+[data-earth-theme="crust"] {
+  --bubble-color: var(--crust-bubble);
 }
 
-[data-earth-theme="crust"]::before {
-  background: linear-gradient(135deg, #B99470 0%, #9c7a52 100%);
+[data-earth-theme="upper-mantle"] {
+  --bubble-color: var(--upper-mantle-bubble);
 }
 
-[data-earth-theme="upper-mantle"]::before {
-  background: linear-gradient(135deg, #FFB4A2 0%, #ff9378 100%);
+[data-earth-theme="lower-mantle"] {
+  --bubble-color: var(--lower-mantle-bubble);
 }
 
-[data-earth-theme="lower-mantle"]::before {
-  background: linear-gradient(135deg, #E7CCCC 0%, #d9b4b4 100%);
+[data-earth-theme="outer-core"] {
+  --bubble-color: var(--outer-core-bubble);
 }
 
-[data-earth-theme="outer-core"]::before {
-  background: linear-gradient(135deg, #FFCDB2 0%, #ffb489 100%);
-}
-
-[data-earth-theme="inner-core"]::before {
-  background: linear-gradient(135deg, #FFECC8 0%, #ffe0a8 100%);
+[data-earth-theme="inner-core"] {
+  --bubble-color: var(--inner-core-bubble);
 }

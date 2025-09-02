@@ -1,78 +1,35 @@
 /* components/Staff.module.css */
 .container {
   margin-top: 100px;
+  background-color: var(--inner-core-background);
   position: relative;
   padding: 50px 20px;
   overflow: hidden;
-  /* Changed width handling */
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.starsBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(
-      2px 2px at 20px 30px,
-      #eee,
-      rgba(0, 0, 0, 0)
-    ),
-    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
-    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0));
-  background-size: 200px 200px;
-  animation: twinkle 4s ease-in-out infinite;
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
 .heading {
   font-family: "Orbitron", sans-serif;
   font-size: 3.5rem;
-  color: #ffcc00;
+  color: var(--inner-core-bubble);
   text-align: center;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  text-shadow: 0 0 20px rgba(32, 202, 255, 0.5);
-}
-
-.headerIcon {
-  font-size: 2.5rem;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  /* text-shadow: 0 0 10px white; */
 }
 
 .contactInfo {
-  /* background: rgba(0, 29, 61, 0.8); */
   border-radius: 15px;
   padding: 25px;
   margin-bottom: 40px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(32, 202, 255, 0.2);
+  box-shadow: 0 0 10px var(--crust-bubble);
   width: 100%;
   max-width: 800px; /* Limit the maximum width for better readability */
 }
@@ -92,16 +49,16 @@
 }
 
 .emailIcon {
-  color: #ffcc00;
+  color: white;
 }
 
 .emailLabel {
   font-weight: 600;
-  color: #ffcc00;
+  color: white;
 }
 
 .emailItem a {
-  color: #20caff;
+  color: var(--inner-core-bubble);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -112,20 +69,20 @@
 
 .disclaimer {
   font-style: italic;
-  color: #ff9500;
+  color: #ff4400;
   font-size: 0.9rem;
 }
 
 .staffSection {
   margin-bottom: 50px;
   width: 100%;
-  max-width: 1200px; /* Ensure sections don’t exceed a max width */
+  max-width: 1200px;
 }
 
 .roleHeading {
   font-family: "Orbitron", sans-serif;
   font-size: 2.2rem;
-  color: #ffcc00;
+  color: var(--inner-core-bubble);
   margin-bottom: 25px;
   display: flex;
   align-items: center;
@@ -133,21 +90,10 @@
 }
 
 .roleIcon {
-  color: #ffcc00;
+  color: var(--inner-core-bubble);
   animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 
 .staffGrid {
   display: grid;
@@ -156,18 +102,18 @@
   gap: 30px;
   padding: 20px 0;
   width: 100%;
-  /* Remove fixed width and center items */
   justify-items: center;
 }
 
 .staffCard {
-  background: rgba(0, 29, 61, 0.9);
+  /* background: var(--outer-core-background); */
+  box-shadow: 0 0 25px var(--inner-core-bubble);
   border-radius: 15px;
   /* Remove fixed width to make it responsive */
   width: 100%;
   height: 100%;
 
-  max-width: 280px; /* Optional: set a max width for cards */
+  max-width: 280px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -175,7 +121,7 @@
 
 .staffCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 30px rgba(32, 202, 255, 0.3);
+  box-shadow: 0 0 30px rgb(221, 211, 135);
 }
 
 .imageContainer {
@@ -193,39 +139,21 @@
   object-fit: cover;
 }
 
-.constellation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 30%,
-    rgba(32, 202, 255, 0.1)
-  );
-  pointer-events: none;
-}
-
 .cardContent {
   height: 100%;
   padding: 20px;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 29, 61, 0.9),
-    rgba(0, 8, 20, 0.9)
-  );
+  background: var(--inner-core-bubble);
 }
 
 .staffName {
   font-family: "Orbitron", sans-serif;
   font-size: 1.4rem;
-  color: #20caff;
+  color: var(--inner-core-background);
   margin-bottom: 5px;
 }
 
 .pronouns {
-  color: #b3ffff;
+  color: white;
   font-size: 0.9rem;
   margin-bottom: 8px;
 }

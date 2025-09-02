@@ -1,7 +1,7 @@
 // components/Staff.tsx
 import React from "react";
 import styles from "./Staff.module.css";
-import { FaUserAstronaut, FaStar, FaEnvelope } from "react-icons/fa";
+import {FaEnvelope } from "react-icons/fa";
 import staffData from "../data/staffData";
 import Image from "next/image";
 
@@ -17,7 +17,6 @@ const StaffCard: React.FC<StaffMember> = ({
   name,
   pronouns,
   image,
-  spaceCreature,
 }) => (
   <div className={styles.staffCard}>
     <div className={styles.imageContainer}>
@@ -34,7 +33,6 @@ const StaffCard: React.FC<StaffMember> = ({
     <div className={styles.cardContent}>
       <h4 className={styles.staffName}>{name}</h4>
       <p className={styles.pronouns}>{pronouns}</p>
-      <p className={styles.spaceCreature}>{spaceCreature}</p>
     </div>
   </div>
 );
@@ -44,9 +42,7 @@ const Staff = () => {
     <section id="staff" className={styles.container}>
       <div className={styles.starsBackground}></div>
       <h2 className={styles.heading}>
-        {/* <FaUserAstronaut className={styles.headerIcon} /> */}
         Mole People
-        {/* <FaUserAstronaut className={styles.headerIcon} /> */}
       </h2>
 
       <div className={styles.contactInfo}>
@@ -81,8 +77,7 @@ const Staff = () => {
 
       <div className={styles.staffSection}>
         <h3 className={styles.roleHeading}>
-          <FaStar className={styles.roleIcon} />
-          Commander
+          Mole Monarch
         </h3>
         <div className={styles.staffGrid}>
           <StaffCard {...staffData.professor} />
@@ -91,8 +86,7 @@ const Staff = () => {
 
       <div className={styles.staffSection}>
         <h3 className={styles.roleHeading}>
-          <FaStar className={styles.roleIcon} />
-          Flight Directors
+          Mole Manager
         </h3>
         <div className={styles.staffGrid}>
           {staffData.htas.map((hta, index) => (
@@ -103,8 +97,7 @@ const Staff = () => {
 
       <div className={styles.staffSection}>
         <h3 className={styles.roleHeading}>
-          <FaStar className={styles.roleIcon} />
-          Mission Specialists
+          Mole Minions
         </h3>
         <div className={styles.staffGrid}>
           {staffData.utas.map((uta, index) => (
