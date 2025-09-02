@@ -2,15 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
 .calendarSection {
-  padding: 50px 20px;
   position: relative;
   z-index: 1;
-}
-
-.calendarContainer {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+.calendarContainer {
+  padding: 50px 20px;
   max-width: 1300px;
   margin: 0 auto;
   position: relative;

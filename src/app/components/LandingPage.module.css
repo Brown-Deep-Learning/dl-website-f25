@@ -107,22 +107,6 @@
   100% { transform: rotate(0deg) translateX(0); }
 }
 
-.drillDown {
-  animation: drillDown 1.5s forwards ease-in;
-}
-
-@keyframes drillDown {
-  0% { transform: translate(-50%, 0) rotate(0deg); opacity: 1; }
-  30% { transform: translate(-50%, -50px) rotate(180deg); }
-  100% { transform: translate(-50%, 120vh) rotate(720deg); opacity: 0; }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, -15px); }
-  60% { transform: translate(-50%, -7px); }
-}
-
 @keyframes pulse {
   0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
   50% { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)); }
