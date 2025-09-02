@@ -19,7 +19,7 @@ const Bubbles: React.FC<{
       
       for (const section of sections) {
         const rect = section.getBoundingClientRect();
-        const sectionTop = rect.top + window.scrollY;
+        const sectionTop = window.scrollY + rect.top;
         const sectionBottom = sectionTop + rect.height;
 
         if (viewportMiddle >= sectionTop && viewportMiddle <= sectionBottom) {
@@ -36,10 +36,22 @@ const Bubbles: React.FC<{
       setBubbleColor(color);
     };
 
-    window.addEventListener('scroll', updateBubbleColor, { passive: true });
+    // Use requestAnimationFrame for smoother performance
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateBubbleColor();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     updateBubbleColor(); // Set initial color
 
-    return () => window.removeEventListener('scroll', updateBubbleColor);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const bubbles = Array.from({ length: density }, (_, i) => ({
@@ -68,7 +80,7 @@ const Bubbles: React.FC<{
             opacity: 0,
             filter: 'blur(2px)',
             boxShadow: `0 0 ${bubble.size * 2}px ${bubble.size}px ${bubbleColor}80`,
-            zIndex: 2,
+            zIndex: 3,
             pointerEvents: 'none',
           }}
           animate={{
@@ -92,10 +104,19 @@ const Bubbles: React.FC<{
 
 export const AnimatedEarthBackground: React.FC = () => {
   return (
-    <>
+    <div style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100%', 
+      height: '100%', 
+      zIndex: 0, 
+      pointerEvents: 'none',
+      overflow: 'hidden'
+    }}>
       <Bubbles density={30} maxSize={12} minSize={4} />
       <Bubbles density={20} maxSize={18} minSize={8} />
       <Bubbles density={10} maxSize={24} minSize={12} />
-    </>
+    </div>
   );
 };

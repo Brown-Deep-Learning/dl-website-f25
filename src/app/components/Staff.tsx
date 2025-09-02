@@ -9,7 +9,6 @@ interface StaffMember {
   name: string;
   pronouns: string;
   image: string;
-  spaceCreature: string;
   role?: string; // Added optional role property
 }
 
