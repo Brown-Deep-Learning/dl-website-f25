@@ -8,42 +8,42 @@ import { FaCircle } from 'react-icons/fa';
 const EarthLayerProgress: React.FC = () => {
   const layersInOrder = [
     { 
-      theme: 'sea-level-theme',
+      theme: 'sea-level',
       label: 'Sea Level', 
       bubbleColor: 'var(--sea-level-bubble)',
       targetId: 'landing-page',
       sectionName: 'Home'
     },
     { 
-      theme: 'crust-theme',
+      theme: 'crust',
       label: 'Crust', 
       bubbleColor: 'var(--crust-bubble)',
       targetId: 'lectures',
       sectionName: 'Lectures'
     },
     { 
-      theme: 'upper-mantle-theme',
+      theme: 'upper-mantle',
       label: 'Upper Mantle', 
       bubbleColor: 'var(--upper-mantle-bubble)',
       targetId: 'assignments',
       sectionName: 'Assignments'
     },
     { 
-      theme: 'lower-mantle-theme',
+      theme: 'lower-mantle',
       label: 'Lower Mantle', 
       bubbleColor: 'var(--lower-mantle-bubble)',
       targetId: 'calendar',
       sectionName: 'Calendar'
     },
     { 
-      theme: 'outer-core-theme',
+      theme: 'outer-core',
       label: 'Outer Core', 
       bubbleColor: 'var(--outer-core-bubble)',
       targetId: 'resources',
       sectionName: 'Resources'
     },
     { 
-      theme: 'inner-core-theme',
+      theme: 'inner-core',
       label: 'Inner Core', 
       bubbleColor: 'var(--inner-core-bubble)',
       targetId: 'staff',
@@ -51,54 +51,43 @@ const EarthLayerProgress: React.FC = () => {
     },
   ];
 
-  const handleNodeClick = (targetId: string, theme: string) => {
-    document.documentElement.className = theme;
+  const handleNodeClick = (targetId: string) => {
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const getCurrentTheme = () => {
-    return document.documentElement.className;
-  };
-
   return (
     <div className={styles.nodeContainer}>
       <div className={styles.verticalLine} />
       
-      {layersInOrder.map((layer) => {
-        const isActive = getCurrentTheme() === layer.theme;
-        const isCompleted = layersInOrder.findIndex(l => l.theme === getCurrentTheme()) > 
-                          layersInOrder.findIndex(l => l.theme === layer.theme);
-        
-        return (
-          <div key={layer.theme} className={styles.nodeGroup}>
-            <button
-              className={`${styles.node} ${isActive ? styles.active : ''} ${isCompleted ? styles.completed : ''}`}
-              onClick={() => handleNodeClick(layer.targetId, layer.theme)}
-              style={{ 
-                borderColor: layer.bubbleColor,
-                backgroundColor: isActive ? layer.bubbleColor : isCompleted ? layer.bubbleColor : 'transparent',
-              }}
-              aria-label={`Navigate to ${layer.sectionName}`}
-            >
-              {isCompleted && <FaCircle className={styles.completedCheck} />}
-            </button>
+      {layersInOrder.map((layer) => (
+        <div key={layer.theme} className={styles.nodeGroup}>
+          <button
+            className={styles.node}
+            onClick={() => handleNodeClick(layer.targetId)}
+            style={{ 
+              borderColor: layer.bubbleColor,
+              backgroundColor: 'transparent',
+            }}
+            aria-label={`Navigate to ${layer.sectionName}`}
+          >
+            <FaCircle className={styles.completedCheck} />
+          </button>
 
-            <div className={styles.hoverContent}>
-              <div className={styles.layerInfo}>
-                <span className={styles.layerLabel} style={{ color: layer.bubbleColor }}>
-                  {layer.label}
-                </span>
-                <h4 className={styles.layerName}>
-                  {layer.sectionName}
-                </h4>
-              </div>
+          <div className={styles.hoverContent}>
+            <div className={styles.layerInfo}>
+              <h4 style={{ color: layer.bubbleColor, margin: '0 0 8px 0' }}>
+                {layer.sectionName}
+              </h4>
+              <span className={styles.layerLabel} style={{ color: layer.bubbleColor }}>
+                {layer.label}
+              </span>
             </div>
           </div>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 };

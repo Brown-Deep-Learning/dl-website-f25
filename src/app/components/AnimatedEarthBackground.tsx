@@ -31,11 +31,11 @@ const Bubbles: React.FC<{
             width: `${bubble.size}px`,
             height: `${bubble.size}px`,
             borderRadius: '50%',
-            backgroundColor: 'var(--current-bubble)',
+            backgroundColor: 'var(--bubble-color)',
             opacity: 0,
             filter: 'blur(1px)',
-            boxShadow: `0 0 ${bubble.size * 1.5}px ${bubble.size}px var(--current-bubble)60`,
-            zIndex: -1,
+            boxShadow: `0 0 ${bubble.size * 1.5}px ${bubble.size}px var(--bubble-color)60`,
+            zIndex: -1, // Behind content but above background
             pointerEvents: 'none',
           }}
           animate={{
@@ -60,24 +60,9 @@ const Bubbles: React.FC<{
 export const AnimatedEarthBackground: React.FC = () => {
   return (
     <>
-      {/* Base Background using CSS variable */}
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: 'var(--current-bg)',
-          zIndex: -2,
-          transition: 'background-color 1.5s ease-in-out',
-        }}
-      />
-      
-      {/* Bubbles using CSS variable for color */}
-      <Bubbles density={15} maxSize={8} minSize={3} />
-      <Bubbles density={8} maxSize={14} minSize={6} />
-      <Bubbles density={4} maxSize={20} minSize={10} />
+      <Bubbles density={20} maxSize={8} minSize={3} />
+      <Bubbles density={12} maxSize={14} minSize={6} />
+      <Bubbles density={6} maxSize={20} minSize={10} />
     </>
   );
 };

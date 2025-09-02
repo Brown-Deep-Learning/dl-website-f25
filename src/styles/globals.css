@@ -39,3 +39,18 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+.scrollContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  position: relative;
+  z-index: 2;
+}

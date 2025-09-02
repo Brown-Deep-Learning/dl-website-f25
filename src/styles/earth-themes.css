@@ -1,87 +1,117 @@
 /* styles/earth-themes.css */
 :root {
-  /* Sea Level */
-  --sea-level-bg: #26667F;
+  /* Define all bubble colors at root level for global access */
   --sea-level-bubble: #94d2bd;
-  --sea-level-text: #e9f5db;
-  --sea-level-accent: #4ecdc4;
-
-  /* Crust */
-  --crust-bg: #B99470;
   --crust-bubble: #e6ccb2;
-  --crust-text: #fff1e6;
-  --crust-accent: #e07a5f;
-
-  /* Upper Mantle */
-  --upper-mantle-bg: #FFB4A2;
   --upper-mantle-bubble: #FF7D29;
-  --upper-mantle-text: #2d1e0d;
-  --upper-mantle-accent: #ffb74d;
-
-  /* Lower Mantle */
-  --lower-mantle-bg: #E7CCCC;
   --lower-mantle-bubble: #8A2D3B;
-  --lower-mantle-text: #fff1e6;
-  --lower-mantle-accent: #e68a2e;
-
-  /* Outer Core */
-  --outer-core-bg: #FFCDB2;
   --outer-core-bubble: #FFBF78;
-  --outer-core-text: #ffccd5;
-  --outer-core-accent: #d62828;
-
-  /* Inner Core */
-  --inner-core-bg: #FFECC8;
   --inner-core-bubble: #EBE5C2;
-  --inner-core-text: #e0fbfc;
-  --inner-core-accent: #0a9396;
 
   /* Default values */
-  --current-bg: var(--sea-level-bg);
-  --current-bubble: var(--sea-level-bubble);
-  --current-text: var(--sea-level-text);
-  --current-accent: var(--sea-level-accent);
+  --bubble-color: var(--sea-level-bubble);
 }
 
-/* Theme classes that update the current variables */
-.sea-level-theme {
-  --current-bg: var(--sea-level-bg);
-  --current-bubble: var(--sea-level-bubble);
-  --current-text: var(--sea-level-text);
-  --current-accent: var(--sea-level-accent);
+/* Sea Level Section */
+[data-earth-theme="sea-level"] {
+  background: linear-gradient(135deg, #26667F 0%, #1a4d63 100%);
+  --bubble-color: var(--sea-level-bubble);
+  --text-color: #e9f5db;
+  --accent-color: #4ecdc4;
 }
 
-.crust-theme {
-  --current-bg: var(--crust-bg);
-  --current-bubble: var(--crust-bubble);
-  --current-text: var(--crust-text);
-  --current-accent: var(--crust-accent);
+/* Crust Section */
+[data-earth-theme="crust"] {
+  background: linear-gradient(135deg, #B99470 0%, #9c7a52 100%);
+  --bubble-color: var(--crust-bubble);
+  --text-color: #fff1e6;
+  --accent-color: #e07a5f;
 }
 
-.upper-mantle-theme {
-  --current-bg: var(--upper-mantle-bg);
-  --current-bubble: var(--upper-mantle-bubble);
-  --current-text: var(--upper-mantle-text);
-  --current-accent: var(--upper-mantle-accent);
+/* Upper Mantle Section */
+[data-earth-theme="upper-mantle"] {
+  background: linear-gradient(135deg, #FFB4A2 0%, #ff9378 100%);
+  --bubble-color: var(--upper-mantle-bubble);
+  --text-color: #2d1e0d;
+  --accent-color: #ffb74d;
 }
 
-.lower-mantle-theme {
-  --current-bg: var(--lower-mantle-bg);
-  --current-bubble: var(--lower-mantle-bubble);
-  --current-text: var(--lower-mantle-text);
-  --current-accent: var(--lower-mantle-accent);
+/* Lower Mantle Section */
+[data-earth-theme="lower-mantle"] {
+  background: linear-gradient(135deg, #E7CCCC 0%, #d9b4b4 100%);
+  --bubble-color: var(--lower-mantle-bubble);
+  --text-color: #fff1e6;
+  --accent-color: #e68a2e;
 }
 
-.outer-core-theme {
-  --current-bg: var(--outer-core-bg);
-  --current-bubble: var(--outer-core-bubble);
-  --current-text: var(--outer-core-text);
-  --current-accent: var(--outer-core-accent);
+/* Outer Core Section */
+[data-earth-theme="outer-core"] {
+  background: linear-gradient(135deg, #FFCDB2 0%, #ffb489 100%);
+  --bubble-color: var(--outer-core-bubble);
+  --text-color: #ffccd5;
+  --accent-color: #d62828;
 }
 
-.inner-core-theme {
-  --current-bg: var(--inner-core-bg);
-  --current-bubble: var(--inner-core-bubble);
-  --current-text: var(--inner-core-text);
-  --current-accent: var(--inner-core-accent);
+/* Inner Core Section */
+[data-earth-theme="inner-core"] {
+  background: linear-gradient(135deg, #FFECC8 0%, #ffe0a8 100%);
+  --bubble-color: var(--inner-core-bubble);
+  --text-color: #e0fbfc;
+  --accent-color: #0a9396;
+}
+
+/* Make sure sections take full height */
+[data-earth-theme] {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth transitions for the entire page */
+html, body {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  transition: background-color 1.5s ease-in-out;
+}
+
+/* Force sections to be transparent so we can see the bubbles */
+[data-earth-theme] {
+  background: transparent !important;
+}
+
+/* Create a pseudo-element for the background that can transition */
+[data-earth-theme]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: all 1.5s ease-in-out;
+}
+
+[data-earth-theme="sea-level"]::before {
+  background: linear-gradient(135deg, #26667F 0%, #1a4d63 100%);
+}
+
+[data-earth-theme="crust"]::before {
+  background: linear-gradient(135deg, #B99470 0%, #9c7a52 100%);
+}
+
+[data-earth-theme="upper-mantle"]::before {
+  background: linear-gradient(135deg, #FFB4A2 0%, #ff9378 100%);
+}
+
+[data-earth-theme="lower-mantle"]::before {
+  background: linear-gradient(135deg, #E7CCCC 0%, #d9b4b4 100%);
+}
+
+[data-earth-theme="outer-core"]::before {
+  background: linear-gradient(135deg, #FFCDB2 0%, #ffb489 100%);
+}
+
+[data-earth-theme="inner-core"]::before {
+  background: linear-gradient(135deg, #FFECC8 0%, #ffe0a8 100%);
 }

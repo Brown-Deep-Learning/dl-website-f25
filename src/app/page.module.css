@@ -9,6 +9,7 @@
 
 .scrollContainer {
   height: 100vh;
+  position: relative;
   /* scroll-snap-type: y mandatory; */
   overflow-y: scroll;
   overflow-x: hidden;
@@ -33,4 +34,6 @@
 .section {
   height: fit-content;
   scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
 }
