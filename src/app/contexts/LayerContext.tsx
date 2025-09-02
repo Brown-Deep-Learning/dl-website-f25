@@ -1,50 +1,58 @@
-// contexts/LayerContext.tsx
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+// contexts/LayerContext.ts
+import React, { createContext, useContext, useState } from 'react';
 
-// Define a type for the layer keys
-export type LayerKey = 
-  | 'sea_level' 
-  | 'crust' 
-  | 'upper_mantle' 
-  | 'lower_mantle' 
-  | 'outer_core' 
-  | 'inner_core';
-
-// Define the Layer object with type safety
-export const LAYERS: Record<string, LayerKey> = {
-  SEA_LEVEL: 'sea_level',
-  CRUST: 'crust',
-  UPPER_MANTLE: 'upper_mantle',
-  LOWER_MANTLE: 'lower_mantle',
-  OUTER_CORE: 'outer_core',
-  INNER_CORE: 'inner_core',
+// Use consistent naming - either all uppercase or all lowercase
+export const LAYERS = {
+  SEA_LEVEL: 'SEA_LEVEL',
+  CRUST: 'CRUST',
+  UPPER_MANTLE: 'UPPER_MANTLE', 
+  LOWER_MANTLE: 'LOWER_MANTLE',
+  OUTER_CORE: 'OUTER_CORE',
+  INNER_CORE: 'INNER_CORE',
 } as const;
 
-// Define the shape of our context
+export type LayerKey = keyof typeof LAYERS;
+
+interface LayerTheme {
+  color: string;
+  bubbleColor: string;
+  textColor: string;
+  accentColor: string;
+}
+
+const layerThemes: Record<LayerKey, LayerTheme> = {
+  SEA_LEVEL: { color: '#26667F', bubbleColor: '#94d2bd', textColor: '#e9f5db', accentColor: '#4ecdc4' },
+  CRUST: { color: '#B99470', bubbleColor: '#e6ccb2', textColor: '#fff1e6', accentColor: '#e07a5f' },
+  UPPER_MANTLE: { color: '#FFB4A2', bubbleColor: '#FF7D29', textColor: '#2d1e0d', accentColor: '#ffb74d' },
+  LOWER_MANTLE: { color: '#E7CCCC', bubbleColor: '#8A2D3B', textColor: '#fff1e6', accentColor: '#e68a2e' },
+  OUTER_CORE: { color: '#FFCDB2', bubbleColor: '#FFBF78', textColor: '#ffccd5', accentColor: '#d62828' },
+  INNER_CORE: { color: '#FFECC8', bubbleColor: '#EBE5C2', textColor: '#e0fbfc', accentColor: '#0a9396' },
+};
+
 interface LayerContextType {
   currentLayer: LayerKey;
-  changeLayer: (newLayer: LayerKey) => void;
-  LAYERS: Record<string, LayerKey>;
+  setCurrentLayer: (layer: LayerKey) => void;
+  currentTheme: LayerTheme;
+  LAYERS: typeof LAYERS;
 }
 
-// Create the context with a default value
 const LayerContext = createContext<LayerContextType | undefined>(undefined);
 
-// Props type for the provider
-interface LayerProviderProps {
-  children: ReactNode;
-}
+export const useLayer = () => {
+  const context = useContext(LayerContext);
+  if (!context) {
+    throw new Error('useLayer must be used within a LayerProvider');
+  }
+  return context;
+};
 
-export const LayerProvider: React.FC<LayerProviderProps> = ({ children }) => {
-  const [currentLayer, setCurrentLayer] = useState<LayerKey>(LAYERS.SEA_LEVEL);
+export const LayerProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [currentLayer, setCurrentLayer] = useState<LayerKey>('SEA_LEVEL');
 
-  const changeLayer = (newLayer: LayerKey) => {
-    setCurrentLayer(newLayer);
-  };
-
-  const value: LayerContextType = {
+  const value = {
     currentLayer,
-    changeLayer,
+    setCurrentLayer,
+    currentTheme: layerThemes[currentLayer],
     LAYERS,
   };
 
@@ -53,13 +61,4 @@ export const LayerProvider: React.FC<LayerProviderProps> = ({ children }) => {
       {children}
     </LayerContext.Provider>
   );
-};
-
-// Custom hook to use the layer context
-export const useLayer = (): LayerContextType => {
-  const context = useContext(LayerContext);
-  if (context === undefined) {
-    throw new Error('useLayer must be used within a LayerProvider');
-  }
-  return context;
 };

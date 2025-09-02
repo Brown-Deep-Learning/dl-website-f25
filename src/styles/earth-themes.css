@@ -1,0 +1,87 @@
+/* styles/earth-themes.css */
+:root {
+  /* Sea Level */
+  --sea-level-bg: #26667F;
+  --sea-level-bubble: #94d2bd;
+  --sea-level-text: #e9f5db;
+  --sea-level-accent: #4ecdc4;
+
+  /* Crust */
+  --crust-bg: #B99470;
+  --crust-bubble: #e6ccb2;
+  --crust-text: #fff1e6;
+  --crust-accent: #e07a5f;
+
+  /* Upper Mantle */
+  --upper-mantle-bg: #FFB4A2;
+  --upper-mantle-bubble: #FF7D29;
+  --upper-mantle-text: #2d1e0d;
+  --upper-mantle-accent: #ffb74d;
+
+  /* Lower Mantle */
+  --lower-mantle-bg: #E7CCCC;
+  --lower-mantle-bubble: #8A2D3B;
+  --lower-mantle-text: #fff1e6;
+  --lower-mantle-accent: #e68a2e;
+
+  /* Outer Core */
+  --outer-core-bg: #FFCDB2;
+  --outer-core-bubble: #FFBF78;
+  --outer-core-text: #ffccd5;
+  --outer-core-accent: #d62828;
+
+  /* Inner Core */
+  --inner-core-bg: #FFECC8;
+  --inner-core-bubble: #EBE5C2;
+  --inner-core-text: #e0fbfc;
+  --inner-core-accent: #0a9396;
+
+  /* Default values */
+  --current-bg: var(--sea-level-bg);
+  --current-bubble: var(--sea-level-bubble);
+  --current-text: var(--sea-level-text);
+  --current-accent: var(--sea-level-accent);
+}
+
+/* Theme classes that update the current variables */
+.sea-level-theme {
+  --current-bg: var(--sea-level-bg);
+  --current-bubble: var(--sea-level-bubble);
+  --current-text: var(--sea-level-text);
+  --current-accent: var(--sea-level-accent);
+}
+
+.crust-theme {
+  --current-bg: var(--crust-bg);
+  --current-bubble: var(--crust-bubble);
+  --current-text: var(--crust-text);
+  --current-accent: var(--crust-accent);
+}
+
+.upper-mantle-theme {
+  --current-bg: var(--upper-mantle-bg);
+  --current-bubble: var(--upper-mantle-bubble);
+  --current-text: var(--upper-mantle-text);
+  --current-accent: var(--upper-mantle-accent);
+}
+
+.lower-mantle-theme {
+  --current-bg: var(--lower-mantle-bg);
+  --current-bubble: var(--lower-mantle-bubble);
+  --current-text: var(--lower-mantle-text);
+  --current-accent: var(--lower-mantle-accent);
+}
+
+.outer-core-theme {
+  --current-bg: var(--outer-core-bg);
+  --current-bubble: var(--outer-core-bubble);
+  --current-text: var(--outer-core-text);
+  --current-accent: var(--outer-core-accent);
+}
+
+.inner-core-theme {
+  --current-bg: var(--inner-core-bg);
+  --current-bubble: var(--inner-core-bubble);
+  --current-text: var(--inner-core-text);
+  --current-accent: var(--inner-core-accent);
+}

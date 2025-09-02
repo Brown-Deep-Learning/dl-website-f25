@@ -1,43 +1,33 @@
-/* src/app/components/EarthLayerProgress.module.css */
+/* components/EarthLayerProgress.module.css */
 .nodeContainer {
   position: fixed;
-  right: 30px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Evenly distribute nodes */
-  gap: 0; /* Remove gap since we're using space-between */
-  pointer-events: none;
-  height: 75vh; /* Adjust based on desired total length */
-  padding: 18px 0; /* Padding to account for node radius */
+  justify-content: space-between;
+  height: 80vh;
+  z-index: 1000;
 }
 
 .verticalLine {
   position: absolute;
-  top: 18px; /* Start at center of first node */
-  bottom: 18px; /* End at center of last node */
+  top: 0;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
   background: linear-gradient(to bottom, 
-    #0a9396 0%, 
-    #0a9396 16.6%, 
-    #bb3e03 16.6%, 
-    #bb3e03 33.3%, 
-    #ee9b00 33.3%, 
-    #ee9b00 50%, 
-    #ca6702 50%, 
-    #ca6702 66.6%, 
-    #9b2226 66.6%, 
-    #9b2226 83.3%, 
-    #001219 83.3%, 
-    #001219 100%
+    var(--sea-level-bubble) 0%, 
+    var(--crust-bubble) 20%, 
+    var(--upper-mantle-bubble) 40%, 
+    var(--lower-mantle-bubble) 60%, 
+    var(--outer-core-bubble) 80%, 
+    var(--inner-core-bubble) 100%
   );
-  z-index: 1;
-  pointer-events: none;
+  z-index: -1;
 }
 
 .nodeGroup {
@@ -45,79 +35,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  pointer-events: auto;
-  flex: 1; /* Each group takes equal space */
-  min-height: 0; /* Allow flexible distribution */
-}
-
-/* Ensure perfect centering of nodes */
-.nodeGroup:first-child {
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 9px; /* Half of node height */
-}
-
-.nodeGroup:last-child {
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 9px; /* Half of node height */
+  flex: 1;
+  min-height: 0;
 }
 
 .node {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border: 2px solid;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  margin: 0;
   flex-shrink: 0;
 }
 
 .node:hover {
-  transform: scale(1.4);
-  box-shadow: 0 0 20px currentColor;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px currentColor;
 }
 
 .node.active {
-  transform: scale(1.5);
-  box-shadow: 0 0 25px currentColor;
+  transform: scale(1.3);
+  box-shadow: 0 0 15px currentColor;
 }
 
 .node.completed {
-  background-color: currentColor;
+  background: currentColor;
 }
 
 .completedCheck {
   color: white;
-  font-size: 9px;
+  font-size: 8px;
 }
 
-/* Hover Content */
 .hoverContent {
   position: absolute;
-  right: 35px;
+  right: 30px;
   top: 50%;
   transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 120px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  pointer-events: none;
-  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  min-width: 170px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
 .nodeGroup:hover .hoverContent {
@@ -129,113 +98,44 @@
   text-align: left;
 }
 
-.layerName {
-  margin: 0 0 6px 0;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.layerDepth {
-  font-size: 0.8rem;
-  color: #a1a1aa;
+.layerLabel {
   display: block;
-  margin-bottom: 10px;
-  line-height: 1.2;
+  font-size: 12px;
+  opacity: 0.8;
+  font-style: italic;
 }
 
-.sectionsList {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 10px;
-  margin-top: 10px;
+.layerName {
+  margin: '0 0 8px 0';
+  color: white;
 }
 
-.sectionItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-.sectionItem:last-child {
-  margin-bottom: 0;
-}
-
-.sectionItem.completed {
-  opacity: 0.7;
-}
-
-.sectionName {
-  color: #e5e7eb;
-  flex: 1;
-}
-
-.sectionProgress {
-  font-size: 0.75rem;
-  color: #a1a1aa;
-  margin-left: 10px;
-  min-width: 35px;
-  text-align: right;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* Responsive design */
+@media (max-width: 768px) {
   .nodeContainer {
-    right: 25px;
+    right: 10px;
     height: 70vh;
   }
   
-  .hoverContent {
-    right: 30px;
-    min-width: 160px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nodeContainer {
-    right: 20px;
-    height: 65vh;
-    transform: translateY(-50%) scale(0.9);
-  }
-  
   .node {
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
   }
   
   .hoverContent {
     right: 25px;
-    min-width: 150px;
-    padding: 12px;
+    min-width: 100px;
+    padding: 8px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 480px) {
   .nodeContainer {
-    right: 15px;
-    height: 60vh;
-    transform: translateY(-50%) scale(0.8);
+    right: 5px;
   }
   
   .hoverContent {
     display: none;
   }
-}
-
-/* Animation for active node */
-@keyframes pulse {
-  0%, 100% { 
-    transform: scale(1.5);
-    box-shadow: 0 0 25px currentColor;
-  }
-  50% { 
-    transform: scale(1.4);
-    box-shadow: 0 0 20px currentColor;
-  }
-}
-
-.node.active {
-  animation: pulse 2s infinite;
 }

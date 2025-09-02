@@ -1,144 +1,99 @@
-// src/app/components/EarthLayerProgress.tsx
+// components/EarthLayerProgress.tsx
 "use client";
 
 import React from 'react';
-import { useLayer } from '../contexts/LayerContext';
-import { useScrollProgress } from '../page';
 import styles from './EarthLayerProgress.module.css';
 import { FaCircle } from 'react-icons/fa';
 
 const EarthLayerProgress: React.FC = () => {
-  const { currentLayer, LAYERS, changeLayer } = useLayer();
-  const { sectionProgress } = useScrollProgress();
-
   const layersInOrder = [
     { 
-      key: LAYERS.SEA_LEVEL, 
+      theme: 'sea-level-theme',
       label: 'Sea Level', 
-      color: '#26667F',
-      depth: '0 km',
-      sections: ['landing-page'],
-      targetId: 'landing-page'
+      bubbleColor: 'var(--sea-level-bubble)',
+      targetId: 'landing-page',
+      sectionName: 'Home'
     },
     { 
-      key: LAYERS.CRUST, 
+      theme: 'crust-theme',
       label: 'Crust', 
-      color: '#7B4019',
-      depth: '0-35 km',
-      sections: ['lectures'],
-      targetId: 'lectures'
+      bubbleColor: 'var(--crust-bubble)',
+      targetId: 'lectures',
+      sectionName: 'Lectures'
     },
     { 
-      key: LAYERS.UPPER_MANTLE, 
+      theme: 'upper-mantle-theme',
       label: 'Upper Mantle', 
-      color: '#8A2D3B',
-      depth: '35-410 km',
-      sections: ['assignments'],
-      targetId: 'assignments'
+      bubbleColor: 'var(--upper-mantle-bubble)',
+      targetId: 'assignments',
+      sectionName: 'Assignments'
     },
     { 
-      key: LAYERS.LOWER_MANTLE, 
+      theme: 'lower-mantle-theme',
       label: 'Lower Mantle', 
-      color: '#FF7D29',
-      depth: '410-2891 km',
-      sections: ['calendar'],
-      targetId: 'calendar'
+      bubbleColor: 'var(--lower-mantle-bubble)',
+      targetId: 'calendar',
+      sectionName: 'Calendar'
     },
     { 
-      key: LAYERS.OUTER_CORE, 
+      theme: 'outer-core-theme',
       label: 'Outer Core', 
-      color: '#FFBF78',
-      depth: '2891-5150 km',
-      sections: ['resources'],
-      targetId: 'resources'
+      bubbleColor: 'var(--outer-core-bubble)',
+      targetId: 'resources',
+      sectionName: 'Resources'
     },
     { 
-      key: LAYERS.INNER_CORE, 
+      theme: 'inner-core-theme',
       label: 'Inner Core', 
-      color: '#FFEEA9',
-      depth: '5150-6371 km',
-      sections: ['staff'],
-      targetId: 'staff'
+      bubbleColor: 'var(--inner-core-bubble)',
+      targetId: 'staff',
+      sectionName: 'Staff'
     },
   ];
 
-  const handleNodeClick = (targetId: string) => {
+  const handleNodeClick = (targetId: string, theme: string) => {
+    document.documentElement.className = theme;
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const getSectionName = (sectionId: string): string => {
-    const sectionNames: Record<string, string> = {
-      'landing-page': 'Home',
-      'lectures': 'Lectures',
-      'assignments': 'Assignments',
-      'calendar': 'Calendar',
-      'resources': 'Resources',
-    //   'final-project': 'Project',
-      'staff': 'Staff'
-    };
-    return sectionNames[sectionId] || sectionId;
+  const getCurrentTheme = () => {
+    return document.documentElement.className;
   };
 
   return (
     <div className={styles.nodeContainer}>
-      {/* Vertical connecting line */}
       <div className={styles.verticalLine} />
       
-      {layersInOrder.map((layer, index) => {
-        const isActive = layer.key === currentLayer;
-        const isCompleted = layersInOrder.findIndex(l => l.key === currentLayer) > index;
+      {layersInOrder.map((layer) => {
+        const isActive = getCurrentTheme() === layer.theme;
+        const isCompleted = layersInOrder.findIndex(l => l.theme === getCurrentTheme()) > 
+                          layersInOrder.findIndex(l => l.theme === layer.theme);
         
         return (
-          <div key={layer.key} className={styles.nodeGroup}>
-            {/* Node */}
+          <div key={layer.theme} className={styles.nodeGroup}>
             <button
               className={`${styles.node} ${isActive ? styles.active : ''} ${isCompleted ? styles.completed : ''}`}
-              onClick={() => handleNodeClick(layer.targetId)}
+              onClick={() => handleNodeClick(layer.targetId, layer.theme)}
               style={{ 
-                borderColor: layer.color,
-                backgroundColor: isActive ? layer.color : 'transparent'
+                borderColor: layer.bubbleColor,
+                backgroundColor: isActive ? layer.bubbleColor : isCompleted ? layer.bubbleColor : 'transparent',
               }}
-              aria-label={`Navigate to ${layer.label}`}
+              aria-label={`Navigate to ${layer.sectionName}`}
             >
-              {isCompleted && (
-                <FaCircle className={styles.completedCheck} />
-              )}
+              {isCompleted && <FaCircle className={styles.completedCheck} />}
             </button>
 
-            {/* Hover Content */}
             <div className={styles.hoverContent}>
               <div className={styles.layerInfo}>
-                <h4 
-                  className={styles.layerName}
-                  style={{ color: layer.color }}
-                >
+                <span className={styles.layerLabel} style={{ color: layer.bubbleColor }}>
                   {layer.label}
+                </span>
+                <h4 className={styles.layerName}>
+                  {layer.sectionName}
                 </h4>
-                <span className={styles.layerDepth}>{layer.depth}</span>
-                
-                {/* Sections List */}
-                <div className={styles.sectionsList}>
-                  {layer.sections.map(sectionId => (
-                    <div 
-                      key={sectionId} 
-                      className={`${styles.sectionItem} ${
-                        sectionProgress[sectionId] === 100 ? styles.completed : ''
-                      }`}
-                    >
-                      <span className={styles.sectionName}>
-                        {getSectionName(sectionId)}
-                      </span>
-                      {sectionProgress[sectionId] > 0 && (
-                        <span className={styles.sectionProgress}>
-                          {sectionProgress[sectionId]}%
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>

@@ -1,35 +1,20 @@
 // components/AnimatedEarthBackground.tsx
+"use client";
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLayer } from '../contexts/LayerContext';
-import { LayerKey } from '../contexts/LayerContext';
-
-interface LayerTheme {
-  color: string;
-  bubbleColor: string;
-}
-
-const layerThemes: Record<LayerKey, LayerTheme> = {
-  sea_level: { color: '#26667F', bubbleColor: '#94d2bd' },
-  crust: { color: '#B99470', bubbleColor: '#e6ccb2' },
-  upper_mantle: { color: '#FFB4A2', bubbleColor: '#FF7D29' },
-  lower_mantle: { color: '#E7CCCC', bubbleColor: '#8A2D3B' },
-  outer_core: { color: '#FFCDB2', bubbleColor: '#FFBF78' },
-  inner_core: { color: '#FFECC8', bubbleColor: '#EBE5C2' },
-};
 
 const Bubbles: React.FC<{ 
   density: number; 
-  color: string;
   maxSize: number;
   minSize?: number;
-}> = ({ density, color, maxSize, minSize = 2 }) => {
+}> = ({ density, maxSize, minSize = 2 }) => {
   const bubbles = Array.from({ length: density }, (_, i) => ({
     id: i,
     left: Math.random() * 100,
     size: minSize + Math.random() * (maxSize - minSize),
     delay: Math.random() * 6,
-    duration: 8 + Math.random() * 12, // Longer duration for slower rise
+    duration: 8 + Math.random() * 12,
     horizontalDrift: (Math.random() - 0.5) * 20,
     opacity: 0.5 + Math.random() * 0.3,
   }));
@@ -40,21 +25,21 @@ const Bubbles: React.FC<{
         <motion.div
           key={bubble.id}
           style={{
-            position: 'fixed', // Use fixed positioning to ensure they're above everything
+            position: 'fixed',
             left: `${bubble.left}%`,
-            bottom: '0px', // Start from very bottom
+            bottom: '0px',
             width: `${bubble.size}px`,
             height: `${bubble.size}px`,
             borderRadius: '50%',
-            backgroundColor: color,
+            backgroundColor: 'var(--current-bubble)',
             opacity: 0,
             filter: 'blur(1px)',
-            boxShadow: `0 0 ${bubble.size * 1.5}px ${bubble.size}px ${color}60`,
-            zIndex: -1, // Stay in background but above the base color
-            pointerEvents: 'none', // Don't interfere with clicks
+            boxShadow: `0 0 ${bubble.size * 1.5}px ${bubble.size}px var(--current-bubble)60`,
+            zIndex: -1,
+            pointerEvents: 'none',
           }}
           animate={{
-            y: '-120vh', // Rise all the way up past the viewport
+            y: '-120vh',
             x: `${bubble.horizontalDrift}%`,
             opacity: [0, bubble.opacity, 0],
             scale: [0.3, 1.1, 0.8],
@@ -63,7 +48,7 @@ const Bubbles: React.FC<{
             duration: bubble.duration,
             delay: bubble.delay,
             repeat: Infinity,
-            repeatDelay: Math.random() * 4, // Random pause between bubbles
+            repeatDelay: Math.random() * 4,
             ease: [0.2, 0.8, 0.2, 1],
           }}
         />
@@ -73,34 +58,26 @@ const Bubbles: React.FC<{
 };
 
 export const AnimatedEarthBackground: React.FC = () => {
-  const { currentLayer } = useLayer();
-  const currentTheme = layerThemes[currentLayer];
-
   return (
     <>
-      {/* Base Background */}
-      <motion.div
+      {/* Base Background using CSS variable */}
+      <div
         style={{
           position: 'fixed',
           top: 0,
           left: 0,
           width: '100vw',
           height: '100vh',
-          backgroundColor: currentTheme.color,
-          zIndex: -2, // Behind everything
+          backgroundColor: 'var(--current-bg)',
+          zIndex: -2,
+          transition: 'background-color 1.5s ease-in-out',
         }}
-        initial={false}
-        animate={{ backgroundColor: currentTheme.color }}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
       />
       
-      {/* Bubbles - Multiple sizes for depth */}
-      <Bubbles density={15} color={currentTheme.bubbleColor} maxSize={8} minSize={3} />
-      <Bubbles density={8} color={currentTheme.bubbleColor} maxSize={14} minSize={6} />
-      <Bubbles density={4} color={currentTheme.bubbleColor} maxSize={20} minSize={10} />
-
-      {/* Additional bubble set with slightly different color for variety */}
-      <Bubbles density={5} color={layerThemes.sea_level.bubbleColor} maxSize={10} minSize={4} />
+      {/* Bubbles using CSS variable for color */}
+      <Bubbles density={15} maxSize={8} minSize={3} />
+      <Bubbles density={8} maxSize={14} minSize={6} />
+      <Bubbles density={4} maxSize={20} minSize={10} />
     </>
   );
 };
