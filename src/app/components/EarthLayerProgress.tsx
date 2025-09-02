@@ -10,7 +10,7 @@ const EarthLayerProgress: React.FC = () => {
     { 
       theme: 'sea-level',
       label: 'Sea Level', 
-      textColor: 'var(--sea-level-background)',
+      textColor: '#ffffff',
       bubbleColor: 'var(--sea-level-bubble)',
       targetId: 'landing-page',
       sectionName: 'Home'
