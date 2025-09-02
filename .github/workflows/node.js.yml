@@ -19,7 +19,11 @@ jobs:
           cache: "npm"
       - run: npm install
       - run: npm run build
+        env:
+          CI: false
       - run: npm run export # This creates the "out" folder
+        env:
+          CI: false
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
