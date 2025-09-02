@@ -1,9 +1,12 @@
 // components/Staff.tsx
+"use client";
+
 import React from "react";
 import styles from "./Staff.module.css";
 import {FaEnvelope } from "react-icons/fa";
 import staffData from "../data/staffData";
 import Image from "next/image";
+import { useAssetPath } from "../../hooks/useAssetPath";
 
 interface StaffMember {
   name: string;
@@ -16,25 +19,29 @@ const StaffCard: React.FC<StaffMember> = ({
   name,
   pronouns,
   image,
-}) => (
-  <div className={styles.staffCard}>
-    <div className={styles.imageContainer}>
-      <div className={styles.stars}></div>
-      <Image
-        src={image}
-        alt={name}
-        className={styles.staffImage}
-        width={500}
-        height={300}
-      />
-      <div className={styles.constellation}></div>
+}) => {
+  const getAssetPath = useAssetPath();
+  
+  return (
+    <div className={styles.staffCard}>
+      <div className={styles.imageContainer}>
+        <div className={styles.stars}></div>
+        <Image
+          src={getAssetPath(image)}
+          alt={name}
+          className={styles.staffImage}
+          width={500}
+          height={300}
+        />
+        <div className={styles.constellation}></div>
+      </div>
+      <div className={styles.cardContent}>
+        <h4 className={styles.staffName}>{name}</h4>
+        <p className={styles.pronouns}>{pronouns}</p>
+      </div>
     </div>
-    <div className={styles.cardContent}>
-      <h4 className={styles.staffName}>{name}</h4>
-      <p className={styles.pronouns}>{pronouns}</p>
-    </div>
-  </div>
-);
+  );
+};
 
 const Staff = () => {
   return (
