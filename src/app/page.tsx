@@ -15,7 +15,6 @@ import NavBar from "./components/NavBar";
 
 // theme related imports
 import "../styles/earth-themes.css";
-import SimpleThemeController from './components/SimpleThemeController';
 import { AnimatedEarthBackground } from './components/AnimatedEarthBackground';
 import EarthLayerProgress from "./components/EarthLayerProgress";
 
@@ -37,7 +36,6 @@ const BackgroundOverlay: React.FC = () => {
 export default function Home() {
   return (
     <main className={styles.main}>
-      <SimpleThemeController />
       <AnimatedEarthBackground />
       <NavBar />
       <EarthLayerProgress />
@@ -47,7 +45,6 @@ export default function Home() {
           id="landing-page" 
           className={styles.section}
           data-earth-theme="sea-level"
-          // style={{ minHeight: '100vh' }}
         >
           <LandingPage />
           <CourseDescription />
@@ -57,7 +54,6 @@ export default function Home() {
           id="lectures" 
           className={styles.section}
           data-earth-theme="crust"
-          // style={{ minHeight: '100vh' }}
         >
           <Lectures />
         </section>
@@ -66,7 +62,6 @@ export default function Home() {
           id="assignments" 
           className={styles.section}
           data-earth-theme="upper-mantle"
-          // style={{ minHeight: '100vh' }}
         >
           <Assignments />
         </section>
@@ -75,7 +70,6 @@ export default function Home() {
           id="calendar" 
           className={styles.section}
           data-earth-theme="lower-mantle"
-          // style={{ minHeight: '100vh' }}
         >
           <CourseCalendar />
         </section>
@@ -84,7 +78,6 @@ export default function Home() {
           id="resources" 
           className={styles.section}
           data-earth-theme="outer-core"
-          // style={{ minHeight: '100vh' }}
         >
           <Resources />
         </section>
@@ -92,8 +85,7 @@ export default function Home() {
         <section 
           id="staff" 
           className={styles.section}
-          data-earth-theme="inner-core"
-          // style={{ minHeight: '100vh' }}
+          data-earth-theme="inner-core"        
         >
           <Staff />
 

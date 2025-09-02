@@ -1,9 +1,8 @@
 /* components/Staff.module.css */
 .container {
-  margin-top: 100px;
   background-color: var(--inner-core-background);
   position: relative;
-  padding: 50px 20px;
+  padding: 70px 20px;
   overflow: hidden;
   width: 100%;
   display: flex;

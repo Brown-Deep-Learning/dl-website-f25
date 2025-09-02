@@ -8,7 +8,7 @@ const Bubbles: React.FC<{
   density: number; 
   maxSize: number;
   minSize?: number;
-}> = ({ density, maxSize, minSize = 1 }) => {
+}> = ({ density, maxSize, minSize = 2 }) => {
   const [bubbleColor, setBubbleColor] = useState('#94d2bd');
   const rafRef = useRef<number>(0);
 
@@ -107,9 +107,9 @@ export const AnimatedEarthBackground: React.FC = () => {
       pointerEvents: 'none',
       overflow: 'hidden'
     }}>
-      <Bubbles density={30} maxSize={12} minSize={4} />
-      <Bubbles density={20} maxSize={18} minSize={8} />
-      <Bubbles density={10} maxSize={24} minSize={12} />
+      <Bubbles density={15} maxSize={12} minSize={4} />
+      <Bubbles density={10} maxSize={18} minSize={8} />
+      <Bubbles density={5} maxSize={40} minSize={20} />
     </div>
   );
 };

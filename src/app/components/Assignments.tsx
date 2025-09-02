@@ -11,9 +11,7 @@ const Assignments = () => {
   return (
     <section id="assignments" className={styles.container}>
       <h2 className={styles.heading}>
-        {/* <FaStar className={styles.headerStar} /> */}
         Assignments
-        {/* <FaStar className={styles.headerStar} /> */}
       </h2>
       <div className={styles.assignmentList}>
         {sortedAssignments.map((assignment) => {
