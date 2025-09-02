@@ -17,16 +17,16 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 15px rgba(128, 0, 255, 0.5); /* Adjusted shadow color */
+  box-shadow: 0 0 15px #94d2bd; /* Adjusted shadow color */
   margin: 20px;
 }
 
 .title {
   font-size: 1.5rem;
-  color: rgb(255, 204, 0); /* Neon pink for a cosmic feel */
+  color: white;
   margin-bottom: 10px;
   font-family: "Orbitron", sans-serif;
-  text-shadow: 0 0 5px rgb(255, 204, 0); /* Glow effect */
+  text-shadow: 0 0 5px #94d2bd;
 }
 
 .itemContent {
@@ -40,13 +40,13 @@
   font-size: 1.2rem;
   color: #ffffff;
   font-weight: bold;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .itemDate {
   font-size: 1rem;
-  color: #80ffff;
-  text-shadow: 0 0 5px rgba(128, 255, 255, 0.8);
+  color: #94d2bd;
+  text-shadow: 0 0 5px rgba(128, 255, 255, 0.3);
 }
 
 .links {
@@ -59,20 +59,19 @@
   margin-top: 10px;
   display: inline-flex;
   align-items: center;
-  /* background-color: #2a0038; Deep purple background */
-  color: #ff80ff; /* Neon pink text */
+  color: #94d2bd;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
-  box-shadow: 0 0 10px rgba(255, 128, 255, 0.5); /* Pink glow */
+  box-shadow: 0 0 10px #94d2bd;
 }
 
 .linkButton:hover {
-  background-color: #ff80ff; /* Hover effect */
+  background-color: #94d2bd; /* Hover effect */
   color: #2a0038;
   transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(255, 128, 255, 0.8);
+  box-shadow: 0 0 15px white;
 }
 
 .linkIcon {
