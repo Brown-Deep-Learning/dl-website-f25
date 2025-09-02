@@ -23,7 +23,7 @@ export const assignments = [
   },
   {
     id: 3,
-    name: "Assignment 2: BERAS",
+    name: "Assignment 3: BERAS",
     outDate: "2025-09-18",
     // This one has both conceptual and programming:
     conceptual: {
@@ -39,7 +39,7 @@ export const assignments = [
   },
   {
     id: 4,
-    name: "Assignment 3: CNNS",
+    name: "Assignment 4: CNNS",
     outDate: "2025-10-02",
     // This one has both conceptual and programming:
     conceptual: {
@@ -54,7 +54,7 @@ export const assignments = [
     },
   },
   {id: 5,
-   name: "Assignment 4: Language Modeling",
+   name: "Assignment 5: Language Modeling",
    outDate: "2025-10-16",
    conceptual: {
      title: "Conceptual",
@@ -68,7 +68,7 @@ export const assignments = [
    },
   },
   {id: 5,
-   name: "Assignment 5: Image Captioning",
+   name: "Assignment 6: Image Captioning",
    outDate: "2025-10-30",
    conceptual: {
      title: "Conceptual",
@@ -82,7 +82,7 @@ export const assignments = [
    },
   },
   {id: 5,
-   name: "Assignment 5: Generative Modeling",
+   name: "Assignment 7: Generative Modeling",
    outDate: "2025-11-13",
    programming: {
      title: "Programming",
@@ -91,7 +91,7 @@ export const assignments = [
    },
   },
     {id: 5,
-   name: "Assignment 5: Reinforcement Learning",
+   name: "Assignment 8: Reinforcement Learning",
    outDate: "2025-11-20",
    conceptual: {
      title: "Conceptual",
