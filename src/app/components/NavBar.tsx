@@ -13,7 +13,7 @@ import {
   FaFolderOpen,
   FaUsers,
   FaGlobe,
-  FaProjectDiagram,
+  // FaProjectDiagram,
 } from "react-icons/fa";
 
 const NavBar: React.FC = () => {
@@ -77,11 +77,11 @@ const NavBar: React.FC = () => {
             <FaFolderOpen className={styles.icon} /> Resources
           </button>
         </li>
-        <li>
+        {/* <li>
           <button onClick={() => goToSection("final-project")}>
             <FaProjectDiagram className={styles.icon} /> Final Project
           </button>
-        </li>
+        </li> */}
         <li>
           <button onClick={() => goToSection("staff")}>
             <FaUsers className={styles.icon} /> Staff
