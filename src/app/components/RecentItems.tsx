@@ -5,7 +5,6 @@ import { lectureGroups } from "../data/lectureData";
 import { assignments } from "../data/assignmentData";
 import { FaFire, FaMountain } from "react-icons/fa";
 import { Assignment } from "../types";
-import { FaM } from "react-icons/fa6";
 
 // Helper to get the max inDate from conceptual or programming
 function getMaxInDate(assignment: Assignment): number {

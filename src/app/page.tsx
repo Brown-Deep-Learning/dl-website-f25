@@ -18,20 +18,20 @@ import "../styles/earth-themes.css";
 import { AnimatedEarthBackground } from './components/AnimatedEarthBackground';
 import EarthLayerProgress from "./components/EarthLayerProgress";
 
-const BackgroundOverlay: React.FC = () => {
-  return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: 'var(--current-bg, #26667F)',
-      transition: 'background-color 1.5s ease-in-out',
-      zIndex: -2,
-    }} />
-  );
-};
+// const BackgroundOverlay: React.FC = () => {
+//   return (
+//     <div style={{
+//       position: 'fixed',
+//       top: 0,
+//       left: 0,
+//       width: '100vw',
+//       height: '100vh',
+//       backgroundColor: 'var(--current-bg, #26667F)',
+//       transition: 'background-color 1.5s ease-in-out',
+//       zIndex: -2,
+//     }} />
+//   );
+// };
 
 export default function Home() {
   return (
