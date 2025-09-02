@@ -130,7 +130,7 @@ export const lectureGroups: LectureGroup[] = [
     ],
   },
   {
-    title: "Weeks 9-11: Generative Models and Reinforcement Learning",
+    title: "Weeks 9-11: Unsupervised Learning and Reinforcement Learning",
     lectures: [
       {
         id: 17,
