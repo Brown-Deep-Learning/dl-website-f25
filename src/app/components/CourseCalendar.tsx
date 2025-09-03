@@ -86,7 +86,7 @@ const CourseCalendar = () => {
 
         <div className={styles.calendarWrapper}>
           <iframe
-            src="https://calendar.google.com/calendar/u/0?cid=Y185NGM3ZDJlMDM5YjIxOTg0NDcyNjZhZmEyYmRlMWVmYzkzY2QwOTg0ZDQ0NzUwYTZlZDViYzU4NjcyYWFjN2EwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20"
+            src="https://calendar.google.com/calendar/embed?src=c_94c7d2e039b2198447266afa2bde1efc93cd0984d44750a6ed5bc58672aac7a0%40group.calendar.google.com&ctz=America%2FNew_York"
             className={styles.calendarFrame}
             frameBorder="0"
             scrolling="no"
