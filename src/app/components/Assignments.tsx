@@ -1,23 +1,42 @@
-// components/Assignments.tsx
+// src/app/components/Assignments.tsx
 import React from "react";
 import styles from "./Assignments.module.css";
 import { assignments } from "../data/assignmentData";
-import { FaMountain, FaFire} from "react-icons/fa";
+import { FaHammer, FaGem } from "react-icons/fa";
+import { GiCrystalGrowth } from "react-icons/gi";
+import { useSectionSensor } from "../hooks/useSectionSensor";
+import { LAYERS } from "../contexts/LayerContext";
 
 const Assignments = () => {
+  // const sectionRef = useSectionSensor(LAYERS.LOWER_MANTLE);
   // Sort by ID or whatever ordering you need
   const sortedAssignments = [...assignments].sort((a, b) => a.id - b.id);
 
+  const sectionRef = useSectionSensor(LAYERS.LOWER_MANTLE);
+
   return (
-    <section id="assignments" className={styles.container}>
+    <section ref={sectionRef} id="assignments" className={styles.container}>
+      <div className={styles.meteor}></div>
+      <div className={styles.meteor2}></div>
       <h2 className={styles.heading}>
+        <GiCrystalGrowth className={styles.headerStar} />
         Assignments
+        <GiCrystalGrowth className={styles.headerStar} />
       </h2>
       <div className={styles.assignmentList}>
         {sortedAssignments.map((assignment) => {
-          // We can safely destructure or use optional chaining
-          const hasConceptual = !!assignment.conceptual;
-          const hasProgramming = !!assignment.programming;
+          // Check if sections exist and have non-empty links
+          const hasConceptualSection = assignment.conceptual !== undefined;
+          const hasConceptualLink =
+            hasConceptualSection &&
+            assignment.conceptual.link &&
+            assignment.conceptual.link.trim() !== "";
+
+          const hasProgrammingSection = assignment.programming !== undefined;
+          const hasProgrammingLink =
+            hasProgrammingSection &&
+            assignment.programming.link &&
+            assignment.programming.link.trim() !== "";
 
           return (
             <div key={assignment.id} className={styles.assignmentItem}>
@@ -33,33 +52,45 @@ const Assignments = () => {
                   </span>
 
                   {/* 
-                    If both conceptual & programming exist, show both dates.
-                    If only one exists, show that single date.
+                    Display in dates for sections that exist, regardless of whether links are available
                   */}
-                  {hasConceptual && hasProgramming && (
+                  {hasConceptualSection && hasProgrammingSection && (
+                    <>
+                      <span className={styles.assignmentDate}>
+                        <span className={styles.dateLabel}>
+                          Conceptual In Date:{" "}
+                        </span>
+                        {assignment.conceptual.inDate}
+                      </span>
+                      <span className={styles.assignmentDate}>
+                        <span className={styles.dateLabel}>
+                          Programming In Date:{" "}
+                        </span>
+                        {assignment.programming.inDate}
+                      </span>
+                    </>
+                  )}
+
+                  {hasConceptualSection && !hasProgrammingSection && (
                     <span className={styles.assignmentDate}>
-                      <span className={styles.dateLabel}>In Dates: </span>
-                      Conceptual: {assignment.conceptual?.inDate}, Programming:{" "}
-                      {assignment.programming?.inDate}
+                      <span className={styles.dateLabel}>
+                        Conceptual In Date:{" "}
+                      </span>
+                      {assignment.conceptual.inDate}
                     </span>
                   )}
 
-                  {hasConceptual && !hasProgramming && (
+                  {!hasConceptualSection && hasProgrammingSection && (
                     <span className={styles.assignmentDate}>
-                      <span className={styles.dateLabel}>In Date: </span>
-                      {assignment.conceptual?.inDate}
+                      <span className={styles.dateLabel}>
+                        Programming In Date:{" "}
+                      </span>
+                      {assignment.programming.inDate}
                     </span>
                   )}
 
-                  {!hasConceptual && hasProgramming && (
-                    <span className={styles.assignmentDate}>
-                      <span className={styles.dateLabel}>In Date: </span>
-                      {assignment.programming?.inDate}
-                    </span>
-                  )}
-
-                  {/* If somehow an assignment had no conceptual/programming, fallback: */}
-                  {!hasConceptual && !hasProgramming && (
+                  {/* If somehow an assignment had no conceptual/programming sections, fallback: */}
+                  {!hasConceptualSection && !hasProgrammingSection && (
                     <span className={styles.assignmentDate}>
                       <span className={styles.dateLabel}>In Date: </span>
                       N/A
@@ -67,28 +98,28 @@ const Assignments = () => {
                   )}
                 </div>
 
-                {/* Render the part(s) that exist */}
+                {/* Render the link buttons only if sections exist and have non-empty links */}
                 <div className={styles.assignmentParts}>
-                  {assignment.conceptual && (
+                  {hasConceptualLink && (
                     <a
-                      href={assignment.conceptual.link}
+                      href={assignment.conceptual!.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${styles.linkButton} ${styles.conceptualButton}`}
                     >
-                      <FaFire className={styles.linkIcon} />
-                      {assignment.conceptual.title}
+                      <FaGem className={styles.linkIcon} />
+                      {assignment.conceptual!.title}
                     </a>
                   )}
-                  {assignment.programming && (
+                  {hasProgrammingLink && (
                     <a
-                      href={assignment.programming.link}
+                      href={assignment.programming!.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${styles.linkButton} ${styles.programmingButton}`}
                     >
-                      <FaMountain className={styles.linkIcon} />
-                      {assignment.programming.title}
+                      <FaHammer className={styles.linkIcon} />
+                      {assignment.programming!.title}
                     </a>
                   )}
                 </div>

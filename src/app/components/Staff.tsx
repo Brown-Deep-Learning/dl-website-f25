@@ -1,27 +1,28 @@
-// components/Staff.tsx
-"use client";
-
+// src/app/components/Staff.tsx
 import React from "react";
 import styles from "./Staff.module.css";
-import {FaEnvelope } from "react-icons/fa";
+import { FaHardHat, FaGem, FaEnvelope } from "react-icons/fa";
 import staffData from "../data/staffData";
 import Image from "next/image";
-import { useAssetPath } from "../../hooks/useAssetPath";
+import { useSectionSensor } from "../hooks/useSectionSensor";
+import { LAYERS } from "../contexts/LayerContext";
+import { useAssetPath } from "../hooks/useAssetPath";
 
 interface StaffMember {
   name: string;
   pronouns: string;
   image: string;
-  role?: string; // Added optional role property
+  // spaceCreature: string;
+  role?: string;
 }
 
 const StaffCard: React.FC<StaffMember> = ({
   name,
   pronouns,
   image,
+  // spaceCreature,
 }) => {
   const getAssetPath = useAssetPath();
-  
   return (
     <div className={styles.staffCard}>
       <div className={styles.imageContainer}>
@@ -38,17 +39,22 @@ const StaffCard: React.FC<StaffMember> = ({
       <div className={styles.cardContent}>
         <h4 className={styles.staffName}>{name}</h4>
         <p className={styles.pronouns}>{pronouns}</p>
+        {/* <p className={styles.spaceCreature}>{spaceCreature}</p> */}
       </div>
     </div>
   );
 };
 
 const Staff = () => {
+  const sectionRef = useSectionSensor(LAYERS.INNER_CORE);
+
   return (
-    <section id="staff" className={styles.container}>
+    <section ref={sectionRef} id="staff" className={styles.container}>
       <div className={styles.starsBackground}></div>
       <h2 className={styles.heading}>
-        Mole People
+        <FaHardHat className={styles.headerIcon} />
+        Expedition Team
+        <FaHardHat className={styles.headerIcon} />
       </h2>
 
       <div className={styles.contactInfo}>
@@ -83,7 +89,8 @@ const Staff = () => {
 
       <div className={styles.staffSection}>
         <h3 className={styles.roleHeading}>
-          Mole Monarch
+          <FaGem className={styles.roleIcon} />
+          Lead Geologist
         </h3>
         <div className={styles.staffGrid}>
           <StaffCard {...staffData.professor} />
@@ -92,7 +99,8 @@ const Staff = () => {
 
       <div className={styles.staffSection}>
         <h3 className={styles.roleHeading}>
-          Mole Manager
+          <FaGem className={styles.roleIcon} />
+          Senior Excavators
         </h3>
         <div className={styles.staffGrid}>
           {staffData.htas.map((hta, index) => (
@@ -103,7 +111,8 @@ const Staff = () => {
 
       <div className={styles.staffSection}>
         <h3 className={styles.roleHeading}>
-          Mole Minions
+          <FaGem className={styles.roleIcon} />
+          Mining Specialists
         </h3>
         <div className={styles.staffGrid}>
           {staffData.utas.map((uta, index) => (

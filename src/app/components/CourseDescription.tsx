@@ -1,6 +1,8 @@
 // components/CourseDescription.tsx
 import React from "react";
 import styles from "./CourseDescription.module.css";
+import { useSectionSensor } from "../hooks/useSectionSensor";
+import { LAYERS } from "../contexts/LayerContext";
 import { FaMapMarkerAlt, FaCalendarAlt, FaUser } from "react-icons/fa";
 import { SiCanvas, SiGooglescholar } from "react-icons/si";
 import { RiQuestionLine } from "react-icons/ri";
@@ -8,8 +10,13 @@ import RecentItems from "./RecentItems";
 import { MdOutlineDocumentScanner } from "react-icons/md";
 
 const CourseDescription = () => {
+  const sectionRef = useSectionSensor(LAYERS.CRUST);
   return (
-    <section id="course-description" className={styles.container}>
+    <section
+      ref={sectionRef}
+      id="course-description"
+      className={styles.container}
+    >
       <div className={styles.content}>
         <div className={styles.topContent}>
           <div className={styles.textContent}>
@@ -45,7 +52,7 @@ const CourseDescription = () => {
                 <FaMapMarkerAlt className={styles.icon} />
                 <div>
                   <h3>Location</h3>
-                  <p>Granoff Ctr for Creative Arts</p>
+                  <p>Granoff Ctr for Creative Arts 110</p>
                 </div>
               </div>
               <div className={styles.infoItem}>

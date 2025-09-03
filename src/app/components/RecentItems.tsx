@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./RecentItems.module.css";
 import { lectureGroups } from "../data/lectureData";
 import { assignments } from "../data/assignmentData";
-import { FaFire, FaMountain } from "react-icons/fa";
+import { FaRocket, FaRegMoon } from "react-icons/fa";
 import { Assignment } from "../types";
 
 // Helper to get the max inDate from conceptual or programming
@@ -78,7 +78,7 @@ const RecentItems = () => {
                   rel="noopener noreferrer"
                   className={styles.linkButton}
                 >
-                  <FaFire className={styles.linkIcon} /> Slides
+                  <FaRegMoon className={styles.linkIcon} /> Slides
                 </a>
               )}
               {recentLecture.recordingLink && (
@@ -88,7 +88,7 @@ const RecentItems = () => {
                   rel="noopener noreferrer"
                   className={styles.linkButton}
                 >
-                  <FaMountain className={styles.linkIcon} /> Recording
+                  <FaRocket className={styles.linkIcon} /> Recording
                 </a>
               )}
             </div>
@@ -142,7 +142,7 @@ const RecentItems = () => {
                 rel="noopener noreferrer"
                 className={styles.linkButton}
               >
-                <FaFire className={styles.linkIcon} />{" "}
+                <FaRegMoon className={styles.linkIcon} />{" "}
                 {recentAssignment.conceptual.title}
               </a>
             )}
@@ -153,7 +153,7 @@ const RecentItems = () => {
                 rel="noopener noreferrer"
                 className={styles.linkButton}
               >
-                <FaMountain className={styles.linkIcon} />{" "}
+                <FaRocket className={styles.linkIcon} />{" "}
                 {recentAssignment.programming.title}
               </a>
             )}

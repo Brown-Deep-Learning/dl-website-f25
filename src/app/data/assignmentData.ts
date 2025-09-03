@@ -53,55 +53,59 @@ export const assignments = [
       inDate: "2025-10-16",
     },
   },
-  {id: 5,
-   name: "Assignment 5: Language Modeling",
-   outDate: "2025-10-16",
-   conceptual: {
-     title: "Conceptual",
-     link: "",
-     inDate: "2025-10-23",
-   },
-   programming: {
-     title: "Programming",
-     link: "",
-     inDate: "2025-10-30",
-   },
+  {
+    id: 5,
+    name: "Assignment 5: Language Modeling",
+    outDate: "2025-10-16",
+    conceptual: {
+      title: "Conceptual",
+      link: "",
+      inDate: "2025-10-23",
+    },
+    programming: {
+      title: "Programming",
+      link: "",
+      inDate: "2025-10-30",
+    },
   },
-  {id: 5,
-   name: "Assignment 6: Image Captioning",
-   outDate: "2025-10-30",
-   conceptual: {
-     title: "Conceptual",
-     link: "",
-     inDate: "2025-11-06",
-   },
-   programming: {
-     title: "Programming",
-     link: "",
-     inDate: "2025-11-13",
-   },
+  {
+    id: 6,
+    name: "Assignment 6: Image Captioning",
+    outDate: "2025-10-30",
+    conceptual: {
+      title: "Conceptual",
+      link: "",
+      inDate: "2025-11-06",
+    },
+    programming: {
+      title: "Programming",
+      link: "",
+      inDate: "2025-11-13",
+    },
   },
-  {id: 5,
-   name: "Assignment 7: Generative Modeling",
-   outDate: "2025-11-13",
-   programming: {
-     title: "Programming",
-     link: "",
-     inDate: "2025-11-20",
-   },
+  {
+    id: 7,
+    name: "Assignment 7: Generative Modeling",
+    outDate: "2025-11-13",
+    programming: {
+      title: "Programming",
+      link: "",
+      inDate: "2025-11-20",
+    },
   },
-    {id: 5,
-   name: "Assignment 8: Reinforcement Learning",
-   outDate: "2025-11-20",
-   conceptual: {
-     title: "Conceptual",
-     link: "",
-     inDate: "2025-12-04",
-   },
-   programming: {
-     title: "Programming",
-     link: "",
-     inDate: "2025-12-04",
-   },
-  }
+  {
+    id: 8,
+    name: "Assignment 8: Reinforcement Learning",
+    outDate: "2025-11-20",
+    conceptual: {
+      title: "Conceptual",
+      link: "",
+      inDate: "2025-12-04",
+    },
+    programming: {
+      title: "Programming",
+      link: "",
+      inDate: "2025-12-04",
+    },
+  },
 ];

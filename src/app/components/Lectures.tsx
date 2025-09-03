@@ -1,14 +1,17 @@
-// components/Lectures.tsx
+// src/app/components/Lectures.tsx
 import React from "react";
 import styles from "./Lectures.module.css";
 import { lectureGroups } from "../data/lectureData";
-import { FaFire, FaMountain } from "react-icons/fa"; // Updated icons
+import { FaHammer, FaGem } from "react-icons/fa";
+import { GiMineWagon } from "react-icons/gi";
 
 const Lectures = () => {
   return (
     <section id="lectures" className={styles.container}>
       <div className={styles.headingContainer}>
+        <GiMineWagon className={styles.groupIcon} />
         <h2 className={styles.heading}>Lectures</h2>
+        <GiMineWagon className={styles.groupIcon} />
       </div>
       <div className={styles.groups}>
         {lectureGroups.map((group, groupIndex) => (
@@ -31,7 +34,7 @@ const Lectures = () => {
                         rel="noopener noreferrer"
                         className={styles.linkButton}
                       >
-                        <FaFire className={styles.linkIcon} /> Slides
+                        <FaGem className={styles.linkIcon} /> Slides
                       </a>
                     )}
                     {lecture.recordingLink && (
@@ -41,7 +44,7 @@ const Lectures = () => {
                         rel="noopener noreferrer"
                         className={styles.linkButton}
                       >
-                        <FaMountain className={styles.linkIcon} /> Recording
+                        <FaHammer className={styles.linkIcon} /> Recording
                       </a>
                     )}
                   </div>

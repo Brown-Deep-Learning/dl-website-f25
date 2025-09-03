@@ -1,8 +1,10 @@
-/* components/Staff.module.css */
+/* src/app/components/Staff.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap");
+
 .container {
-  background-color: var(--inner-core-background);
+  margin-top: 100px;
   position: relative;
-  padding: 70px 20px;
+  padding: 50px 20px;
   overflow: hidden;
   width: 100%;
   display: flex;
@@ -10,26 +12,95 @@
   align-items: center;
 }
 
+.starsBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(3px 3px at 20% 30%, #D2691E, transparent),
+    radial-gradient(4px 4px at 60% 70%, #FFD700, transparent),
+    radial-gradient(2px 2px at 80% 20%, #CD853F, transparent);
+  background-size: 300px 300px;
+  animation: shimmerBackground 8s ease-in-out infinite;
+  opacity: 0.1;
+}
+
+@keyframes shimmerBackground {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
 .heading {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 3.5rem;
-  color: var(--inner-core-bubble);
+  background: linear-gradient(135deg, #FFD700, #D2691E, #CD853F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  letter-spacing: 2px;
+}
+
+.headerIcon {
+  font-size: 2.5rem;
+  color: #D2691E;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(210, 105, 30, 0.5));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
 }
 
 .contactInfo {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.85), rgba(160, 82, 45, 0.85));
+  backdrop-filter: blur(15px);
   border-radius: 15px;
-  padding: 25px;
+  padding: 30px;
   margin-bottom: 40px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px var(--inner-core-bubble);
+  border: 2px solid rgba(210, 105, 30, 0.3);
   width: 100%;
-  max-width: 800px; /* Limit the maximum width for better readability */
+  max-width: 800px;
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 215, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactInfo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      rgba(0, 0, 0, 0.02) 30px,
+      rgba(0, 0, 0, 0.02) 31px
+    );
+  pointer-events: none;
 }
 
 .emailBlock {
@@ -37,38 +108,48 @@
   flex-direction: column;
   gap: 15px;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .emailItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #fff;
+  gap: 12px;
+  color: #F5DEB3;
 }
 
 .emailIcon {
-  color: black;
+  color: #FFD700;
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
 }
 
 .emailLabel {
-  font-weight: 200;
-  color: black;
+  font-weight: 600;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 .emailItem a {
-  color: var(--inner-core-bubble);
+  color: #87CEEB;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(135, 206, 235, 0.3);
 }
 
 .emailItem a:hover {
-  color: #ff4400;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .disclaimer {
   font-style: italic;
-  color: #ff4400;
+  color: #FFA500;
   font-size: 0.9rem;
+  text-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 .staffSection {
@@ -78,24 +159,40 @@
 }
 
 .roleHeading {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 2.2rem;
-  color: var(--inner-core-bubble);
+  background: linear-gradient(135deg, #FFD700, #D2691E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 25px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  letter-spacing: 1px;
 }
 
 .roleIcon {
-  color: var(--inner-core-bubble);
-  animation: pulse 2s infinite;
+  color: #D2691E;
+  animation: gemRotate 4s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(210, 105, 30, 0.5));
 }
 
+@keyframes gemRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
 
 .staffGrid {
   display: grid;
-  /* Use auto-fit to allow grids to shrink if necessary */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   padding: 20px 0;
@@ -104,26 +201,55 @@
 }
 
 .staffCard {
-  box-shadow: 0 0 25px var(--inner-core-bubble);
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(160, 82, 45, 0.9));
+  backdrop-filter: blur(10px);
   border-radius: 15px;
   width: 100%;
   height: 100%;
-
   max-width: 280px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
+  border: 2px solid rgba(210, 105, 30, 0.3);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 215, 0, 0.1);
+}
+
+.staffCard::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 215, 0, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.staffCard:hover::before {
+  opacity: 1;
 }
 
 .staffCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px rgb(221, 211, 135);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 
+    0 20px 60px rgba(255, 215, 0, 0.3),
+    inset 0 1px 0 rgba(255, 215, 0, 0.2);
+  background: linear-gradient(135deg, rgba(160, 82, 45, 0.95), rgba(210, 105, 30, 0.95));
 }
 
 .imageContainer {
   position: relative;
   padding-top: 100%;
   overflow: hidden;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
 }
 
 .staffImage {
@@ -133,36 +259,83 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.staffCard:hover .staffImage {
+  transform: scale(1.1);
+}
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(210, 105, 30, 0.1), transparent 30%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.staffCard:hover .constellation {
+  opacity: 1;
 }
 
 .cardContent {
-  height: 100%;
   padding: 20px;
-  background: var(--inner-core-bubble);
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 69, 19, 0.95),
+    rgba(107, 68, 35, 0.95)
+  );
+  position: relative;
+}
+
+.cardContent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
 }
 
 .staffName {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 1.4rem;
-  color: var(--inner-core-background);
+  color: #FFD700;
   margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  letter-spacing: 1px;
 }
 
 .pronouns {
-  color: white;
+  color: #F5DEB3;
   font-size: 0.9rem;
   margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .spaceCreature {
-  color: #ff9500;
+  color: #D2691E;
   font-style: italic;
   font-size: 0.9rem;
+  text-shadow: 0 0 5px rgba(210, 105, 30, 0.5);
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .heading {
     font-size: 2.5rem;
+    gap: 10px;
+  }
+
+  .headerIcon {
+    font-size: 2rem;
   }
 
   .roleHeading {
@@ -171,6 +344,11 @@
 
   .staffGrid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .contactInfo {
+    padding: 20px;
   }
 }
 
@@ -182,9 +360,14 @@
   .emailItem {
     flex-direction: column;
     align-items: flex-start;
+    gap: 5px;
   }
 
   .staffGrid {
     grid-template-columns: 1fr;
+  }
+
+  .staffCard {
+    max-width: 100%;
   }
 }

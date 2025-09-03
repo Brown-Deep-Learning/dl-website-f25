@@ -1,68 +1,87 @@
 /* styles/earth-themes.css */
 :root {
-  /* Define all colors at root level for global access */
+  /* Sea Level */
+  --sea-level-bg: #26667F;
   --sea-level-bubble: #94d2bd;
-  --sea-level-background: #26667F;
+  --sea-level-text: #e9f5db;
+  --sea-level-accent: #4ecdc4;
 
-  --crust-bubble: #61503f;
-  --crust-background: #cab7a4;
+  /* Crust */
+  --crust-bg: #B99470;
+  --crust-bubble: #e6ccb2;
+  --crust-text: #fff1e6;
+  --crust-accent: #e07a5f;
 
-  --upper-mantle-bubble: #8A2D3B;
-  --upper-mantle-background: #FFDCDC;
+  /* Upper Mantle */
+  --upper-mantle-bg: #FFB4A2;
+  --upper-mantle-bubble: #FF7D29;
+  --upper-mantle-text: #2d1e0d;
+  --upper-mantle-accent: #ffb74d;
 
-  --lower-mantle-bubble: #8d4f73;
-  --lower-mantle-background: #E7CCCC;
+  /* Lower Mantle */
+  --lower-mantle-bg: #E7CCCC;
+  --lower-mantle-bubble: #8A2D3B;
+  --lower-mantle-text: #fff1e6;
+  --lower-mantle-accent: #e68a2e;
 
-  --outer-core-bubble: #ea7f06;
-  --outer-core-background: #FFD6BA;
+  /* Outer Core */
+  --outer-core-bg: #FFCDB2;
+  --outer-core-bubble: #FFBF78;
+  --outer-core-text: #ffccd5;
+  --outer-core-accent: #d62828;
 
-  --inner-core-bubble: #5E454B;
-  --inner-core-background: #FFE8CD;
+  /* Inner Core */
+  --inner-core-bg: #FFECC8;
+  --inner-core-bubble: #EBE5C2;
+  --inner-core-text: #e0fbfc;
+  --inner-core-accent: #0a9396;
 
   /* Default values */
-  --bubble-color: var(--sea-level-bubble);
+  --current-bg: var(--sea-level-bg);
+  --current-bubble: var(--sea-level-bubble);
+  --current-text: var(--sea-level-text);
+  --current-accent: var(--sea-level-accent);
 }
 
-/* Make sure sections take full height */
-[data-earth-theme] {
-  min-height: 100vh;
-  position: relative;
-  z-index: 1;
+/* Theme classes that update the current variables */
+.sea-level-theme {
+  --current-bg: var(--sea-level-bg);
+  --current-bubble: var(--sea-level-bubble);
+  --current-text: var(--sea-level-text);
+  --current-accent: var(--sea-level-accent);
 }
 
-/* Smooth transitions for the entire page */
-html, body {
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  transition: background-color 1.5s ease-in-out;
+.crust-theme {
+  --current-bg: var(--crust-bg);
+  --current-bubble: var(--crust-bubble);
+  --current-text: var(--crust-text);
+  --current-accent: var(--crust-accent);
 }
 
-/*Force sections to be transparent so we can see the bubbles*/
-[data-earth-theme] {
-  background: transparent !important;
+.upper-mantle-theme {
+  --current-bg: var(--upper-mantle-bg);
+  --current-bubble: var(--upper-mantle-bubble);
+  --current-text: var(--upper-mantle-text);
+  --current-accent: var(--upper-mantle-accent);
 }
 
-[data-earth-theme="sea-level"] {
-  --bubble-color: var(--sea-level-bubble);
+.lower-mantle-theme {
+  --current-bg: var(--lower-mantle-bg);
+  --current-bubble: var(--lower-mantle-bubble);
+  --current-text: var(--lower-mantle-text);
+  --current-accent: var(--lower-mantle-accent);
 }
 
-[data-earth-theme="crust"] {
-  --bubble-color: var(--crust-bubble);
+.outer-core-theme {
+  --current-bg: var(--outer-core-bg);
+  --current-bubble: var(--outer-core-bubble);
+  --current-text: var(--outer-core-text);
+  --current-accent: var(--outer-core-accent);
 }
 
-[data-earth-theme="upper-mantle"] {
-  --bubble-color: var(--upper-mantle-bubble);
-}
-
-[data-earth-theme="lower-mantle"] {
-  --bubble-color: var(--lower-mantle-bubble);
-}
-
-[data-earth-theme="outer-core"] {
-  --bubble-color: var(--outer-core-bubble);
-}
-
-[data-earth-theme="inner-core"] {
-  --bubble-color: var(--inner-core-bubble);
+.inner-core-theme {
+  --current-bg: var(--inner-core-bg);
+  --current-bubble: var(--inner-core-bubble);
+  --current-text: var(--inner-core-text);
+  --current-accent: var(--inner-core-accent);
 }

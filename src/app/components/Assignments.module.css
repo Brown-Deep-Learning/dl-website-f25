@@ -1,26 +1,88 @@
-/* components/Assignments.module.css */
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+/* src/app/components/Assignments.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap");
 
 .container {
   width: 100%;
   padding: 50px 20px;
   color: #ffffff;
-  background-color: var(--upper-mantle-background);
   position: relative;
   overflow: hidden;
+}
+
+/* Animated geological particles */
+.meteor,
+.meteor2 {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #D2691E, #FFD700);
+  border-radius: 50%;
+  animation: fallingRock 3s linear infinite;
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(210, 105, 30, 0.5);
+}
+
+.meteor {
+  top: -10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.meteor2 {
+  top: -10%;
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+@keyframes fallingRock {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(720deg);
+    opacity: 0;
+  }
 }
 
 .heading {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: 40px;
-  font-family: "Orbitron", sans-serif;
-  color: var(--upper-mantle-bubble);
-  text-shadow: 0 0 20px white;
+  font-family: "Bebas Neue", sans-serif;
+  background: linear-gradient(135deg, #FFD700, #D2691E, #CD853F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(210, 105, 30, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
+  letter-spacing: 2px;
+}
+
+.headerStar {
+  color: #D2691E;
+  animation: sparkle 1.5s infinite alternate;
+  filter: drop-shadow(0 0 10px rgba(210, 105, 30, 0.5));
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
 }
 
 .assignmentList {
@@ -29,19 +91,44 @@
 }
 
 .assignmentItem {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.8), rgba(160, 82, 45, 0.8));
+  backdrop-filter: blur(12px);
   padding: 25px;
   margin-bottom: 30px;
   border-radius: 15px;
-  box-shadow: 0 0 25px rgba(73, 63, 2, 0.3);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 215, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  border: 2px solid rgba(210, 105, 30, 0.3);
+}
+
+.assignmentItem::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(0, 0, 0, 0.02) 20px,
+      rgba(0, 0, 0, 0.02) 21px
+    );
+  pointer-events: none;
 }
 
 .assignmentItem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 35px rgba(73, 63, 2, 0.3);
+  box-shadow: 
+    0 15px 50px rgba(210, 105, 30, 0.3),
+    inset 0 1px 0 rgba(255, 215, 0, 0.2);
+  background: linear-gradient(135deg, rgba(160, 82, 45, 0.9), rgba(210, 105, 30, 0.9));
 }
 
 .glowOrb {
@@ -52,19 +139,31 @@
   height: 200px;
   background: radial-gradient(
     circle,
-    rgba(0, 255, 255, 0.1) 0%,
+    rgba(255, 215, 0, 0.1) 0%,
     transparent 70%
   );
   border-radius: 50%;
   pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 30px);
+  }
 }
 
 .assignmentTitle {
   font-size: 2.2rem;
   margin-bottom: 20px;
-  font-family: "Orbitron", sans-serif;
-  color: var(--upper-mantle-bubble);
-  text-shadow: 0 0 3px var(--upper-mantle-background);
+  font-family: "Bebas Neue", sans-serif;
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  position: relative;
+  z-index: 1;
 }
 
 .titleText {
@@ -78,8 +177,18 @@
   bottom: -5px;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #8A2D3B, transparent);
+  height: 3px;
+  background: linear-gradient(to right, transparent, #D2691E, #FFD700, #D2691E, transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .assignmentDates {
@@ -87,16 +196,20 @@
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .assignmentDate {
-  font-family: "Orbitron", sans-serif;
-  color: var(--upper-mantle-bubble);
+  font-family: "Roboto", sans-serif;
+  color: #F5DEB3;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .dateLabel {
-  color: var(--upper-mantle-bubble);
+  color: #FFD700;
   margin-right: 8px;
+  font-weight: bold;
 }
 
 .linkButton {
@@ -104,35 +217,76 @@
   align-items: center;
   padding: 12px 20px;
   margin-right: 15px;
-  border-radius: 8px;
-  font-family: "Orbitron", sans-serif;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
   transition: all 0.3s ease;
+  border: 1px solid rgba(210, 105, 30, 0.4);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.linkButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.linkButton:hover::before {
+  left: 100%;
 }
 
 .conceptualButton {
-  background: linear-gradient(45deg, #E7CCCC, #f7a3b0);
-  color: var(--upper-mantle-bubble);
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: #F5DEB3;
 }
 
 .programmingButton {
-  background: linear-gradient(45deg, #d7c4c8, #a27a7a);
-  color: var(--upper-mantle-bubble);
+  background: linear-gradient(135deg, #D2691E, #CD853F);
+  color: #FFFFFF;
 }
 
-.linkButton:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 20px rgba(73, 63, 2, 0.3);
+.conceptualButton:hover,
+.programmingButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+  background: linear-gradient(135deg, #FFD700, #D2691E);
+  color: #FFFFFF;
 }
 
 .linkIcon {
   margin-right: 10px;
   font-size: 1.2em;
+  animation: rotate 3s linear infinite;
 }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.assignmentParts {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile Responsive */
 @media (max-width: 600px) {
   .heading {
     font-size: 2.5rem;
+    gap: 10px;
   }
 
   .assignmentTitle {
@@ -149,5 +303,9 @@
     margin-right: 0;
     margin-bottom: 10px;
     justify-content: center;
+  }
+
+  .assignmentItem {
+    padding: 20px 15px;
   }
 }

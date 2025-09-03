@@ -1,19 +1,21 @@
-/* components/TypewriterText.module.css */
+/* src/app/components/TypewriterText.module.css */
 .typewriter {
   display: inline-block;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  border-right: 3px solid;
+  border-image: linear-gradient(180deg, #FFD700, #D2691E) 1;
   overflow: hidden;
-  animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite, glow 2s ease-in-out infinite;
   max-width: 100%;
   word-wrap: break-word;
+  padding-right: 5px;
 }
 
 @keyframes blink {
   0% {
-    border-color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 215, 0, 0.9);
   }
   49% {
-    border-color: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 215, 0, 0.9);
   }
   50% {
     border-color: transparent;
@@ -23,8 +25,18 @@
   }
 }
 
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(210, 105, 30, 0.5));
+  }
+}
+
 @media (max-width: 768px) {
   .typewriter {
     font-size: 90%;
+    border-width: 2px;
   }
 }

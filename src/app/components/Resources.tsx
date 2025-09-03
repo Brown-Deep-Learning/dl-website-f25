@@ -1,7 +1,8 @@
-// components/Resources.tsx
+// src/app/components/Resources.tsx
 import React from "react";
 import styles from "./Resources.module.css";
-import { FaFire, FaMountain } from "react-icons/fa";
+import { FaGem, FaHammer } from "react-icons/fa";
+import { GiCrystalGrowth } from "react-icons/gi";
 
 interface ResourceItem {
   title: string;
@@ -118,17 +119,21 @@ const resourceData: ResourceCategory[] = [
 ];
 
 const Resources = () => {
+  // const sectionRef = useSectionSensor(LAYERS.OUTER_CORE);
+
   return (
     <section id="resources" className={styles.container}>
       <div className={styles.backgroundPlanet}></div>
       <h2 className={styles.heading}>
+        <FaGem className={styles.headerIcon} />
         Resources
+        <FaGem className={styles.headerIcon} />
       </h2>
       <div className={styles.resourceCategories}>
         {resourceData.map((category, index) => (
           <div key={index} className={styles.category}>
             <div className={styles.categoryHeader}>
-              <FaFire className={styles.categoryIcon} />
+              <GiCrystalGrowth className={styles.categoryIcon} />
               <h3 className={styles.categoryTitle}>{category.title}</h3>
             </div>
             <div className={styles.resourcesList}>
@@ -141,7 +146,7 @@ const Resources = () => {
                   className={styles.resourceLink}
                 >
                   <div className={styles.linkIconWrapper}>
-                    <FaMountain className={styles.linkIcon} />
+                    <FaHammer className={styles.linkIcon} />
                   </div>
                   <span className={styles.linkText}>{resource.title}</span>
                 </a>

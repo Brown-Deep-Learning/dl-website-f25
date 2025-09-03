@@ -1,0 +1,176 @@
+/* src/app/components/EarthLayers.module.css */
+
+.earthCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(240, 248, 255, 0.05) 0%,
+    rgba(230, 230, 250, 0.08) 100%
+  );
+
+  /* Smooth canvas transitions */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.earthCanvas.transitioning {
+  opacity: 0.9;
+}
+
+/* Content overlay for better readability */
+.contentOverlay {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(0.5px);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Text enhancement classes for better readability over the background */
+.textEnhanced {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.textEnhancedDark {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* Layer-specific text styling */
+.seaLevelText {
+  color: #e9f5db;
+  text-shadow: 0 2px 4px rgba(38, 102, 127, 0.8);
+}
+
+.crustText {
+  color: #fff1e6;
+  text-shadow: 0 2px 4px rgba(107, 68, 35, 0.8);
+}
+
+.upperMantleText {
+  color: #2d1e0d;
+  text-shadow: 0 2px 4px rgba(255, 180, 162, 0.8);
+}
+
+.lowerMantleText {
+  color: #fff1e6;
+  text-shadow: 0 2px 4px rgba(138, 45, 59, 0.8);
+}
+
+.outerCoreText {
+  color: #ffccd5;
+  text-shadow: 0 2px 4px rgba(214, 40, 40, 0.8);
+}
+
+.innerCoreText {
+  color: #1a1a1a;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Smooth fade in/out animations for layer changes */
+@keyframes layerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes layerFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.layerTransitionIn {
+  animation: layerFadeIn 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.layerTransitionOut {
+  animation: layerFadeOut 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Subtle pulse animation for important content during transitions */
+.contentPulse {
+  animation: contentPulse 3s ease-in-out infinite;
+}
+
+@keyframes contentPulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Performance optimizations */
+.earthCanvas {
+  will-change: opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .earthCanvas {
+    transition: none;
+  }
+
+  .layerTransitionIn,
+  .layerTransitionOut {
+    animation: none;
+  }
+
+  .contentPulse {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .contentOverlay {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    border: 2px solid #000000;
+  }
+
+  .earthCanvas {
+    opacity: 0.3;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .earthCanvas {
+    /* Reduce complexity on mobile for better performance */
+    filter: blur(0.5px);
+  }
+
+  .contentOverlay {
+    margin: 0.5rem;
+    padding: 0.8rem;
+  }
+}

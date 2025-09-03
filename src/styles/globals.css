@@ -1,56 +1,211 @@
+/* src/styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  /* Deep Earth color palette */
+  --background: #1a0f0a;
+  --foreground: #f5deb3;
+  --primary-brown: #8b4513;
+  --secondary-brown: #a0522d;
+  --gold: #ffd700;
+  --copper: #d2691e;
+  --bronze: #cd853f;
+  --magma-red: #dc143c;
+  --magma-orange: #ff4500;
+  --crystal-white: #ffffff;
+  --mineral-blue: #4169e1;
+  --mineral-purple: #9370db;
+  --sediment: #8b7355;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a0f0a;
+    --foreground: #f5deb3;
   }
 }
 
+/* Import fonts for geological theme */
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/Orbitron-Regular.ttf") format("truetype");
+  font-family: "Bebas Neue";
+  src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Orbitron";
-  src: url("/fonts/Orbitron-Bold.ttf") format("truetype");
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Orbitron", sans-serif;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  position: relative;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.main {
-  position: relative;
-  z-index: 1;
+/* Global heading styles for Deep Earth theme */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
 }
 
-.scrollContainer {
-  position: relative;
-  z-index: 2;
+/* Custom scrollbar for Deep Earth theme */
+::-webkit-scrollbar {
+  width: 12px;
 }
 
-.section {
-  position: relative;
-  z-index: 2;
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #1a0f0a, #2c1810);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #d2691e, #8b4513);
+  border-radius: 10px;
+  border: 2px solid #1a0f0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ffd700, #d2691e);
+}
+
+/* Selection colors */
+::selection {
+  background-color: rgba(210, 105, 30, 0.4);
+  color: #ffd700;
+}
+
+::-moz-selection {
+  background-color: rgba(210, 105, 30, 0.4);
+  color: #ffd700;
+}
+
+/* Utility classes for Deep Earth theme */
+.text-gradient-earth {
+  background: linear-gradient(135deg, #ffd700, #d2691e, #cd853f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-earth-gradient {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(160, 82, 45, 0.9));
+}
+
+.shadow-earth {
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(210, 105, 30, 0.1);
+}
+
+.border-earth {
+  border: 1px solid rgba(210, 105, 30, 0.3);
+}
+
+/* Animation utilities */
+@keyframes earthPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(210, 105, 30, 0.5));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+  }
+}
+
+@keyframes mineralSparkle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes magmaFlow {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes seismicWave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-earth-pulse {
+  animation: earthPulse 3s ease-in-out infinite;
+}
+
+.animate-mineral-sparkle {
+  animation: mineralSparkle 2s ease-in-out infinite;
+}
+
+.animate-magma-flow {
+  animation: magmaFlow 5s linear infinite;
+}
+
+.animate-seismic-wave {
+  animation: seismicWave 2s ease-out;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
 }
