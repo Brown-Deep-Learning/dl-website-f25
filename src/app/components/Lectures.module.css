@@ -39,7 +39,7 @@
 .heading {
   text-align: center;
   font-size: 3.5rem;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   background: linear-gradient(135deg, #ffd700, #d2691e, #cd853f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -87,7 +87,7 @@
   border-bottom: 3px solid;
   border-image: linear-gradient(90deg, #d2691e, #ffd700, #d2691e) 1;
   padding-bottom: 10px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   color: #ffd700;
   text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
   letter-spacing: 1px;

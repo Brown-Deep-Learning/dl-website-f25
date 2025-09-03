@@ -36,7 +36,7 @@
 }
 
 .heading {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   font-size: 3.5rem;
   background: linear-gradient(135deg, #ffd700, #d2691e, #cd853f);
   -webkit-background-clip: text;
@@ -161,7 +161,7 @@
 }
 
 .roleHeading {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   font-size: 2.2rem;
   background: linear-gradient(135deg, #ffd700, #d2691e);
   -webkit-background-clip: text;
@@ -317,7 +317,7 @@
 }
 
 .staffName {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   font-size: 1.4rem;
   color: #ffd700;
   margin-bottom: 5px;

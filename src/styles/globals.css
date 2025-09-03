@@ -4,13 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Bebas Neue";
-  src: url("../assets/fonts/BebasNeue-Regular.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
 :root {
   /* Deep Earth color palette */
   --background: #1a0f0a;
@@ -35,6 +28,7 @@
   }
 }
 
+/* Reset and prevent scaling issues */
 * {
   margin: 0;
   padding: 0;
@@ -50,26 +44,39 @@
   box-sizing: border-box;
 }
 
+/* Critical: Prevent zoom and scaling issues */
+html {
+  /* Fixed font size prevents scaling differences */
+  font-size: 16px !important;
+  scroll-behavior: smooth;
+  /* Prevent zoom scaling issues */
+  -webkit-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  /* Ensure consistent scaling */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Roboto", sans-serif;
-  font-size: 16px; /* Set consistent base font size */
+  /* Use fixed font size */
+  font-size: 16px !important;
+  line-height: 1.5;
   overflow-x: hidden;
   position: relative;
-  /* Ensure consistent scaling */
   min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height when supported */
   width: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-  /* Prevent zoom scaling issues */
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  /* Ensure consistent rem calculations */
-  font-size: 16px;
+  /* Prevent font boosting on mobile */
+  -webkit-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
 }
 
 /* Global heading styles for Deep Earth theme */
@@ -79,8 +86,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   letter-spacing: 1px;
+  /* Prevent font boosting */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Custom scrollbar for Deep Earth theme */
@@ -203,4 +213,22 @@ h6 {
   animation: seismicWave 2s ease-out;
 }
 
-/* Responsive breakpoints - removed font-size changes to prevent production/dev differences */
+/* Prevent iOS font size changes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-text-size-adjust: 100% !important;
+  }
+}
+
+/* Responsive typography with viewport units for better scaling */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 13px !important;
+  }
+}
