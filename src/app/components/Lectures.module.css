@@ -33,7 +33,7 @@
 .heading {
   text-align: center;
   font-size: 3.5rem;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Orbitron", "Roboto Mono", monospace;
   background: linear-gradient(135deg, #ffd700, #d2691e, #cd853f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -81,7 +81,7 @@
   border-bottom: 3px solid;
   border-image: linear-gradient(90deg, #d2691e, #ffd700, #d2691e) 1;
   padding-bottom: 10px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Orbitron", "Roboto Mono", monospace;
   color: #ffd700;
   text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
   letter-spacing: 1px;
@@ -156,7 +156,7 @@
   font-size: 1rem;
   color: #ffd700;
   margin-bottom: 5px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Space Mono", "Roboto Mono", monospace;
   text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
@@ -189,7 +189,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(210, 105, 30, 0.4);
-  font-family: "Roboto", sans-serif;
+  font-family: "Space Mono", "Roboto Mono", monospace;
 }
 
 .linkButton:hover {

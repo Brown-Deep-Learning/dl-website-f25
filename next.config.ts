@@ -7,6 +7,7 @@ const nextConfig = {
   },
   trailingSlash: true,
   output: "export",
+  optimizeFonts: false, // Disable font optimization to prevent size differences
 };
 
 export default nextConfig;

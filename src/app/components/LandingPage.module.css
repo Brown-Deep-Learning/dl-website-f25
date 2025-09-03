@@ -1,5 +1,5 @@
 /* src/app/components/LandingPage.module.css */
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+/* Using local Orbitron fonts instead of Google Fonts */
 
 .container {
   position: relative;
@@ -17,7 +17,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #d2691e; /* Earthy brown-orange */
-  font-family: "Rajdhani", sans-serif;
+  font-family: "Orbitron", "Roboto Mono", monospace;
   font-size: 5rem;
   font-weight: bold;
   text-align: center;
@@ -40,7 +40,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #cd853f; /* Peru color - earthy */
-  font-family: "Rajdhani", sans-serif;
+  font-family: "Orbitron", "Roboto Mono", monospace;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;

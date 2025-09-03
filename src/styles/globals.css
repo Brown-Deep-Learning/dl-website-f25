@@ -29,24 +29,32 @@
 
 /* Import fonts for geological theme */
 @font-face {
-  font-family: "Bebas Neue";
-  src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-family: "Orbitron";
+  src: url("/fonts/Orbitron-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-family: "Orbitron";
+  src: url("/fonts/Orbitron-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto-Bold.ttf") format("truetype");
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -61,7 +69,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Roboto", sans-serif;
+  font-family: "Space Mono", "Roboto Mono", monospace;
   overflow-x: hidden;
   position: relative;
 }
@@ -71,8 +79,13 @@ html {
 }
 
 /* Global heading styles for Deep Earth theme */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Bebas Neue", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Orbitron", "Roboto Mono", monospace;
   letter-spacing: 1px;
 }
 
@@ -116,12 +129,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-earth-gradient {
-  background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(160, 82, 45, 0.9));
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 19, 0.9),
+    rgba(160, 82, 45, 0.9)
+  );
 }
 
 .shadow-earth {
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.5),
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
     inset 0 0 20px rgba(210, 105, 30, 0.1);
 }
 
@@ -131,7 +147,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Animation utilities */
 @keyframes earthPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     filter: drop-shadow(0 0 10px rgba(210, 105, 30, 0.5));
   }
@@ -142,7 +159,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes mineralSparkle {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.6;
   }
   50% {

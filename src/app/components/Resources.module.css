@@ -33,7 +33,7 @@
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: 50px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Orbitron", "Roboto Mono", monospace;
   background: linear-gradient(135deg, #ffd700, #d2691e, #cd853f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -160,7 +160,7 @@
 .categoryTitle {
   font-size: 2rem;
   margin-bottom: 20px;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Orbitron", "Roboto Mono", monospace;
   color: #ffd700;
   display: flex;
   align-items: center;
@@ -198,7 +198,7 @@
 
 .resourceLink {
   color: #f5deb3;
-  font-family: "Roboto", sans-serif;
+  font-family: "Space Mono", "Roboto Mono", monospace;
   text-decoration: none;
   background: linear-gradient(
     135deg,
