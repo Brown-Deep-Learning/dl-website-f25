@@ -50,7 +50,6 @@ const Staff = () => {
 
   return (
     <section ref={sectionRef} id="staff" className={styles.container}>
-      <div className={styles.starsBackground}></div>
       <h2 className={styles.heading}>
         <FaHardHat className={styles.headerIcon} />
         Expedition Team
