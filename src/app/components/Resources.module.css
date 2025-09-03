@@ -168,6 +168,7 @@
   letter-spacing: 1px;
   position: relative;
   z-index: 1;
+  text-transform: uppercase;
 }
 
 .categoryIcon {
