@@ -1,7 +1,6 @@
 // src/app/page.tsx
 "use client";
 
-// app/layout.tsx
 import "../styles/earth-themes.css";
 
 import LandingPage from "./components/LandingPage";
