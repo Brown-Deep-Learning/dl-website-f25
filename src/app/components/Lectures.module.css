@@ -1,5 +1,12 @@
 /* src/app/components/Lectures.module.css */
 
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../../assets/fonts/BebasNeue-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .container {
   width: 100%;
   padding: 50px 20px;

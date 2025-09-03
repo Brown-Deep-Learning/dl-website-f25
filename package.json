@@ -1,6 +1,6 @@
 {
-  "name": "deep-learning-s25-course-website",
-  "version": "0.1.0",
+  "name": "deep-learning-f25-course-website",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
