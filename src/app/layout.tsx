@@ -8,18 +8,6 @@ const robotoMono = Roboto_Mono({
 
 import "../styles/globals.css";
 
-export const metadata = {
-  title: "Deep Learning Course",
-  description: "Welcome to the Deep Learning Course website",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: "cover",
-  },
-};
-
 export default function RootLayout({
   children,
 }: {

@@ -1,9 +1,15 @@
 /* src/styles/globals.css */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/public/fonts/BebasNeue-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   /* Deep Earth color palette */
