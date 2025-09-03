@@ -38,6 +38,12 @@
   text-rendering: optimizeLegibility;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -45,10 +51,19 @@ body {
   font-size: 16px; /* Set consistent base font size */
   overflow-x: hidden;
   position: relative;
+  /* Ensure consistent scaling */
+  min-height: 100vh;
+  width: 100%;
 }
 
 html {
   scroll-behavior: smooth;
+  /* Prevent zoom scaling issues */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Ensure consistent rem calculations */
+  font-size: 16px;
 }
 
 /* Global heading styles for Deep Earth theme */
