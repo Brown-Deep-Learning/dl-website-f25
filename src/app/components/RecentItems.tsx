@@ -30,9 +30,19 @@ const getMostRecentLecture = () => {
 };
 
 const getMostRecentAssignment = () => {
-  // Sort assignments by the largest in-date among their parts
-  const sorted = [...assignments].sort(
-    (a, b) => getMaxInDate(b) - getMaxInDate(a)
+  const currentDate = new Date().getTime();
+  // Filter assignments that have been released (outDate <= current date)
+  const releasedAssignments = assignments.filter(
+    (assignment) => new Date(assignment.outDate).getTime() <= currentDate
+  );
+  
+  if (releasedAssignments.length === 0) {
+    return null;
+  }
+  
+  // Sort by outDate descending (most recent first)
+  const sorted = releasedAssignments.sort(
+    (a, b) => new Date(b.outDate).getTime() - new Date(a.outDate).getTime()
   );
   return sorted[0];
 };
