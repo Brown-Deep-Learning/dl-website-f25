@@ -9,7 +9,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 1,
         title: "Welcome to Deep Learning",
         date: "2025-09-4",
-        slidesLink: "",
+        slidesLink: "/slides/lecture1.pdf",
         recordingLink: "",
       },
       {
