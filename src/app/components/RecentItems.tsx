@@ -30,8 +30,22 @@ const getMostRecentLecture = () => {
 };
 
 const getMostRecentAssignment = () => {
+  // Filter assignments to only include those with non-empty links
+  const assignmentsWithLinks = assignments.filter((assignment) => {
+    const hasConceptualLink =
+      assignment.conceptual?.link && assignment.conceptual.link.trim() !== "";
+    const hasProgrammingLink =
+      assignment.programming?.link && assignment.programming.link.trim() !== "";
+    return hasConceptualLink || hasProgrammingLink;
+  });
+
+  // If no assignments have links, return null
+  if (assignmentsWithLinks.length === 0) {
+    return null;
+  }
+
   // Sort assignments by the largest in-date among their parts
-  const sorted = [...assignments].sort(
+  const sorted = assignmentsWithLinks.sort(
     (a, b) => getMaxInDate(b) - getMaxInDate(a)
   );
   return sorted[0];
@@ -47,11 +61,40 @@ const RecentItems = () => {
       <section className={styles.container}>
         <div className={styles.recentItem}>
           <h3 className={styles.title}>Most Recent Lecture</h3>
-          <p>No lectures found.</p>
+          {recentLecture ? (
+            <div className={styles.itemContent}>
+              <span className={styles.itemTitle}>{recentLecture.title}</span>
+              <span className={styles.itemDate}>{recentLecture.date}</span>
+              <div className={styles.links}>
+                {recentLecture.slidesLink && (
+                  <a
+                    href={recentLecture.slidesLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.linkButton}
+                  >
+                    <FaRegMoon className={styles.linkIcon} /> Slides
+                  </a>
+                )}
+                {recentLecture.recordingLink && (
+                  <a
+                    href={recentLecture.recordingLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.linkButton}
+                  >
+                    <FaRocket className={styles.linkIcon} /> Recording
+                  </a>
+                )}
+              </div>
+            </div>
+          ) : (
+            <p>No lectures found.</p>
+          )}
         </div>
         <div className={styles.recentItem}>
           <h3 className={styles.title}>Most Recent Assignment</h3>
-          <p>No assignments found.</p>
+          <p>No assignments available yet.</p>
         </div>
       </section>
     );
