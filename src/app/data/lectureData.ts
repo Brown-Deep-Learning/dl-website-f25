@@ -10,7 +10,7 @@ export const lectureGroups: LectureGroup[] = [
         title: "Welcome to Deep Learning",
         date: "2025-09-4",
         slidesLink: "/slides/lecture1.pdf",
-        recordingLink: "",
+        recordingLink: "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e5e46457-ed94-4da4-9a2e-b34e0139b525",
       },
       {
         id: 2,
