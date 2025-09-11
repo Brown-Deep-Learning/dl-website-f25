@@ -10,21 +10,24 @@ export const lectureGroups: LectureGroup[] = [
         title: "Welcome to Deep Learning",
         date: "2025-09-4",
         slidesLink: "/slides/lecture1.pdf",
-        recordingLink: "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e5e46457-ed94-4da4-9a2e-b34e0139b525",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e5e46457-ed94-4da4-9a2e-b34e0139b525",
       },
       {
         id: 2,
         title: "Machine Learning",
         date: "2025-09-9",
         slidesLink: "/slides/lecture2.pdf",
-        recordingLink: "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=76084950-f842-4436-ab81-b35301143912",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=76084950-f842-4436-ab81-b35301143912",
       },
       {
         id: 3,
         title: "Perceptrons and MLPs",
         date: "2025-09-11",
-        slidesLink: "",
-        recordingLink: "/slides/lecture3.pdf",
+        slidesLink: "/slides/lecture3.pdf",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea01df0e-5bc1-496e-bf73-b348001266a2",
       },
       {
         id: 4,
@@ -173,7 +176,7 @@ export const lectureGroups: LectureGroup[] = [
         date: "2025-11-18",
         slidesLink: "",
         recordingLink: "",
-      },      
+      },
       {
         id: 21,
         title: "Slack Day",
