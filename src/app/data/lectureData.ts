@@ -17,14 +17,14 @@ export const lectureGroups: LectureGroup[] = [
         title: "Machine Learning",
         date: "2025-09-9",
         slidesLink: "/slides/lecture2.pdf",
-        recordingLink: "",
+        recordingLink: "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=76084950-f842-4436-ab81-b35301143912",
       },
       {
         id: 3,
         title: "Perceptrons and MLPs",
         date: "2025-09-11",
         slidesLink: "",
-        recordingLink: "",
+        recordingLink: "/slides/lecture3.pdf",
       },
       {
         id: 4,
