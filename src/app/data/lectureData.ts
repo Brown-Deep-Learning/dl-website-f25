@@ -33,7 +33,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 4,
         title: "Optimization, Gradients, and Losses",
         date: "2025-09-16",
-        slidesLink: "",
+        slidesLink: "/slides/lecture4.pdf",
         recordingLink: "",
       },
       {
