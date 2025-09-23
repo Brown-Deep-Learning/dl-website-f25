@@ -45,9 +45,9 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 6,
-        title: "Convolutional Neural Networks",
+        title: "Hyperparameter Tuning",
         date: "2025-09-23",
-        slidesLink: "",
+        slidesLink: "/slides/lecture6.pdf",
         recordingLink: "",
       },
     ],
