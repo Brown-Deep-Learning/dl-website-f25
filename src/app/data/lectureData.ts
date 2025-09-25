@@ -57,9 +57,9 @@ export const lectureGroups: LectureGroup[] = [
     lectures: [
       {
         id: 7,
-        title: "Convolutional Neural Networks",
+        title: "Convolutios",
         date: "2025-09-25",
-        slidesLink: "",
+        slidesLink: "/slides/lecture7.pdf",
         recordingLink: "",
       },
       {
