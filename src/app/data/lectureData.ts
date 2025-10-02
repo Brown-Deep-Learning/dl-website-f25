@@ -71,9 +71,9 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 9,
-        title: "Adversarial Learning",
+        title: "ResNet and Adversarial Learning",
         date: "2025-10-2",
-        slidesLink: "",
+        slidesLink: "/slides/lecture9.pdf",
         recordingLink: "",
       },
       {
