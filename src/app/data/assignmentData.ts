@@ -34,7 +34,7 @@ export const assignments = [
     programming: {
       title: "Programming",
       link: "https://hackmd.io/@dlf25/SkkpggRFxx",
-      inDate: "2025-10-02",
+      inDate: "2025-10-04",
     },
   },
   {
@@ -49,7 +49,7 @@ export const assignments = [
     },
     programming: {
       title: "Programming",
-      link: "",
+      link: "https://hackmd.io/Rbm_2IsuRtu3bfz4U87QVA",
       inDate: "2025-10-16",
     },
   },
