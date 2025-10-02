@@ -45,9 +45,9 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 6,
-        title: "Convolutional Neural Networks",
+        title: "Hyperparameter Tuning",
         date: "2025-09-23",
-        slidesLink: "",
+        slidesLink: "/slides/lecture6.pdf",
         recordingLink: "",
       },
     ],
@@ -57,23 +57,23 @@ export const lectureGroups: LectureGroup[] = [
     lectures: [
       {
         id: 7,
-        title: "Convolutional Neural Networks",
+        title: "Convolutions",
         date: "2025-09-25",
-        slidesLink: "",
+        slidesLink: "/slides/lecture7.pdf",
         recordingLink: "",
       },
       {
         id: 8,
-        title: "Regularization and Resnet",
+        title: "CNNs",
         date: "2025-09-30",
-        slidesLink: "",
+        slidesLink: "/slides/lecture8.pdf",
         recordingLink: "",
       },
       {
         id: 9,
-        title: "Adversarial Learning",
+        title: "ResNet and Adversarial Learning",
         date: "2025-10-2",
-        slidesLink: "",
+        slidesLink: "/slides/lecture9.pdf",
         recordingLink: "",
       },
       {
