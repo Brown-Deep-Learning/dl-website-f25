@@ -34,21 +34,24 @@ export const lectureGroups: LectureGroup[] = [
         title: "Optimization, Gradients, and Losses",
         date: "2025-09-16",
         slidesLink: "/slides/lecture4.pdf",
-        recordingLink: "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c45b25-c8e6-41d7-b078-b348001266c3",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c45b25-c8e6-41d7-b078-b348001266c3",
       },
       {
         id: 5,
         title: "Optimizers and Hyperparameter Tuning",
         date: "2025-09-18",
         slidesLink: "/slides/lecture5.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=df3494c7-3ee1-4b0a-8aa5-b348001266e5",
       },
       {
         id: 6,
         title: "Hyperparameter Tuning",
         date: "2025-09-23",
         slidesLink: "/slides/lecture6.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ed64b810-9a9c-469c-8447-b3480012670c",
       },
     ],
   },
@@ -60,21 +63,24 @@ export const lectureGroups: LectureGroup[] = [
         title: "Convolutions",
         date: "2025-09-25",
         slidesLink: "/slides/lecture7.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f1f7e730-fd57-4332-8b55-b34800126739",
       },
       {
         id: 8,
         title: "CNNs",
         date: "2025-09-30",
         slidesLink: "/slides/lecture8.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2e971aac-8985-4869-abf3-b3480012676e",
       },
       {
         id: 9,
         title: "ResNet and Adversarial Learning",
         date: "2025-10-2",
         slidesLink: "/slides/lecture9.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f7762a67-bddf-4f37-891d-b3480012679d",
       },
       {
         id: 10,
