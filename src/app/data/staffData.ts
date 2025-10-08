@@ -44,9 +44,9 @@ export const staffData = {
       role: "Mole Minion",
     },
     {
-      name: "Sophia Lu",
+      name: "Sophia Li",
       pronouns: "she/her",
-      image: "/images/profiles/sophia.jpg",
+      image: "/images/profiles/soph.png",
       role: "Mole Minion",
     },
     {
