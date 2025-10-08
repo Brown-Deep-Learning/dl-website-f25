@@ -82,18 +82,19 @@ export const lectureGroups: LectureGroup[] = [
         recordingLink:
           "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f7762a67-bddf-4f37-891d-b3480012679d",
       },
-      {
-        id: 10,
-        title: "Learning with Sequential Data",
-        date: "2025-10-7",
-        slidesLink: "/slides/lecture10.pdf",
-        recordingLink: "",
-      },
     ],
   },
   {
     title: "Weeks 6-8: Learning with Sequential Data",
     lectures: [
+      {
+        id: 10,
+        title: "Learning with Sequential Data",
+        date: "2025-10-7",
+        slidesLink: "/slides/lecture10.pdf",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ebf33623-5561-4027-b894-b348001267d9",
+      },
       {
         id: 11,
         title: "RNNs and LSTMs",
