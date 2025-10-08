@@ -42,7 +42,25 @@ export const staffData = {
       pronouns: "she/her",
       image: "/images/profiles/maria.jpeg",
       role: "Mole Minion",
-    }
+    },
+    {
+      name: "Sophia Lu",
+      pronouns: "she/her",
+      image: "/images/profiles/sophia.jpg",
+      role: "Mole Minion",
+    },
+    {
+      name: "Jacob Hirschhorn",
+      pronouns: "he/him",
+      image: "/images/profiles/jacob.jpg",
+      role: "Mole Minion",
+    },
+    {
+      name: "Matthew Prenovitz",
+      pronouns: "he/him",
+      image: "/images/profiles/matthew.jpg",
+      role: "Mole Minion",
+    },
   ],
 };
 
