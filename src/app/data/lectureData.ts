@@ -100,7 +100,8 @@ export const lectureGroups: LectureGroup[] = [
         title: "RNNs and LSTMs",
         date: "2025-10-9",
         slidesLink: "",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=57c9d899-6b2b-49e3-a2fd-b3480012681b",
       },
       {
         id: 12,
