@@ -112,14 +112,14 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 13,
-        title: "Transformers",
+        title: "High Performance Computing (Oscar Tutorial)",
         date: "2025-10-16",
         slidesLink: "",
         recordingLink: "",
       },
       {
         id: 14,
-        title: "LLMs and GenAI",
+        title: "Transformers and LLMs",
         date: "2025-10-21",
         slidesLink: "",
         recordingLink: "",
@@ -133,7 +133,7 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 16,
-        title: "High Performance Computing (Oscar Tutorial)",
+        title: "Deploying at Scale",
         date: "2025-10-28",
         slidesLink: "",
         recordingLink: "",
