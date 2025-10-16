@@ -114,7 +114,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 13,
         title: "High Performance Computing (Oscar Tutorial)",
         date: "2025-10-16",
-        slidesLink: "",
+        slidesLink: "/slides/DeepLearning_Intro_Oscar_GPU.pdf",
         recordingLink: "",
       },
       {
