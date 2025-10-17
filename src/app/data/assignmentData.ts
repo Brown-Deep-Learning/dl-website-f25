@@ -56,16 +56,16 @@ export const assignments = [
   {
     id: 5,
     name: "Assignment 5: Language Modeling",
-    outDate: "2025-10-16",
+    outDate: "2025-10-18",
     conceptual: {
       title: "Conceptual",
       link: "",
-      inDate: "2025-10-23",
+      inDate: "2025-10-30",
     },
     programming: {
       title: "Programming",
       link: "",
-      inDate: "2025-10-30",
+      inDate: "2025-11-06",
     },
   },
   {
