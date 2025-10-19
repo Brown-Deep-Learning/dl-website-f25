@@ -59,12 +59,12 @@ export const assignments = [
     outDate: "2025-10-18",
     conceptual: {
       title: "Conceptual",
-      link: "",
+      link: "https://hackmd.io/@dlf25/BykLIlGRxl",
       inDate: "2025-10-30",
     },
     programming: {
       title: "Programming",
-      link: "",
+      link: "https://hackmd.io/@dlf25/r1r9H-Cpgx",
       inDate: "2025-11-06",
     },
   },
