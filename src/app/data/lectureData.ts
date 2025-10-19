@@ -108,14 +108,16 @@ export const lectureGroups: LectureGroup[] = [
         title: "Seq2Seq",
         date: "2025-10-14",
         slidesLink: "/slides/lecture12.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=262826e0-69c4-4bae-870a-b34800126849",
       },
       {
         id: 13,
         title: "High Performance Computing (Oscar Tutorial)",
         date: "2025-10-16",
         slidesLink: "/slides/DeepLearning_Intro_Oscar_GPU.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9b8e7098-faf9-4c88-936d-b34800126873",
       },
       {
         id: 14,
