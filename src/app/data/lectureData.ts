@@ -123,7 +123,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 14,
         title: "Transformers and LLMs",
         date: "2025-10-21",
-        slidesLink: "",
+        slidesLink: "/slides/lecture13.pdf",
         recordingLink: "",
       },
       {
