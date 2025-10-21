@@ -124,7 +124,7 @@ export const lectureGroups: LectureGroup[] = [
         title: "Transformers and LLMs",
         date: "2025-10-21",
         slidesLink: "/slides/lecture13.pdf",
-        recordingLink: "",
+        recordingLink: "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e2d3a797-f767-4d67-9008-b348001268a6",
       },
       {
         id: 15,
