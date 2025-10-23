@@ -130,7 +130,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 15,
         title: "Large Language Models and Generative AI",
         date: "2025-10-23",
-        slidesLink: "",
+        slidesLink: "/slides/lecture14.pdf",
         recordingLink: "",
       },
       {
