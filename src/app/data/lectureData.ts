@@ -135,9 +135,9 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 16,
-        title: "Deploying at Scale",
+        title: "Autoencoders and VAEs",
         date: "2025-10-28",
-        slidesLink: "",
+        slidesLink: "/slides/lecture15.pdf",
         recordingLink: "",
       },
     ],
