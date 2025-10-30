@@ -147,14 +147,14 @@ export const lectureGroups: LectureGroup[] = [
     lectures: [
       {
         id: 17,
-        title: "Image Generation",
+        title: "Image Generation and GANs",
         date: "2025-10-30",
-        slidesLink: "",
+        slidesLink: "/slides/lecture16.pdf",
         recordingLink: "",
       },
       {
         id: 18,
-        title: "VAEs and GANs",
+        title: "Diffusion Models",
         date: "2025-11-4",
         slidesLink: "",
         recordingLink: "",
