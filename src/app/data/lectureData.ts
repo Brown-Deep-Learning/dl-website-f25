@@ -124,21 +124,24 @@ export const lectureGroups: LectureGroup[] = [
         title: "Transformers and LLMs",
         date: "2025-10-21",
         slidesLink: "/slides/lecture13.pdf",
-        recordingLink: "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e2d3a797-f767-4d67-9008-b348001268a6",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e2d3a797-f767-4d67-9008-b348001268a6",
       },
       {
         id: 15,
         title: "Large Language Models and Generative AI",
         date: "2025-10-23",
         slidesLink: "/slides/lecture14.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=72b76308-15ab-484f-a7e0-b348001268d8",
       },
       {
         id: 16,
         title: "Autoencoders and VAEs",
         date: "2025-10-28",
         slidesLink: "/slides/lecture15.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0b2bccc9-fe53-4656-a294-b3480012690a",
       },
     ],
   },
@@ -150,7 +153,8 @@ export const lectureGroups: LectureGroup[] = [
         title: "Image Generation and GANs",
         date: "2025-10-30",
         slidesLink: "/slides/lecture16.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c99b987-6189-4da1-8d2c-b34800126944",
       },
       {
         id: 18,
