@@ -71,11 +71,11 @@ export const assignments = [
   {
     id: 6,
     name: "Assignment 6: Image Captioning",
-    outDate: "2025-10-30",
+    outDate: "2025-11-06",
     conceptual: {
       title: "Conceptual",
       link: "",
-      inDate: "2025-11-06",
+      inDate: "2025-11-13",
     },
     programming: {
       title: "Programming",
