@@ -160,7 +160,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 18,
         title: "Diffusion Models",
         date: "2025-11-4",
-        slidesLink: "",
+        slidesLink: "/slides/lecture17.pdf",
         recordingLink: "",
       },
       {
