@@ -165,9 +165,9 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 19,
-        title: "Diffusion Models",
+        title: "Geometric Deep Learning",
         date: "2025-11-6",
-        slidesLink: "",
+        slidesLink: "/slides/lecture18.pdf",
         recordingLink: "",
       },
       {
