@@ -10,19 +10,10 @@ import {
 import {
   FaCalendarAlt,
   FaLink,
-  FaFileAlt,
-  FaClipboardList,
 } from "react-icons/fa";
 import { GiEarthAfricaEurope, GiMineWagon } from "react-icons/gi";
 import { useSectionSensor } from "../hooks/useSectionSensor";
 import { LAYERS } from "../contexts/LayerContext";
-
-// Icon mapping for links
-const iconMap: { [key: string]: React.ReactNode } = {
-  FaFileAlt: <FaFileAlt />,
-  FaClipboardList: <FaClipboardList />,
-  FaLink: <FaLink />,
-};
 
 const FinalProject = () => {
   const sectionRef = useSectionSensor(LAYERS.OUTER_CORE);
