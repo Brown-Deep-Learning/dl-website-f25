@@ -70,32 +70,17 @@ export const assignments = [
   },
   {
     id: 6,
-    name: "Assignment 6: Image Captioning",
-    outDate: "2025-11-06",
-    conceptual: {
-      title: "Conceptual",
-      link: "",
-      inDate: "2025-11-13",
-    },
+    name: "Assignment 6: Generative Modeling",
+    outDate: "2025-11-10",
     programming: {
       title: "Programming",
-      link: "",
-      inDate: "2025-11-13",
-    },
-  },
-  {
-    id: 7,
-    name: "Assignment 7: Generative Modeling",
-    outDate: "2025-11-13",
-    programming: {
-      title: "Programming",
-      link: "",
+      link: "https://colab.research.google.com/drive/1bMbPf0kT0DRsEsnWHk0vvNBQy1UEDwgm?usp=sharing",
       inDate: "2025-11-20",
     },
   },
   {
-    id: 8,
-    name: "Assignment 8: Reinforcement Learning",
+    id: 7,
+    name: "Assignment 7: Reinforcement Learning",
     outDate: "2025-11-20",
     conceptual: {
       title: "Conceptual",

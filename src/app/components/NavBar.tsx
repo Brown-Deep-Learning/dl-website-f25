@@ -115,11 +115,11 @@ const NavBar: React.FC = () => {
             <FaGem className={styles.icon} /> Resources
           </button>
         </li>
-        {/* <li>
+        <li>
           <button onClick={() => goToSection("final-project")}>
             <GiCrystalGrowth className={styles.icon} /> Final Project
           </button>
-        </li> */}
+        </li>
         <li>
           <button onClick={() => goToSection("staff")}>
             <FaHardHat className={styles.icon} /> Staff

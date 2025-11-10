@@ -1,270 +1,632 @@
 /* src/app/components/FinalProject.module.css */
 
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  background: linear-gradient(
-    135deg,
-    rgba(139, 69, 19, 0.85),
-    rgba(160, 82, 45, 0.85)
-  );
-  backdrop-filter: blur(15px);
-  border-radius: 15px;
-  border: 3px solid rgba(210, 105, 30, 0.3);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 215, 0, 0.1);
+  width: 100%;
+  padding: 50px 20px;
+  color: #ffffff;
   position: relative;
   overflow: hidden;
 }
 
-.container::before {
-  content: "";
+.bgGradient {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 40px,
-    rgba(0, 0, 0, 0.02) 40px,
-    rgba(0, 0, 0, 0.02) 41px
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(210, 105, 30, 0.05) 0%,
+    transparent 50%
   );
   pointer-events: none;
 }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 600;
+.earthOrb {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.05) 0%,
+    rgba(210, 105, 30, 0.03) 50%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  animation: orbPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes orbPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Header Section */
+.headerSection {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
   font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   background: linear-gradient(135deg, #ffd700, #d2691e, #cd853f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-  letter-spacing: 2px;
-  position: relative;
-  z-index: 1;
-}
-
-.content {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  position: relative;
-  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 30px rgba(210, 105, 30, 0.3);
 }
 
-.intro {
-  font-size: 1.125rem;
-  line-height: 1.75;
+.headerIcon {
+  font-size: 2.8rem;
+  color: #d2691e;
+  animation: earthFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(210, 105, 30, 0.4));
+}
+
+@keyframes earthFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotateZ(360deg);
+  }
+}
+
+.tagline {
+  font-size: 1.1rem;
   color: #f5deb3;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.warning {
-  background: linear-gradient(
-    135deg,
-    rgba(220, 20, 60, 0.2),
-    rgba(255, 99, 71, 0.2)
-  );
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 2px solid rgba(220, 20, 60, 0.4);
-  box-shadow: 0 5px 20px rgba(220, 20, 60, 0.2),
-    inset 0 1px 0 rgba(255, 99, 71, 0.2);
+/* Timeline Section */
+.timelineSection {
+  max-width: 1000px;
+  margin: 80px auto 60px;
   position: relative;
-  overflow: hidden;
+  z-index: 2;
 }
 
-.warning::before {
-  content: "⚠️";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  opacity: 0.3;
-}
-
-.warning p {
-  color: #ffb6c1;
-  font-weight: 500;
-  text-shadow: 0 0 5px rgba(255, 182, 193, 0.3);
-}
-
-.link {
-  color: #ffd700;
-  text-decoration: underline;
-  transition: all 0.3s ease;
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
-}
-
-.link:hover {
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-.subtitle {
-  font-size: 1.875rem;
-  font-weight: 500;
+.sectionTitle {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
   font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
-  background: linear-gradient(135deg, #ffd700, #d2691e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-top: 1rem;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
   letter-spacing: 1px;
 }
 
-.deadlines {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+.sectionIcon {
+  font-size: 1.8rem;
+  animation: sectionIconBounce 2s ease-in-out infinite;
 }
 
-.deadlineCard {
+@keyframes sectionIconBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.timelineMarker {
+  position: relative;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ffd700, #d2691e);
+  border-radius: 50%;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  animation: dotGlow 2s ease-in-out infinite;
+}
+
+@keyframes dotGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), inset 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.8), inset 0 0 15px rgba(255, 215, 0, 0.5);
+  }
+}
+
+.line {
+  width: 3px;
+  flex-grow: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 215, 0, 0.6),
+    rgba(210, 105, 30, 0.4),
+    transparent
+  );
+  margin-top: -20px;
+  animation: lineFlow 3s linear infinite;
+}
+
+@keyframes lineFlow {
+  0% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+  }
+  100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0));
+  }
+}
+
+.timelineContent {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.card {
   background: linear-gradient(
     135deg,
-    rgba(107, 68, 35, 0.8),
-    rgba(139, 69, 19, 0.8)
+    rgba(139, 69, 19, 0.7),
+    rgba(160, 82, 45, 0.7)
   );
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid rgba(210, 105, 30, 0.3);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 215, 0, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(210, 105, 30, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 215, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.deadlineCard::before {
+.card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
     rgba(255, 215, 0, 0.1),
-    transparent
+    transparent 70%
   );
-  transition: left 0.5s ease;
+  border-radius: 50%;
+  animation: cardFloat 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
-.deadlineCard:hover::before {
-  left: 100%;
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, -30px);
+  }
 }
 
-.deadlineCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2),
-    inset 0 1px 0 rgba(255, 215, 0, 0.1);
+.card:hover {
+  transform: translateX(10px);
   background: linear-gradient(
     135deg,
-    rgba(139, 69, 19, 0.9),
-    rgba(160, 82, 45, 0.9)
+    rgba(160, 82, 45, 0.85),
+    rgba(210, 105, 30, 0.85)
   );
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 215, 0, 0.15);
 }
 
-.deadlineTitle {
-  font-weight: 600;
+.dateBox {
+  display: inline-block;
+  background: linear-gradient(135deg, #d2691e, #cd853f);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4);
+}
+
+.contentBox {
+  position: relative;
+  z-index: 2;
+}
+
+.itemTitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.deadlineDate {
-  font-size: 0.875rem;
+.itemDescription {
+  font-size: 1rem;
   color: #f5deb3;
-  margin-top: 0.25rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
-.options {
+.itemLinks {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.timelineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #ffd700, #d2691e);
+  color: #1a0f0a;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.timelineLink:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, #ffed4e, #e6b800);
+}
+
+.linkIcon {
+  font-size: 0.85rem;
+  animation: linkIconBounce 2s ease-in-out infinite;
+}
+
+@keyframes linkIconBounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+/* Links Section */
+.linksSection {
+  max-width: 1000px;
+  margin: 80px auto 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.resourceLinks {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 25px;
 }
 
-.optionCard {
+.resourceLink {
   background: linear-gradient(
     135deg,
-    rgba(107, 68, 35, 0.8),
-    rgba(139, 69, 19, 0.8)
+    rgba(139, 69, 19, 0.8),
+    rgba(160, 82, 45, 0.8)
   );
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid rgba(210, 105, 30, 0.3);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 215, 0, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 12px;
+  border: 2px solid rgba(210, 105, 30, 0.4);
+  text-decoration: none;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.optionCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2),
-    inset 0 1px 0 rgba(255, 215, 0, 0.1);
+.resourceLink:hover {
   background: linear-gradient(
     135deg,
-    rgba(139, 69, 19, 0.9),
+    rgba(210, 105, 30, 0.9),
     rgba(160, 82, 45, 0.9)
   );
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.25);
+  transform: translateY(-8px);
+  border-color: rgba(255, 215, 0, 0.6);
 }
 
-.optionTitle {
-  font-size: 1.25rem;
+.linkLabel {
+  font-size: 1.2rem;
   font-weight: 600;
   color: #ffd700;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  font-family: var(--font-bebas-neue), sans-serif;
+  letter-spacing: 1px;
 }
 
-.note {
+.resourceIcon {
+  font-size: 1.5rem;
+  color: #d2691e;
+  animation: resourceIconSpin 3s linear infinite;
+  transition: color 0.3s ease;
+}
+
+.resourceLink:hover .resourceIcon {
+  color: #ffd700;
+  animation: resourceIconSpin 1.5s linear infinite;
+}
+
+@keyframes resourceIconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Info Section */
+.infoSection {
+  max-width: 1000px;
+  margin: 60px auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+.infoCard {
   background: linear-gradient(
     135deg,
-    rgba(255, 215, 0, 0.1),
-    rgba(210, 105, 30, 0.1)
+    rgba(139, 69, 19, 0.7),
+    rgba(160, 82, 45, 0.7)
   );
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  margin-top: 1rem;
-  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.1),
+  backdrop-filter: blur(12px);
+  padding: 35px;
+  border-radius: 12px;
+  border: 1px solid rgba(210, 105, 30, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 215, 0, 0.1);
 }
 
-.note p {
+.infoTitle {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   color: #ffd700;
-  font-weight: 500;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.infoList li {
+  padding: 12px 0 12px 30px;
+  color: #f5deb3;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.infoList li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #d2691e;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: bulletPulse 2s ease-in-out infinite;
+}
+
+@keyframes bulletPulse {
+  0%,
+  100% {
+    color: #d2691e;
+    transform: scale(1);
+  }
+  50% {
+    color: #ffd700;
+    transform: scale(1.2);
+  }
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
+  .heading {
+    font-size: 2.5rem;
+    gap: 10px;
   }
 
-  .title {
+  .headerIcon {
     font-size: 2rem;
   }
 
-  .subtitle {
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .timelineItem {
+    gap: 20px;
+  }
+
+  .timelineMarker {
+    width: 40px;
+  }
+
+  .dot {
+    width: 16px;
+    height: 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .itemTitle {
+    font-size: 1.3rem;
+  }
+
+  .itemDescription {
+    font-size: 0.95rem;
+  }
+
+  .resourceLinks {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 30px 15px;
+  }
+
+  .heading {
+    font-size: 2rem;
+    gap: 8px;
+  }
+
+  .headerSection {
+    margin-bottom: 40px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .timelineSection {
+    margin: 50px auto;
+  }
+
+  .sectionTitle {
     font-size: 1.5rem;
   }
 
-  .deadlines {
-    grid-template-columns: 1fr;
+  .timelineItem {
+    gap: 15px;
+    margin-bottom: 35px;
+  }
+
+  .timelineMarker {
+    width: 35px;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .dateBox {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .itemTitle {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .itemDescription {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .itemLinks {
+    gap: 8px;
+  }
+
+  .timelineLink {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .resourceLink {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .linkLabel {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .resourceIcon {
+    font-size: 1.2rem;
+  }
+
+  .infoCard {
+    padding: 20px;
+  }
+
+  .infoTitle {
+    font-size: 1.4rem;
+  }
+
+  .infoList li {
+    padding: 10px 0 10px 25px;
+    font-size: 1rem;
+  }
+
+  .earthOrb {
+    width: 250px;
+    height: 250px;
+    top: 0;
+    right: -50px;
   }
 }

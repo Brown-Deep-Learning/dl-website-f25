@@ -161,14 +161,16 @@ export const lectureGroups: LectureGroup[] = [
         title: "Diffusion Models",
         date: "2025-11-4",
         slidesLink: "/slides/lecture17.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=50b4b489-015f-4b08-8ea9-b3480012696f",
       },
       {
         id: 19,
         title: "Geometric Deep Learning",
         date: "2025-11-6",
         slidesLink: "/slides/lecture18.pdf",
-        recordingLink: "",
+        recordingLink:
+          "https://brown.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e785db95-7ac9-4286-87d9-b348001269ac",
       },
       {
         id: 20,

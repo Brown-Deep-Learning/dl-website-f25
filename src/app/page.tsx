@@ -8,6 +8,7 @@ import CourseDescription from "./components/CourseDescription";
 import styles from "./page.module.css";
 import Lectures from "./components/Lectures";
 import Assignments from "./components/Assignments";
+import FinalProject from "./components/FinalProject";
 import CourseCalendar from "./components/CourseCalendar";
 import Resources from "./components/Resources";
 import Staff from "./components/Staff";
@@ -36,6 +37,10 @@ export default function Home() {
 
           <section id="assignments" className={styles.section}>
             <Assignments />
+          </section>
+
+          <section id="final-project" className={styles.section}>
+            <FinalProject />
           </section>
 
           <section id="calendar" className={styles.section}>
