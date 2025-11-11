@@ -176,7 +176,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 20,
         title: "Reinforcement Learning",
         date: "2025-11-11",
-        slidesLink: "",
+        slidesLink: "/slides/lecture19.pdf",
         recordingLink: "",
       },
       {
