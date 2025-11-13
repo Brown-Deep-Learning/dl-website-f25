@@ -183,7 +183,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 21,
         title: "Policy Gradient Methods",
         date: "2025-11-13",
-        slidesLink: "",
+        slidesLink: "/slides/lecture20.pdf",
         recordingLink: "",
       },
       {
