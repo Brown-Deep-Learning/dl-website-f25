@@ -190,7 +190,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 21,
         title: "PPO",
         date: "2025-11-18",
-        slidesLink: "",
+        slidesLink: "/slides/lecture21.pdf",
         recordingLink: "",
       },
       {
