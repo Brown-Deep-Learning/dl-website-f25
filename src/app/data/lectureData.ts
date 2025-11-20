@@ -198,9 +198,9 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 21,
-        title: "Geometric Deep Learning",
+        title: "GRPO and LLMs",
         date: "2025-11-20",
-        slidesLink: "",
+        slidesLink: "/slides/lecture22.pdf",
         recordingLink: "",
       },
       {
@@ -217,7 +217,7 @@ export const lectureGroups: LectureGroup[] = [
     lectures: [
       {
         id: 22,
-        title: "The Current State of AI",
+        title: "End-to-End Learning",
         date: "2025-12-2",
         slidesLink: "",
         recordingLink: "",
