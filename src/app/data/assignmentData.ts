@@ -82,14 +82,9 @@ export const assignments = [
     id: 7,
     name: "Assignment 7: Reinforcement Learning",
     outDate: "2025-11-20",
-    conceptual: {
-      title: "Conceptual",
-      link: "",
-      inDate: "2025-12-04",
-    },
     programming: {
       title: "Programming",
-      link: "",
+      link: "https://hackmd.io/@dlf25/By6CQzplbx",
       inDate: "2025-12-04",
     },
   },
