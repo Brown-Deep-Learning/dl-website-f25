@@ -83,49 +83,7 @@ const NavBar: React.FC = () => {
         <h1>CSCI1470</h1>
       </div>
 
-      {/* Desktop Navigation */}
-      <ul className={styles.navLinks}>
-        <li>
-          <button onClick={() => goToSection("landing-page")}>
-            <FaMountain className={styles.icon} /> Home
-          </button>
-        </li>
-        <li>
-          <button onClick={() => goToSection("course-description")}>
-            <FaLayerGroup className={styles.icon} /> Course
-          </button>
-        </li>
-        <li>
-          <button onClick={() => goToSection("lectures")}>
-            <GiMineWagon className={styles.icon} /> Lectures
-          </button>
-        </li>
-        <li>
-          <button onClick={() => goToSection("assignments")}>
-            <FaHammer className={styles.icon} /> Assignments
-          </button>
-        </li>
-        <li>
-          <button onClick={() => goToSection("calendar")}>
-            <FaCalendarAlt className={styles.icon} /> Calendar
-          </button>
-        </li>
-        <li>
-          <button onClick={() => goToSection("resources")}>
-            <FaGem className={styles.icon} /> Resources
-          </button>
-        </li>
-        <li>
-          <button onClick={() => goToSection("final-project")}>
-            <GiCrystalGrowth className={styles.icon} /> Final Project
-          </button>
-        </li>
-        <li>
-          <button onClick={() => goToSection("staff")}>
-            <FaHardHat className={styles.icon} /> Staff
-          </button>
-        </li>
-      </ul>
+
 
       {/* Mobile Hamburger Menu Button */}
       <button

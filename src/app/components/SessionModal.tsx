@@ -106,7 +106,7 @@ const SessionModal: React.FC<SessionModalProps> = ({
             ))
           ) : (
             <div className={styles.noResults}>
-              <p>No groups found matching "{searchQuery}"</p>
+              <p>No groups found matching &quot;{searchQuery}&quot;</p>
               <p className={styles.noResultsHint}>
                 Try searching with a different name or group
               </p>

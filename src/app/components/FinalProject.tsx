@@ -14,7 +14,7 @@ import {
   FaMapMarkerAlt,
   FaUsers,
 } from "react-icons/fa";
-import { GiEarthAfricaEurope, GiMineWagon, GiPositionMarker } from "react-icons/gi";
+import { GiEarthAfricaEurope, GiMineWagon } from "react-icons/gi";
 import { useSectionSensor } from "../hooks/useSectionSensor";
 import { LAYERS } from "../contexts/LayerContext";
 import SessionModal from "./SessionModal";
@@ -130,6 +130,29 @@ const FinalProject = () => {
         </div>
       </div>
 
+            {/* Important Links Section */}
+      <div className={styles.linksSection}>
+        <h3 className={styles.sectionTitle}>
+          <GiMineWagon className={styles.sectionIcon} />
+          Important Resources
+        </h3>
+
+        <div className={styles.resourceLinks}>
+          {importantLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.resourceLink}
+            >
+              <span className={styles.linkLabel}>{link.label}</span>
+              <FaLink className={styles.resourceIcon} />
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* Timeline Section */}
       <div className={styles.timelineSection}>
         <h3 className={styles.sectionTitle}>
@@ -179,29 +202,6 @@ const FinalProject = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Important Links Section */}
-      <div className={styles.linksSection}>
-        <h3 className={styles.sectionTitle}>
-          <GiMineWagon className={styles.sectionIcon} />
-          Important Resources
-        </h3>
-
-        <div className={styles.resourceLinks}>
-          {importantLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.resourceLink}
-            >
-              <span className={styles.linkLabel}>{link.label}</span>
-              <FaLink className={styles.resourceIcon} />
-            </a>
           ))}
         </div>
       </div>

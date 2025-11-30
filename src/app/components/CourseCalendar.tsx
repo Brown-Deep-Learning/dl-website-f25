@@ -15,11 +15,11 @@ const CourseCalendar = () => {
   useEffect(() => {
     const calculateProgress = () => {
       const startDate = new Date("2025-09-03"); // September 3rd, 2025
-      const endDate = new Date("2025-12-10"); // December 10th, 2025
+      const endDate = new Date("2025-12-11"); // December 11th, 2025
       const currentDate = new Date();
 
       const totalSemesterDays = Math.ceil(
-        (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
+        (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) + 1
       );
       const daysElapsed = Math.ceil(
         (currentDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
