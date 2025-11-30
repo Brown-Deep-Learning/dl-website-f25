@@ -344,6 +344,383 @@
   }
 }
 
+/* Deep Learning Day Section */
+.dlDaySection {
+  max-width: 1200px;
+  margin: 100px auto 80px;
+  position: relative;
+  z-index: 2;
+  padding: 50px 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 19, 0.3),
+    rgba(210, 105, 30, 0.2)
+  );
+  border-radius: 20px;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 0 50px rgba(255, 215, 0, 0.05);
+  overflow: hidden;
+}
+
+.dlDaySection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 215, 0, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.dlDayHeader {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.dlDayTitle {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
+  background: linear-gradient(135deg, #ffd700, #ffed4e, #d2691e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  letter-spacing: 3px;
+  animation: dlDayTitlePulse 3s ease-in-out infinite;
+}
+
+@keyframes dlDayTitlePulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.6));
+  }
+}
+
+.dlDayTitleIcon {
+  font-size: 2.5rem;
+  color: #ffd700;
+  animation: dlDayIconFloat 2s ease-in-out infinite;
+}
+
+@keyframes dlDayIconFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+.dlDaySubtitle {
+  font-size: 1.3rem;
+  color: #f5deb3;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.dlDayGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.dlDayCard {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 19, 0.9),
+    rgba(160, 82, 45, 0.9)
+  );
+  backdrop-filter: blur(15px);
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: 2px solid rgba(210, 105, 30, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 215, 0, 0.2);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dlDayCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 215, 0, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.dlDayCard:hover::before {
+  opacity: 1;
+}
+
+.dlDayCard:hover {
+  transform: translateY(-12px) scale(1.03);
+  background: linear-gradient(
+    135deg,
+    rgba(210, 105, 30, 0.95),
+    rgba(139, 69, 19, 0.95)
+  );
+  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3),
+    inset 0 2px 0 rgba(255, 215, 0, 0.3);
+  border-color: rgba(255, 215, 0, 0.7);
+}
+
+.dlDayIconWrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: linear-gradient(135deg, #ffd700, #d2691e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.3);
+  animation: dlDayIconBounce 3s ease-in-out infinite;
+}
+
+@keyframes dlDayIconBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+
+.dlDayIcon {
+  font-size: 2.5rem;
+  color: #1a0f0a;
+}
+
+.dlDayCard:hover .dlDayIconWrapper {
+  animation: dlDayIconSpin 1s ease-in-out infinite;
+}
+
+@keyframes dlDayIconSpin {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(180deg);
+  }
+}
+
+.dlDayCardTitle {
+  font-size: 1.4rem;
+  font-family: var(--font-bebas-neue), sans-serif;
+  color: #ffd700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.dlDayCardContent {
+  font-size: 1.2rem;
+  color: #f5deb3;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.buildingName {
+  font-size: 1rem;
+  color: #d2b48c;
+  font-style: italic;
+}
+
+/* Sessions Section */
+.sessionsContainer {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 19, 0.6),
+    rgba(160, 82, 45, 0.6)
+  );
+  padding: 35px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.sessionsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.sessionsIcon {
+  font-size: 2rem;
+  color: #ffd700;
+  animation: sessionsIconPulse 2s ease-in-out infinite;
+}
+
+@keyframes sessionsIconPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+  }
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+  }
+}
+
+.sessionsTitle {
+  font-size: 1.8rem;
+  font-family: var(--font-bebas-neue), sans-serif;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.sessionsDescription {
+  text-align: center;
+  color: #d2b48c;
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.sessionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.sessionCard {
+  background: linear-gradient(
+    135deg,
+    rgba(210, 105, 30, 0.8),
+    rgba(139, 69, 19, 0.8)
+  );
+  padding: 30px 25px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+}
+
+.sessionCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.1) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.sessionCard:hover::before {
+  transform: translateX(100%);
+}
+
+.sessionCard:hover {
+  transform: scale(1.08) translateY(-5px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.9),
+    rgba(210, 105, 30, 0.9)
+  );
+  box-shadow: 0 18px 50px rgba(255, 215, 0, 0.5);
+  border-color: rgba(255, 215, 0, 0.9);
+}
+
+.sessionCard:active {
+  transform: scale(1.05) translateY(-3px);
+}
+
+.sessionBadge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #1a0f0a;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+  letter-spacing: 1px;
+  animation: sessionBadgePulse 2s ease-in-out infinite;
+}
+
+@keyframes sessionBadgePulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.8);
+  }
+}
+
+.sessionTime {
+  font-size: 1.4rem;
+  color: #f5deb3;
+  font-weight: 600;
+  font-family: "Roboto Mono", monospace;
+  margin-bottom: 12px;
+}
+
+.clickHint {
+  font-size: 0.95rem;
+  color: #ffd700;
+  font-weight: 600;
+  margin-top: 10px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.sessionCard:hover .clickHint {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
 /* Links Section */
 .linksSection {
   max-width: 1000px;
@@ -525,6 +902,63 @@
   .resourceLinks {
     grid-template-columns: 1fr;
   }
+
+  /* Deep Learning Day Mobile - Tablet */
+  .dlDaySection {
+    padding: 35px 20px;
+    margin: 60px auto 50px;
+  }
+
+  .dlDayTitle {
+    font-size: 2.2rem;
+    gap: 12px;
+  }
+
+  .dlDayTitleIcon {
+    font-size: 2rem;
+  }
+
+  .dlDaySubtitle {
+    font-size: 1.1rem;
+  }
+
+  .dlDayGrid {
+    gap: 20px;
+  }
+
+  .dlDayCard {
+    padding: 30px 20px;
+  }
+
+  .dlDayIconWrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .dlDayIcon {
+    font-size: 2rem;
+  }
+
+  .sessionsContainer {
+    padding: 25px;
+  }
+
+  .sessionsTitle {
+    font-size: 1.5rem;
+  }
+
+  .sessionsDescription {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .sessionCard {
+    padding: 25px 20px;
+  }
+
+  .clickHint {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -628,5 +1062,102 @@
     height: 250px;
     top: 0;
     right: -50px;
+  }
+
+  /* Deep Learning Day Mobile - Small */
+  .dlDaySection {
+    padding: 25px 15px;
+    margin: 40px auto 30px;
+  }
+
+  .dlDayTitle {
+    font-size: 1.8rem;
+    gap: 8px;
+    flex-direction: column;
+  }
+
+  .dlDayTitleIcon {
+    font-size: 1.5rem;
+  }
+
+  .dlDaySubtitle {
+    font-size: 1rem;
+  }
+
+  .dlDayGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .dlDayCard {
+    padding: 25px 15px;
+  }
+
+  .dlDayIconWrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .dlDayIcon {
+    font-size: 1.8rem;
+  }
+
+  .dlDayCardTitle {
+    font-size: 1.2rem;
+  }
+
+  .dlDayCardContent {
+    font-size: 1rem;
+  }
+
+  .buildingName {
+    font-size: 0.9rem;
+  }
+
+  .sessionsContainer {
+    padding: 20px;
+  }
+
+  .sessionsHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sessionsIcon {
+    font-size: 1.5rem;
+  }
+
+  .sessionsTitle {
+    font-size: 1.3rem;
+  }
+
+  .sessionsGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .sessionCard {
+    padding: 20px 15px;
+  }
+
+  .sessionBadge {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .sessionTime {
+    font-size: 1.1rem;
+  }
+
+  .sessionsDescription {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .clickHint {
+    font-size: 0.8rem;
+    margin-top: 8px;
   }
 }

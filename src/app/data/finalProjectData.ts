@@ -104,12 +104,32 @@ export const timeline: TimelineItem[] = [
 export const importantLinks: ResourceLink[] = [
   {
     label: "Full Project Handout",
-    url: "#", // User should update this with the actual handout link
+    url: "https://hackmd.io/@dlf25/H1_XDLY0xe",
     icon: "FaFileAlt",
   },
   {
+    label: "Dev Post",
+    url: "https://tinyurl.com/browndldaydevpost",
+    icon: "FaCalendar",
+  },
+  {
+    label: "DL Day Time Assignments",
+    url: "https://docs.google.com/spreadsheets/d/1f1_56FWFWid9tKET-KZ6XpKSxvxIqE6R/edit?usp=sharing&ouid=109463779967402654555&rtpof=true&sd=true",
+    icon: "FaCalendar",
+  },
+  {
+    label: "DL Day Conflict Form",
+    url: "https://forms.gle/TrZEJ7E7H6mjqFB38",
+    icon: "FaCalendar",
+  },
+  {
+    label: "Final Project Report Template",
+    url: "https://www.overleaf.com/read/bsjnjggxsvfr#2efef3",
+    icon: "FaCalendar",
+  },
+  {
     label: "Peer Evaluation Form",
-    url: "https://forms.gle/wrHFHDmBPfNYMdKh9",
+    url: "https://forms.gle/4ebd1bM1qTXjwJEY7",
     icon: "FaClipboardList",
   },
 ];

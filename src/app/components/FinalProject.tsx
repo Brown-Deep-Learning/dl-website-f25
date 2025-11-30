@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./FinalProject.module.css";
 import {
   projectSummary,
@@ -10,13 +10,30 @@ import {
 import {
   FaCalendarAlt,
   FaLink,
+  FaClock,
+  FaMapMarkerAlt,
+  FaUsers,
 } from "react-icons/fa";
-import { GiEarthAfricaEurope, GiMineWagon } from "react-icons/gi";
+import { GiEarthAfricaEurope, GiMineWagon, GiPositionMarker } from "react-icons/gi";
 import { useSectionSensor } from "../hooks/useSectionSensor";
 import { LAYERS } from "../contexts/LayerContext";
+import SessionModal from "./SessionModal";
+import { session1Groups, session2Groups } from "../data/dlDaySessionData";
 
 const FinalProject = () => {
   const sectionRef = useSectionSensor(LAYERS.OUTER_CORE);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeSession, setActiveSession] = useState<1 | 2 | null>(null);
+
+  const openModal = (sessionNumber: 1 | 2) => {
+    setActiveSession(sessionNumber);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setActiveSession(null);
+  };
 
   return (
     <section ref={sectionRef} id="final-project" className={styles.container}>
@@ -31,6 +48,86 @@ const FinalProject = () => {
           <GiEarthAfricaEurope className={styles.headerIcon} />
         </h2>
         <p className={styles.tagline}>{projectSummary.shortDescription}</p>
+      </div>
+
+      {/* Deep Learning Day Section */}
+      <div className={styles.dlDaySection}>
+        <div className={styles.dlDayHeader}>
+          <h3 className={styles.dlDayTitle}>
+            <FaCalendarAlt className={styles.dlDayTitleIcon} />
+            Deep Learning Day 2025
+            <FaCalendarAlt className={styles.dlDayTitleIcon} />
+          </h3>
+          <p className={styles.dlDaySubtitle}>
+            Celebrate Your Hard Work and Present Your Research!
+          </p>
+        </div>
+
+        <div className={styles.dlDayGrid}>
+          {/* Date Card */}
+          <div className={styles.dlDayCard}>
+            <div className={styles.dlDayIconWrapper}>
+              <FaCalendarAlt className={styles.dlDayIcon} />
+            </div>
+            <h4 className={styles.dlDayCardTitle}>Date</h4>
+            <p className={styles.dlDayCardContent}>December 11, 2025</p>
+          </div>
+
+          {/* Time Card */}
+          <div className={styles.dlDayCard}>
+            <div className={styles.dlDayIconWrapper}>
+              <FaClock className={styles.dlDayIcon} />
+            </div>
+            <h4 className={styles.dlDayCardTitle}>Duration</h4>
+            <p className={styles.dlDayCardContent}>9:15 AM - 12:15 PM</p>
+          </div>
+
+          {/* Location Card */}
+          <div className={styles.dlDayCard}>
+            <div className={styles.dlDayIconWrapper}>
+              <FaMapMarkerAlt className={styles.dlDayIcon} />
+            </div>
+            <h4 className={styles.dlDayCardTitle}>Location</h4>
+            <p className={styles.dlDayCardContent}>
+              Third Floor Atrium
+              <br />
+              <span className={styles.buildingName}>
+                Watson Sr. Center for Information Technology (CIT)
+              </span>
+            </p>
+          </div>
+        </div>
+
+        {/* Sessions Info */}
+        <div className={styles.sessionsContainer}>
+          <div className={styles.sessionsHeader}>
+            <FaUsers className={styles.sessionsIcon} />
+            <h4 className={styles.sessionsTitle}>Two Presentation Sessions</h4>
+          </div>
+          <p className={styles.sessionsDescription}>
+            Click on a session to view group assignments and search for your team
+          </p>
+          <div className={styles.sessionsGrid}>
+            <button
+              className={styles.sessionCard}
+              onClick={() => openModal(1)}
+              aria-label="View Session 1 group assignments"
+            >
+              <div className={styles.sessionBadge}>Session 1</div>
+              <div className={styles.sessionTime}>9:15 AM - 10:45 AM</div>
+              <div className={styles.clickHint}>Click to view groups →</div>
+            </button>
+            <button
+              className={styles.sessionCard}
+              onClick={() => openModal(2)}
+              aria-label="View Session 2 group assignments"
+            >
+              <div className={styles.sessionBadge}>Session 2</div>
+              <div className={styles.sessionTime}>11:00 AM - 12:15 PM</div>
+              <div className={styles.clickHint}>Click to view groups →</div>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Timeline Section */}
@@ -109,22 +206,16 @@ const FinalProject = () => {
         </div>
       </div>
 
-      {/* Additional Info */}
-      <div className={styles.infoSection}>
-        <div className={styles.infoCard}>
-          <h4 className={styles.infoTitle}>Project Requirements</h4>
-          <ul className={styles.infoList}>
-            <li>Teams of 3-4 students</li>
-            <li>
-              Option 1: Re-implement a research paper OR Option 2: Solve a new
-              problem
-            </li>
-            <li>Must involve training a deep learning model</li>
-            <li>Submit code via GitHub repository</li>
-            <li>Participate in Deep Learning Day presentations</li>
-          </ul>
-        </div>
-      </div>
+      {/* Session Modal */}
+      <SessionModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        sessionTitle={activeSession === 1 ? "Session 1" : "Session 2"}
+        sessionTime={
+          activeSession === 1 ? "9:15 AM - 10:45 AM" : "11:00 AM - 12:15 PM"
+        }
+        groups={activeSession === 1 ? session1Groups : session2Groups}
+      />
     </section>
   );
 };
