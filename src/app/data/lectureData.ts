@@ -219,7 +219,7 @@ export const lectureGroups: LectureGroup[] = [
         id: 22,
         title: "End-to-End Learning",
         date: "2025-12-2",
-        slidesLink: "",
+        slidesLink: "/slides/lecture25.pdf",
         recordingLink: "",
       },
       {
