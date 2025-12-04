@@ -224,9 +224,9 @@ export const lectureGroups: LectureGroup[] = [
       },
       {
         id: 23,
-        title: "The Future of AI",
+        title: "The Future of AI and Challenges Ahead",
         date: "2025-12-4",
-        slidesLink: "",
+        slidesLink: "/slides/lecture/34.pdf",
         recordingLink: "",
       },
     ],
