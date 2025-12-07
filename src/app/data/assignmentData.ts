@@ -88,4 +88,14 @@ export const assignments = [
       inDate: "2025-12-04",
     },
   },
+  {
+    id: 8,
+    name: "Makeup Assignment: Workshops and SRCs",
+    outDate: "2025-12-7",
+    programming: {
+      title: "Write-Up",
+      link: "https://hackmd.io/@dlf25/SJjgRPXzZg",
+      inDate: "2025-12-14",
+    },
+  },
 ];
