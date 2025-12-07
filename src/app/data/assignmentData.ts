@@ -92,7 +92,7 @@ export const assignments = [
     id: 8,
     name: "Makeup Assignment: Workshops and SRCs",
     outDate: "2025-12-7",
-    programming: {
+    conceptual: {
       title: "Write-Up",
       link: "https://hackmd.io/@dlf25/SJjgRPXzZg",
       inDate: "2025-12-14",
