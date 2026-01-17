@@ -4,16 +4,21 @@
 import React, { useEffect, useState } from "react";
 import styles from "./NavBar.module.css";
 import {
-  FaMountain,
-  FaLayerGroup,
-  FaHammer,
-  FaGem,
-  FaCalendarAlt,
-  FaHardHat,
   FaBars,
   FaTimes,
+  FaCalendarAlt,
+  FaUtensils,
 } from "react-icons/fa";
-import { GiCrystalGrowth, GiMineWagon } from "react-icons/gi";
+import {
+  GiCookingPot,
+  GiChefToque,
+  GiFrenchFries,
+  GiHotMeal,
+  GiKitchenKnives,
+  GiCookingGlove,
+  GiOpenedFoodCan,
+  GiTrophy
+} from "react-icons/gi";
 
 const NavBar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -79,7 +84,7 @@ const NavBar: React.FC = () => {
       }`}
     >
       <div className={styles.logo}>
-        <FaMountain className={styles.logoIcon} />
+        <GiFrenchFries className={styles.logoIcon} />
         <h1>CSCI1470</h1>
       </div>
 
@@ -110,42 +115,42 @@ const NavBar: React.FC = () => {
         <ul className={styles.mobileNavLinks}>
           <li>
             <button onClick={() => goToSection("landing-page")}>
-              <FaMountain className={styles.icon} /> Home
+              <FaUtensils className={styles.icon} /> Home
             </button>
           </li>
           <li>
             <button onClick={() => goToSection("course-description")}>
-              <FaLayerGroup className={styles.icon} /> Course
+              <GiHotMeal className={styles.icon} /> Today's Menu
             </button>
           </li>
           <li>
             <button onClick={() => goToSection("lectures")}>
-              <GiMineWagon className={styles.icon} /> Lectures
+              <GiCookingPot className={styles.icon} /> Daily Specials
             </button>
           </li>
           <li>
             <button onClick={() => goToSection("assignments")}>
-              <FaHammer className={styles.icon} /> Assignments
+              <GiKitchenKnives className={styles.icon} /> Orders Up!
             </button>
           </li>
           <li>
             <button onClick={() => goToSection("calendar")}>
-              <FaCalendarAlt className={styles.icon} /> Calendar
+              <FaCalendarAlt className={styles.icon} /> Service Hours
             </button>
           </li>
           <li>
             <button onClick={() => goToSection("resources")}>
-              <FaGem className={styles.icon} /> Resources
+              <GiOpenedFoodCan className={styles.icon} /> The Pantry
             </button>
           </li>
           <li>
             <button onClick={() => goToSection("final-project")}>
-              <GiCrystalGrowth className={styles.icon} /> Final Project
+              <GiTrophy className={styles.icon} /> Chef's Special
             </button>
           </li>
           <li>
             <button onClick={() => goToSection("staff")}>
-              <FaHardHat className={styles.icon} /> Staff
+              <GiChefToque className={styles.icon} /> Kitchen Crew
             </button>
           </li>
         </ul>

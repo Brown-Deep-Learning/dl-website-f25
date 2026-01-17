@@ -1,7 +1,7 @@
 // src/app/page.tsx
 "use client";
 
-import "../styles/earth-themes.css";
+import "../styles/fry-theme.css";
 
 import LandingPage from "./components/LandingPage";
 import CourseDescription from "./components/CourseDescription";
@@ -13,7 +13,7 @@ import CourseCalendar from "./components/CourseCalendar";
 import Resources from "./components/Resources";
 import Staff from "./components/Staff";
 import NavBar from "./components/NavBar";
-import EarthLayers from "./components/EarthLayers";
+import FryerBackground from "./components/FryerBackground";
 import { LayerProvider } from "./contexts/LayerContext";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
     <LayerProvider>
       <main className={styles.main}>
         {/* <ThemeManager /> */}
-        <EarthLayers />
+        <FryerBackground />
         <NavBar />
         {/* <EarthLayerProgr ess /> */}
 

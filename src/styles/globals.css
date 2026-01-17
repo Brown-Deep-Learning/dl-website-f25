@@ -5,26 +5,25 @@
 @tailwind utilities;
 
 :root {
-  /* Deep Earth color palette */
-  --background: #1a0f0a;
-  --foreground: #f5deb3;
-  --primary-brown: #8b4513;
-  --secondary-brown: #a0522d;
-  --gold: #ffd700;
-  --copper: #d2691e;
-  --bronze: #cd853f;
-  --magma-red: #dc143c;
-  --magma-orange: #ff4500;
-  --crystal-white: #ffffff;
-  --mineral-blue: #4169e1;
-  --mineral-purple: #9370db;
-  --sediment: #8b7355;
+  /* Deep Fry color palette */
+  --background: #2E1A0A; /* Deep fryer/kitchen dark */
+  --foreground: #FFF8E7; /* Fresh paper/menu white */
+  --golden-brown: #D4A574; /* Perfect fry color */
+  --oil-amber: #FFA500; /* Hot oil orange */
+  --crispy-tan: #DEB887; /* Crispy coating */
+  --paper-beige: #F5E6D3; /* Order ticket paper */
+  --ketchup-red: #DC143C; /* Condiment accent */
+  --fresh-white: #FFFAF0; /* Clean whites */
+  --butter-yellow: #FFD700; /* Golden butter/oil */
+  --honey-gold: #FFB347; /* Sweet glaze */
+  --cinnamon: #D2691E; /* Spice accent */
+  --grease-stain: rgba(210, 105, 30, 0.15); /* Subtle stain overlay */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1a0f0a;
-    --foreground: #f5deb3;
+    --background: #2E1A0A;
+    --foreground: #FFF8E7;
   }
 }
 
@@ -79,7 +78,7 @@ body {
   text-size-adjust: 100% !important;
 }
 
-/* Global heading styles for Deep Earth theme */
+/* Global heading styles for Deep Fry theme */
 h1,
 h2,
 h3,
@@ -93,86 +92,122 @@ h6 {
   text-size-adjust: 100%;
 }
 
-/* Custom scrollbar for Deep Earth theme */
+/* Custom scrollbar for Deep Fry theme */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, #1a0f0a, #2c1810);
+  background: linear-gradient(180deg, #2E1A0A, #3d2514);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #d2691e, #8b4513);
+  background: linear-gradient(135deg, #D4A574, #FFA500);
   border-radius: 10px;
-  border: 2px solid #1a0f0a;
+  border: 2px solid #2E1A0A;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #ffd700, #d2691e);
+  background: linear-gradient(135deg, #FFD700, #FFB347);
 }
 
 /* Selection colors */
 ::selection {
-  background-color: rgba(210, 105, 30, 0.4);
-  color: #ffd700;
+  background-color: rgba(255, 165, 0, 0.4);
+  color: #FFD700;
 }
 
 ::-moz-selection {
-  background-color: rgba(210, 105, 30, 0.4);
-  color: #ffd700;
+  background-color: rgba(255, 165, 0, 0.4);
+  color: #FFD700;
 }
 
-/* Utility classes for Deep Earth theme */
-.text-gradient-earth {
-  background: linear-gradient(135deg, #ffd700, #d2691e, #cd853f);
+/* Utility classes for Deep Fry theme */
+.text-gradient-fry {
+  background: linear-gradient(135deg, #FFD700, #FFB347, #D4A574);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.bg-earth-gradient {
+/* Legacy class name support */
+.text-gradient-earth {
+  background: linear-gradient(135deg, #FFD700, #FFB347, #D4A574);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-fry-gradient {
   background: linear-gradient(
     135deg,
-    rgba(139, 69, 19, 0.9),
-    rgba(160, 82, 45, 0.9)
+    rgba(212, 165, 116, 0.9),
+    rgba(255, 165, 0, 0.9)
   );
 }
 
-.shadow-earth {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
-    inset 0 0 20px rgba(210, 105, 30, 0.1);
+/* Legacy class name support */
+.bg-earth-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 165, 116, 0.9),
+    rgba(255, 165, 0, 0.9)
+  );
 }
 
+.shadow-fry {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(255, 179, 71, 0.15);
+}
+
+/* Legacy class name support */
+.shadow-earth {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(255, 179, 71, 0.15);
+}
+
+.border-fry {
+  border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+/* Legacy class name support */
 .border-earth {
-  border: 1px solid rgba(210, 105, 30, 0.3);
+  border: 1px solid rgba(255, 165, 0, 0.3);
 }
 
 /* Animation utilities */
-@keyframes earthPulse {
+@keyframes sizzle {
   0%,
   100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 10px rgba(210, 105, 30, 0.5));
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.5));
+  }
+  25% {
+    transform: scale(1.02) rotate(-1deg);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(0deg);
     filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
+  }
+  75% {
+    transform: scale(1.02) rotate(1deg);
   }
 }
 
-@keyframes mineralSparkle {
+@keyframes goldenSparkle {
   0%,
   100% {
     opacity: 0.6;
+    transform: scale(1);
   }
   50% {
     opacity: 1;
+    transform: scale(1.1);
   }
 }
 
-@keyframes magmaFlow {
+@keyframes bubbleRise {
   0% {
     transform: translateY(100%);
     opacity: 0;
@@ -186,7 +221,7 @@ h6 {
   }
 }
 
-@keyframes seismicWave {
+@keyframes oilRipple {
   0% {
     transform: scale(0);
     opacity: 1;
@@ -197,20 +232,50 @@ h6 {
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.animate-sizzle {
+  animation: sizzle 3s ease-in-out infinite;
+}
+
+.animate-golden-sparkle {
+  animation: goldenSparkle 2s ease-in-out infinite;
+}
+
+.animate-bubble-rise {
+  animation: bubbleRise 5s linear infinite;
+}
+
+.animate-oil-ripple {
+  animation: oilRipple 2s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Legacy animation class support */
 .animate-earth-pulse {
-  animation: earthPulse 3s ease-in-out infinite;
+  animation: sizzle 3s ease-in-out infinite;
 }
 
 .animate-mineral-sparkle {
-  animation: mineralSparkle 2s ease-in-out infinite;
+  animation: goldenSparkle 2s ease-in-out infinite;
 }
 
 .animate-magma-flow {
-  animation: magmaFlow 5s linear infinite;
+  animation: bubbleRise 5s linear infinite;
 }
 
 .animate-seismic-wave {
-  animation: seismicWave 2s ease-out;
+  animation: oilRipple 2s ease-out;
 }
 
 /* Prevent iOS font size changes */

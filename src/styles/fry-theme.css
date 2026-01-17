@@ -1,0 +1,132 @@
+/* styles/fry-theme.css */
+/* Deep Fry Restaurant Theme - Temperature-Based Progression */
+
+:root {
+  /* Prep Station - Raw ingredients, prepping */
+  --prep-station-bg: #FFF8E7;
+  --prep-station-bubble: #FFE5B4;
+  --prep-station-text: #5C4033;
+  --prep-station-accent: #F4A460;
+
+  /* Batter Station - Coating prep */
+  --batter-station-bg: #F5E6D3;
+  --batter-station-bubble: #E8D5C4;
+  --batter-station-text: #4B3621;
+  --batter-station-accent: #CD853F;
+
+  /* Warm Oil - Just starting to fry (325°F) */
+  --warm-oil-bg: #FFE4B5;
+  --warm-oil-bubble: #FFD17A;
+  --warm-oil-text: #3E2723;
+  --warm-oil-accent: #FFA500;
+
+  /* Hot Oil - Actively frying (350°F) */
+  --hot-oil-bg: #FFCC80;
+  --hot-oil-bubble: #FFB74D;
+  --hot-oil-text: #2E1A0A;
+  --hot-oil-accent: #FF8C00;
+
+  /* Golden Crisp - Perfect frying temp (375°F) */
+  --golden-crisp-bg: #FFB347;
+  --golden-crisp-bubble: #D4A574;
+  --golden-crisp-text: #1A0D00;
+  --golden-crisp-accent: #FF6B35;
+
+  /* Cooling Rack - Finished, resting */
+  --cooling-rack-bg: #DEB887;
+  --cooling-rack-bubble: #F0E68C;
+  --cooling-rack-text: #3E2723;
+  --cooling-rack-accent: #FFD700;
+
+  /* Default values (start at prep station) */
+  --current-bg: var(--prep-station-bg);
+  --current-bubble: var(--prep-station-bubble);
+  --current-text: var(--prep-station-text);
+  --current-accent: var(--prep-station-accent);
+}
+
+/* Theme classes that update the current variables */
+.prep-station-theme {
+  --current-bg: var(--prep-station-bg);
+  --current-bubble: var(--prep-station-bubble);
+  --current-text: var(--prep-station-text);
+  --current-accent: var(--prep-station-accent);
+}
+
+.batter-station-theme {
+  --current-bg: var(--batter-station-bg);
+  --current-bubble: var(--batter-station-bubble);
+  --current-text: var(--batter-station-text);
+  --current-accent: var(--batter-station-accent);
+}
+
+.warm-oil-theme {
+  --current-bg: var(--warm-oil-bg);
+  --current-bubble: var(--warm-oil-bubble);
+  --current-text: var(--warm-oil-text);
+  --current-accent: var(--warm-oil-accent);
+}
+
+.hot-oil-theme {
+  --current-bg: var(--hot-oil-bg);
+  --current-bubble: var(--hot-oil-bubble);
+  --current-text: var(--hot-oil-text);
+  --current-accent: var(--hot-oil-accent);
+}
+
+.golden-crisp-theme {
+  --current-bg: var(--golden-crisp-bg);
+  --current-bubble: var(--golden-crisp-bubble);
+  --current-text: var(--golden-crisp-text);
+  --current-accent: var(--golden-crisp-accent);
+}
+
+.cooling-rack-theme {
+  --current-bg: var(--cooling-rack-bg);
+  --current-bubble: var(--cooling-rack-bubble);
+  --current-text: var(--cooling-rack-text);
+  --current-accent: var(--cooling-rack-accent);
+}
+
+/* Legacy compatibility - map old layer names to new frying stages */
+.sea-level-theme {
+  --current-bg: var(--prep-station-bg);
+  --current-bubble: var(--prep-station-bubble);
+  --current-text: var(--prep-station-text);
+  --current-accent: var(--prep-station-accent);
+}
+
+.crust-theme {
+  --current-bg: var(--batter-station-bg);
+  --current-bubble: var(--batter-station-bubble);
+  --current-text: var(--batter-station-text);
+  --current-accent: var(--batter-station-accent);
+}
+
+.upper-mantle-theme {
+  --current-bg: var(--warm-oil-bg);
+  --current-bubble: var(--warm-oil-bubble);
+  --current-text: var(--warm-oil-text);
+  --current-accent: var(--warm-oil-accent);
+}
+
+.lower-mantle-theme {
+  --current-bg: var(--hot-oil-bg);
+  --current-bubble: var(--hot-oil-bubble);
+  --current-text: var(--hot-oil-text);
+  --current-accent: var(--hot-oil-accent);
+}
+
+.outer-core-theme {
+  --current-bg: var(--golden-crisp-bg);
+  --current-bubble: var(--golden-crisp-bubble);
+  --current-text: var(--golden-crisp-text);
+  --current-accent: var(--golden-crisp-accent);
+}
+
+.inner-core-theme {
+  --current-bg: var(--cooling-rack-bg);
+  --current-bubble: var(--cooling-rack-bubble);
+  --current-text: var(--cooling-rack-text);
+  --current-accent: var(--cooling-rack-accent);
+}

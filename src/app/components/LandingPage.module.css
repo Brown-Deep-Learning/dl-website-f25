@@ -16,7 +16,7 @@
   top: 32%; /* Moved up from 35% to create more space */
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #d2691e; /* Earthy brown-orange */
+  color: #FFB347; /* Golden honey color */
   font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   /* Use viewport units for better responsive scaling */
   font-size: clamp(2.5rem, 8vw, 5rem);
@@ -24,11 +24,11 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
-  text-shadow: 0 0 20px rgba(210, 105, 30, 0.5), 0 0 40px rgba(139, 69, 19, 0.3),
-    2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 20px rgba(255, 165, 0, 0.6), 0 0 40px rgba(212, 165, 116, 0.4),
+    2px 2px 4px rgba(46, 26, 10, 0.8);
   z-index: 1;
   margin-bottom: 0; /* Remove margin as we're using positioning */
-  background: linear-gradient(135deg, #d2691e, #ffd700, #cd853f);
+  background: linear-gradient(135deg, #FFD700, #FFB347, #D4A574);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,7 +44,7 @@
   top: 50%; /* Moved down from 45% to create more space */
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #cd853f; /* Peru color - earthy */
+  color: #D4A574; /* Crispy tan color */
   font-family: var(--font-bebas-neue), "Arial Black", sans-serif;
   /* Use viewport units for better responsive scaling */
   font-size: clamp(1.5rem, 4vw, 2.5rem);
@@ -53,7 +53,7 @@
   letter-spacing: 0.25rem;
   z-index: 1;
   margin-top: 0; /* Remove margin as we're using positioning */
-  text-shadow: 0 0 15px rgba(205, 133, 63, 0.5), 2px 2px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 15px rgba(222, 184, 135, 0.5), 2px 2px 4px rgba(46, 26, 10, 0.6);
   line-height: 1.2;
   /* Prevent text from overflowing */
   max-width: 90vw;
@@ -61,7 +61,7 @@
   hyphens: auto;
 }
 
-.drillButton {
+.basketButton {
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -76,45 +76,65 @@
   transition: all 0.3s ease;
 }
 
-.drillButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  animation: vibrate 0.2s infinite linear, bounce 2s infinite;
+.basketButton:hover {
+  background: rgba(255, 179, 71, 0.15);
+  animation: sizzleShake 0.3s infinite linear, bounce 2s infinite;
 }
 
-.drillButton:hover .drillIcon {
-  animation: drillVibrate 0.1s infinite linear, pulse 3s infinite ease-in-out;
-}
-
-.drillIcon {
+.basketButton svg {
   width: 64px;
   height: 64px;
-  color: white;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+  color: #FFD700;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
   animation: pulse 3s infinite ease-in-out;
+}
+
+.basketButton:hover svg {
+  filter: drop-shadow(0 0 15px rgba(255, 165, 0, 1));
 }
 
 .downArrow {
   font-size: 2rem;
   display: block;
   margin-top: -10px;
-  color: #d2691e;
+  color: #FFB347;
   animation: bounce 1.5s infinite;
-  filter: drop-shadow(0 0 10px rgba(210, 105, 30, 0.6));
+  filter: drop-shadow(0 0 10px rgba(255, 179, 71, 0.6));
 }
 
-/* Drilling animation */
-.drilling {
-  animation: drillDown 0.7s forwards ease-in;
+/* Basket plunging animation with oil splash effect */
+.plunging {
+  animation: basketPlunge 0.8s forwards ease-in;
 }
 
-@keyframes drillDown {
+@keyframes basketPlunge {
   0% {
-    transform: translate(-50%, 0) rotate(0deg);
+    transform: translate(-50%, 0);
     opacity: 1;
   }
+  40% {
+    transform: translate(-50%, 180px) scale(1.1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-50%, 200px) scale(0.95);
+    opacity: 0.8;
+  }
   100% {
-    transform: translate(-50%, 200px) rotate(720deg);
+    transform: translate(-50%, 250px) scale(0.9);
     opacity: 0;
+  }
+}
+
+@keyframes sizzleShake {
+  0%, 100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-51%) rotate(-2deg);
+  }
+  75% {
+    transform: translateX(-49%) rotate(2deg);
   }
 }
 

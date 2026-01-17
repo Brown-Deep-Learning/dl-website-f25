@@ -1,0 +1,226 @@
+/* src/app/components/FryerBackground.module.css */
+
+.fryerCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: auto;
+  cursor: pointer;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 248, 231, 0.05) 0%,
+    rgba(255, 215, 0, 0.08) 100%
+  );
+
+  /* Smooth canvas transitions */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fryerCanvas.transitioning {
+  opacity: 0.9;
+}
+
+/* Content overlay for better readability */
+.contentOverlay {
+  position: relative;
+  z-index: 1;
+  background: rgba(245, 230, 211, 0.05);
+  backdrop-filter: blur(0.5px);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 4px 12px rgba(210, 105, 30, 0.1);
+}
+
+/* Text enhancement classes for better readability over the background */
+.textEnhanced {
+  text-shadow: 0 1px 3px rgba(46, 26, 10, 0.3);
+  color: #FFF8E7;
+  font-weight: 500;
+}
+
+.textEnhancedDark {
+  text-shadow: 0 1px 3px rgba(255, 248, 231, 0.5);
+  color: #2E1A0A;
+  font-weight: 500;
+}
+
+/* Temperature stage-specific text styling */
+.prepStationText {
+  color: #5C4033;
+  text-shadow: 0 2px 4px rgba(255, 248, 231, 0.8);
+}
+
+.batterStationText {
+  color: #4B3621;
+  text-shadow: 0 2px 4px rgba(245, 230, 211, 0.8);
+}
+
+.warmOilText {
+  color: #3E2723;
+  text-shadow: 0 2px 4px rgba(255, 228, 181, 0.8);
+}
+
+.hotOilText {
+  color: #2E1A0A;
+  text-shadow: 0 2px 4px rgba(255, 204, 128, 0.8);
+}
+
+.goldenCrispText {
+  color: #1A0D00;
+  text-shadow: 0 2px 4px rgba(255, 179, 71, 0.8);
+}
+
+.coolingRackText {
+  color: #3E2723;
+  text-shadow: 0 2px 4px rgba(240, 230, 140, 0.8);
+}
+
+/* Smooth fade in/out animations for temperature changes */
+@keyframes temperatureFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes temperatureFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+}
+
+.temperatureTransitionIn {
+  animation: temperatureFadeIn 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.temperatureTransitionOut {
+  animation: temperatureFadeOut 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Sizzle animation for interactive content */
+.contentSizzle {
+  animation: contentSizzle 3s ease-in-out infinite;
+}
+
+@keyframes contentSizzle {
+  0%,
+  100% {
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
+  }
+}
+
+/* Cronch animation for clicked items */
+@keyframes cronch {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(0.8) rotate(5deg);
+  }
+  100% {
+    transform: scale(0) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+.cronching {
+  animation: cronch 0.3s ease-out forwards;
+}
+
+/* Golden sparkle for special items */
+@keyframes goldenPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+  }
+}
+
+.goldenItem {
+  animation: goldenPulse 2s ease-in-out infinite;
+}
+
+/* Performance optimizations */
+.fryerCanvas {
+  will-change: opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fryerCanvas {
+    transition: none;
+  }
+
+  .temperatureTransitionIn,
+  .temperatureTransitionOut {
+    animation: none;
+  }
+
+  .contentSizzle {
+    animation: none;
+  }
+
+  .goldenItem {
+    animation: none;
+  }
+
+  .cronching {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .contentOverlay {
+    background: rgba(255, 248, 231, 0.95);
+    color: #2E1A0A;
+    border: 2px solid #2E1A0A;
+  }
+
+  .fryerCanvas {
+    opacity: 0.3;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .fryerCanvas {
+    /* Simpler animations on mobile for better performance */
+    filter: blur(0.3px);
+  }
+
+  .contentOverlay {
+    margin: 0.5rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .fryerCanvas {
+    /* More responsive touch interactions */
+    touch-action: manipulation;
+  }
+}
